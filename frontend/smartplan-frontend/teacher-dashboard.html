@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPlan - Teacher Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="flex min-h-screen bg-[var(--bg)] text-[var(--fg)]">
+
+    <!-- Sidebar (Teacher Context) -->
+    <aside class="w-64 border-r border-[var(--border)] flex flex-col h-screen sticky top-0 shrink-0">
+        <div class="p-6 border-b border-[var(--border)] flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-[var(--accent)] flex items-center justify-center text-white shadow-lg">
+                <i class="ph ph-calendar-check text-xl"></i>
+            </div>
+            <span class="font-bold text-xl tracking-tight">SmartPlan</span>
+        </div>
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+            <div class="text-[10px] font-mono text-[var(--muted)] px-4 mb-2 uppercase tracking-widest">Teacher Panel</div>
+            <a href="teacher-dashboard.html" class="sidebar-item active">
+                <i class="ph ph-house"></i> Dashboard
+            </a>
+            <a href="timetable.html" class="sidebar-item">
+                <i class="ph ph-grid-four"></i> My Timetable
+            </a>
+            <a href="attendance.html" class="sidebar-item">
+                <i class="ph ph-notebook"></i> Attendance
+            </a>
+            <div class="text-[10px] font-mono text-[var(--muted)] px-4 mt-8 mb-2 uppercase tracking-widest">Resources</div>
+            <a href="#" class="sidebar-item">
+                <i class="ph ph-users-three"></i> My Classes
+            </a>
+            <a href="#" class="sidebar-item">
+                <i class="ph ph-book-open"></i> Curriculum
+            </a>
+        </nav>
+        <div class="p-4 border-t border-[var(--border)]">
+            <div class="flex items-center gap-3 p-2 rounded-lg bg-[var(--surface-higher)]">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-blue-600"></div>
+                <div class="flex-1 min-w-0 text-sm">Dr. Smith</div>
+                <a href="login.html" class="text-[var(--muted)]"><i class="ph ph-sign-out"></i></a>
+            </div>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col min-w-0">
+        <header class="h-16 border-b border-[var(--border)] px-8 flex items-center justify-between sticky top-0 bg-[var(--bg)]/80 backdrop-blur-md z-20">
+            <h2 class="text-lg font-semibold">Welcome back, Dr. Smith</h2>
+            <div class="flex items-center gap-4">
+                <span class="text-xs font-mono text-[var(--muted)]">Monday, May 18, 2026</span>
+                <button class="relative w-8 h-8 flex items-center justify-center text-[var(--muted)] hover:text-[var(--fg)]">
+                    <i class="ph ph-bell text-xl"></i>
+                    <span class="absolute top-1 right-1 w-2 h-2 bg-[var(--accent)] rounded-full border-2 border-[var(--bg)]"></span>
+                </button>
+            </div>
+        </header>
+
+        <div class="p-8 space-y-8 overflow-y-auto">
+            <!-- Top Section: Now & Next -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 card p-8 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-[var(--accent-muted)] blur-[100px] -z-10 rounded-full group-hover:scale-110 transition-transform duration-700"></div>
+                    <div class="flex items-start justify-between mb-8">
+                        <div>
+                            <div class="px-2 py-0.5 rounded bg-[var(--accent-muted)] text-[var(--accent)] text-[10px] font-mono border border-[var(--accent)]/20 uppercase tracking-tighter mb-2 inline-block">Happening Now</div>
+                            <h3 class="text-3xl font-black tracking-tight">Mathematics 10B</h3>
+                            <p class="text-[var(--muted)] font-mono text-sm">08:00 — 09:30 • Room R204</p>
+                        </div>
+                        <a href="attendance.html" class="btn btn-primary px-6 h-12">
+                            <i class="ph ph-notebook"></i> Take Attendance
+                        </a>
+                    </div>
+                    <div class="flex gap-8 border-t border-[var(--border)] pt-6">
+                        <div class="space-y-1">
+                            <p class="text-[10px] text-[var(--muted)] uppercase font-mono tracking-widest">Topic</p>
+                            <p class="text-sm font-medium">Calculus: Limits & Continuity</p>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-[10px] text-[var(--muted)] uppercase font-mono tracking-widest">Student Count</p>
+                            <p class="text-sm font-medium">28 / 30 Present</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card p-8 flex flex-col justify-between">
+                    <div>
+                        <div class="px-2 py-0.5 rounded bg-[var(--surface-higher)] text-[var(--muted)] text-[10px] font-mono border border-[var(--border)] uppercase tracking-tighter mb-4 inline-block">Up Next</div>
+                        <h4 class="text-xl font-bold">Physics Lab 12A</h4>
+                        <p class="text-sm text-[var(--muted)]">10:00 — 11:30 • Lab L102</p>
+                    </div>
+                    <div class="mt-6 p-4 rounded-xl bg-[var(--bg)] border border-[var(--border)] text-xs text-[var(--muted)] flex items-center gap-3">
+                        <i class="ph ph-info text-lg text-[var(--accent)]"></i>
+                        Experimental setup ready.
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Open Tasks -->
+                <div class="card overflow-hidden">
+                    <div class="p-6 border-b border-[var(--border)] flex items-center justify-between">
+                        <h3 class="font-bold">Open Registers</h3>
+                        <span class="text-xs font-mono px-2 py-0.5 rounded bg-red-500/10 text-red-500">2 Pending</span>
+                    </div>
+                    <div class="divide-y divide-[var(--border)]">
+                        <div class="p-4 flex items-center justify-between hover:bg-[var(--surface-higher)] transition-colors">
+                            <div>
+                                <p class="text-sm font-bold">Math 10B (Today)</p>
+                                <p class="text-[10px] text-[var(--muted)] font-mono uppercase">Missing submission</p>
+                            </div>
+                            <a href="attendance.html" class="text-[var(--accent)] hover:underline text-xs font-bold">Open</a>
+                        </div>
+                        <div class="p-4 flex items-center justify-between hover:bg-[var(--surface-higher)] transition-colors">
+                            <div>
+                                <p class="text-sm font-bold">History 11C (Friday)</p>
+                                <p class="text-[10px] text-[var(--muted)] font-mono uppercase">2 students unconfirmed</p>
+                            </div>
+                            <a href="#" class="text-[var(--accent)] hover:underline text-xs font-bold">Open</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications -->
+                <div class="card overflow-hidden">
+                    <div class="p-6 border-b border-[var(--border)]">
+                        <h3 class="font-bold">Announcements</h3>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex gap-4">
+                            <div class="w-2 h-2 rounded-full bg-[var(--accent)] mt-1.5 shrink-0"></div>
+                            <div>
+                                <p class="text-sm font-medium">Faculty meeting rescheduled to 3:00 PM today.</p>
+                                <p class="text-[10px] text-[var(--muted)] font-mono uppercase mt-1">System • 2h ago</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-2 h-2 rounded-full bg-[var(--muted)] mt-1.5 shrink-0 opacity-20"></div>
+                            <div>
+                                <p class="text-sm font-medium">Lab L102 maintenance complete. All sensors calibrated.</p>
+                                <p class="text-[10px] text-[var(--muted)] font-mono uppercase mt-1">Admin • 1d ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

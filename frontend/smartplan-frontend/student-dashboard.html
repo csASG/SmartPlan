@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPlan - Student Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="flex min-h-screen bg-[var(--bg)] text-[var(--fg)]">
+
+    <!-- Sidebar (Student Context) -->
+    <aside class="w-64 border-r border-[var(--border)] flex flex-col h-screen sticky top-0 shrink-0">
+        <div class="p-6 border-b border-[var(--border)] flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-[var(--accent)] flex items-center justify-center text-white shadow-lg">
+                <i class="ph ph-calendar-check text-xl"></i>
+            </div>
+            <span class="font-bold text-xl tracking-tight">SmartPlan</span>
+        </div>
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+            <div class="text-[10px] font-mono text-[var(--muted)] px-4 mb-2 uppercase tracking-widest">Student Panel</div>
+            <a href="student-dashboard.html" class="sidebar-item active">
+                <i class="ph ph-house"></i> Overview
+            </a>
+            <a href="timetable.html" class="sidebar-item">
+                <i class="ph ph-grid-four"></i> My Schedule
+            </a>
+            <a href="#" class="sidebar-item">
+                <i class="ph ph-graduation-cap"></i> My Grades
+            </a>
+            <div class="text-[10px] font-mono text-[var(--muted)] px-4 mt-8 mb-2 uppercase tracking-widest">School Life</div>
+            <a href="#" class="sidebar-item">
+                <i class="ph ph-newspaper"></i> News
+            </a>
+            <a href="#" class="sidebar-item">
+                <i class="ph ph-users"></i> Student Council
+            </a>
+        </nav>
+        <div class="p-4 border-t border-[var(--border)]">
+            <div class="flex items-center gap-3 p-2 rounded-lg bg-[var(--surface-higher)]">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-400 to-purple-600"></div>
+                <div class="flex-1 min-w-0 text-sm">Alice Johnson</div>
+                <a href="login.html" class="text-[var(--muted)]"><i class="ph ph-sign-out"></i></a>
+            </div>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col min-w-0">
+        <header class="h-16 border-b border-[var(--border)] px-8 flex items-center justify-between sticky top-0 bg-[var(--bg)]/80 backdrop-blur-md z-20">
+            <h2 class="text-lg font-semibold">Good morning, Alice</h2>
+            <div class="flex items-center gap-4">
+                <span class="text-xs font-mono text-[var(--muted)]">Monday, May 18, 2026</span>
+                <button class="relative w-8 h-8 flex items-center justify-center text-[var(--muted)] hover:text-[var(--fg)]">
+                    <i class="ph ph-bell text-xl"></i>
+                    <span class="absolute top-1 right-1 w-2 h-2 bg-[var(--accent)] rounded-full border-2 border-[var(--bg)]"></span>
+                </button>
+            </div>
+        </header>
+
+        <div class="p-8 space-y-8 overflow-y-auto">
+            <!-- Today's Classes -->
+            <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="font-bold text-xl">Today's Schedule</h3>
+                    <a href="timetable.html" class="text-xs text-[var(--accent)] hover:underline">Full Timetable</a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="card p-5 border-l-4 border-l-[var(--accent)]">
+                        <p class="text-[10px] font-mono text-[var(--muted)] uppercase mb-2">08:00 — 09:30</p>
+                        <h4 class="font-bold truncate">Mathematics</h4>
+                        <p class="text-xs text-[var(--muted)]">Room R204 • Dr. Smith</p>
+                    </div>
+                    <div class="card p-5 border-l-4 border-l-red-500 opacity-60">
+                        <p class="text-[10px] font-mono text-[var(--muted)] uppercase mb-2">10:00 — 11:30</p>
+                        <h4 class="font-bold truncate line-through">Physics</h4>
+                        <p class="text-xs text-red-500 font-bold uppercase tracking-widest text-[10px] mt-1">Cancelled</p>
+                    </div>
+                    <div class="card p-5 border-l-4 border-l-amber-500">
+                        <p class="text-[10px] font-mono text-[var(--muted)] uppercase mb-2">12:00 — 13:00</p>
+                        <h4 class="font-bold truncate">English</h4>
+                        <p class="text-xs text-[var(--muted)]">Room R105 • Ms. White (Sub)</p>
+                    </div>
+                    <div class="card p-5 border-l-4 border-l-[var(--border)]">
+                        <p class="text-[10px] font-mono text-[var(--muted)] uppercase mb-2">13:30 — 15:00</p>
+                        <h4 class="font-bold truncate">History</h4>
+                        <p class="text-xs text-[var(--muted)]">Room R301 • Mr. Brown</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Homework / Assignments -->
+                <div class="card overflow-hidden">
+                    <div class="p-6 border-b border-[var(--border)] flex items-center justify-between">
+                        <h3 class="font-bold">Homework & Deadlines</h3>
+                        <span class="text-xs font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-500">3 Upcoming</span>
+                    </div>
+                    <div class="divide-y divide-[var(--border)]">
+                        <div class="p-4 flex items-center gap-4 hover:bg-[var(--surface-higher)] transition-colors">
+                            <input type="checkbox" class="w-4 h-4 rounded border-[var(--border)] bg-transparent accent-[var(--accent)]">
+                            <div class="flex-1">
+                                <p class="text-sm font-medium">Math: Calculus Exercises 1-12</p>
+                                <p class="text-[10px] text-red-500 font-bold uppercase font-mono">Due Tomorrow</p>
+                            </div>
+                        </div>
+                        <div class="p-4 flex items-center gap-4 hover:bg-[var(--surface-higher)] transition-colors">
+                            <input type="checkbox" class="w-4 h-4 rounded border-[var(--border)] bg-transparent accent-[var(--accent)]">
+                            <div class="flex-1">
+                                <p class="text-sm font-medium">History: Essay on Industrial Revolution</p>
+                                <p class="text-[10px] text-[var(--muted)] font-mono uppercase">Due Friday</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Grades -->
+                <div class="card overflow-hidden">
+                    <div class="p-6 border-b border-[var(--border)] flex items-center justify-between">
+                        <h3 class="font-bold">Recent Grades</h3>
+                        <button class="text-xs text-[var(--accent)] hover:underline">Gradebook</button>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded bg-blue-500/10 flex items-center justify-center text-blue-500 border border-blue-500/20 text-xs font-bold">MA</div>
+                                <div>
+                                    <p class="text-sm font-medium">Math Midterm</p>
+                                    <p class="text-[10px] text-[var(--muted)]">1 week ago</p>
+                                </div>
+                            </div>
+                            <span class="text-lg font-black font-mono">1.3</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded bg-emerald-500/10 flex items-center justify-center text-emerald-500 border border-emerald-500/20 text-xs font-bold">EN</div>
+                                <div>
+                                    <p class="text-sm font-medium">English Essay</p>
+                                    <p class="text-[10px] text-[var(--muted)]">3 days ago</p>
+                                </div>
+                            </div>
+                            <span class="text-lg font-black font-mono">1.7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

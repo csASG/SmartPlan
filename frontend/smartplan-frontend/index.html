@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPlan - Prototype Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .preview-card {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+        }
+        .preview-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px -20px rgba(0,0,0,0.5);
+        }
+        .frame-container {
+            position: relative;
+            background: #000;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            pointer-events: none;
+            transform: scale(0.75);
+            transform-origin: top left;
+            width: 133.33%;
+            height: 133.33%;
+        }
+        .chip {
+            padding: 2px 8px;
+            border-radius: 99px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body class="bg-[var(--bg)] text-[var(--fg)] p-8 md:p-16">
+    <div class="max-w-7xl mx-auto space-y-16">
+        <!-- Header -->
+        <header class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+            <div class="space-y-4">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--accent-muted)] text-[var(--accent)] text-xs font-bold border border-[var(--accent)]/20 uppercase tracking-widest">
+                    <i class="ph ph-sparkle"></i> System Ready
+                </div>
+                <h1 class="text-5xl font-black tracking-tighter">SmartPlan <span class="text-[var(--accent)]">System</span></h1>
+                <p class="text-[var(--muted)] text-lg max-w-2xl leading-relaxed">
+                    A high-fidelity frontend prototype for a school management system. Optimized for Next.js 15, featuring role-based access, interactive grids, and real-time management.
+                </p>
+            </div>
+            <div class="flex gap-4">
+                <a href="smartplan-frontend.zip" class="btn btn-primary px-6 h-12 shadow-xl shadow-[var(--accent-muted)]">
+                    <i class="ph ph-download-simple"></i> Download All Files (.zip)
+                </a>
+            </div>
+        </header>
+
+        <!-- Screen Gallery -->
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Screen: Login -->
+            <a href="login.html" class="preview-card group">
+                <div class="frame-container">
+                    <iframe src="login.html" scrolling="no"></iframe>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <span class="btn btn-primary text-xs">Open Screen <i class="ph ph-arrow-square-out"></i></span>
+                    </div>
+                </div>
+                <div class="p-6 space-y-2 flex-1">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold">Login Portal</h3>
+                        <span class="chip bg-gray-500/10 text-[var(--muted)]">Auth</span>
+                    </div>
+                    <p class="text-xs text-[var(--muted)]">Secure entry point with role-based redirection logic.</p>
+                </div>
+            </a>
+
+            <!-- Screen: Admin Dashboard -->
+            <a href="admin-dashboard.html" class="preview-card group">
+                <div class="frame-container">
+                    <iframe src="admin-dashboard.html" scrolling="no"></iframe>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <span class="btn btn-primary text-xs">Open Screen <i class="ph ph-arrow-square-out"></i></span>
+                    </div>
+                </div>
+                <div class="p-6 space-y-2 flex-1">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold">Admin Central</h3>
+                        <span class="chip bg-[var(--accent-muted)] text-[var(--accent)]">Admin</span>
+                    </div>
+                    <p class="text-xs text-[var(--muted)]">System health, scheduler trigger, and recent activity logs.</p>
+                </div>
+            </a>
+
+            <!-- Screen: Timetable -->
+            <a href="timetable.html" class="preview-card group">
+                <div class="frame-container">
+                    <iframe src="timetable.html" scrolling="no"></iframe>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <span class="btn btn-primary text-xs">Open Screen <i class="ph ph-arrow-square-out"></i></span>
+                    </div>
+                </div>
+                <div class="p-6 space-y-2 flex-1">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold">Weekly Timetable</h3>
+                        <span class="chip bg-purple-500/10 text-purple-400">Core</span>
+                    </div>
+                    <p class="text-xs text-[var(--muted)]">Interactive React-based grid with conflict visualization.</p>
+                </div>
+            </a>
+
+            <!-- Screen: Resources -->
+            <a href="resources.html" class="preview-card group">
+                <div class="frame-container">
+                    <iframe src="resources.html" scrolling="no"></iframe>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <span class="btn btn-primary text-xs">Open Screen <i class="ph ph-arrow-square-out"></i></span>
+                    </div>
+                </div>
+                <div class="p-6 space-y-2 flex-1">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold">Resource Management</h3>
+                        <span class="chip bg-[var(--accent-muted)] text-[var(--accent)]">Admin</span>
+                    </div>
+                    <p class="text-xs text-[var(--muted)]">CRUD interfaces for teachers, students, and rooms.</p>
+                </div>
+            </a>
+
+            <!-- Screen: Substitutions -->
+            <a href="substitutions.html" class="preview-card group">
+                <div class="frame-container">
+                    <iframe src="substitutions.html" scrolling="no"></iframe>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <span class="btn btn-primary text-xs">Open Screen <i class="ph ph-arrow-square-out"></i></span>
+                    </div>
+                </div>
+                <div class="p-6 space-y-2 flex-1">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold">Substitutions</h3>
+                        <span class="chip bg-amber-500/10 text-amber-500">Management</span>
+                    </div>
+                    <p class="text-xs text-[var(--muted)]">Manage teacher absences and lesson assignments.</p>
+                </div>
+            </a>
+
+            <!-- Screen: Attendance -->
+            <a href="attendance.html" class="preview-card group">
+                <div class="frame-container">
+                    <iframe src="attendance.html" scrolling="no"></iframe>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <span class="btn btn-primary text-xs">Open Screen <i class="ph ph-arrow-square-out"></i></span>
+                    </div>
+                </div>
+                <div class="p-6 space-y-2 flex-1">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold">Digital Register</h3>
+                        <span class="chip bg-green-500/10 text-green-500">Teacher</span>
+                    </div>
+                    <p class="text-xs text-[var(--muted)]">Mobile-optimized attendance capture for classrooms.</p>
+                </div>
+            </a>
+
+            <!-- Screen: Teacher Dashboard -->
+            <a href="teacher-dashboard.html" class="preview-card group">
+                <div class="frame-container">
+                    <iframe src="teacher-dashboard.html" scrolling="no"></iframe>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <span class="btn btn-primary text-xs">Open Screen <i class="ph ph-arrow-square-out"></i></span>
+                    </div>
+                </div>
+                <div class="p-6 space-y-2 flex-1">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold">Teacher Hub</h3>
+                        <span class="chip bg-blue-500/10 text-blue-400">Teacher</span>
+                    </div>
+                    <p class="text-xs text-[var(--muted)]">Personalized overview of lessons and pending tasks.</p>
+                </div>
+            </a>
+
+            <!-- Screen: Student Dashboard -->
+            <a href="student-dashboard.html" class="preview-card group">
+                <div class="frame-container">
+                    <iframe src="student-dashboard.html" scrolling="no"></iframe>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <span class="btn btn-primary text-xs">Open Screen <i class="ph ph-arrow-square-out"></i></span>
+                    </div>
+                </div>
+                <div class="p-6 space-y-2 flex-1">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold">Student Portal</h3>
+                        <span class="chip bg-purple-500/10 text-purple-400">Student</span>
+                    </div>
+                    <p class="text-xs text-[var(--muted)]">Homework tracker, grades, and personalized schedule.</p>
+                </div>
+            </a>
+        </section>
+
+        <!-- Footer / Specs -->
+        <footer class="pt-16 border-t border-[var(--border)] flex flex-col md:flex-row justify-between gap-8 text-[var(--muted)] text-sm">
+            <div class="space-y-4">
+                <p class="font-bold text-[var(--fg)]">Compliance & Standards</p>
+                <div class="flex flex-wrap gap-x-8 gap-y-2">
+                    <div class="flex items-center gap-2">
+                        <i class="ph ph-check-circle text-[var(--success)]"></i> WCAG 2.1 Compliant
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="ph ph-check-circle text-[var(--success)]"></i> RBAC Middleware Ready
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="ph ph-check-circle text-[var(--success)]"></i> Dark Mode Verified
+                    </div>
+                </div>
+            </div>
+            <div class="text-right">
+                <p>© 2026 SmartPlan EDU • Built for Next.js 15+</p>
+                <p class="font-mono text-[10px] mt-1 opacity-50">STABLE-PROTO-FINAL</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+# .understandignore — patterns for files/dirs to exclude from analysis
+# Syntax: same as .gitignore (globs, # comments, ! negation, trailing / for dirs)
+
+# Standard build / dependency folders
+node_modules/
+.git/
+dist/
+build/
+out/
+.next/
+.cache/
+venv/
+.venv/
+__pycache__/
+*.lock
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Project-specific ignored folders
+backend/services/scheduler/venv/
+backend/apps/web/.next/
+backend/apps/api/dist/
+.aider.tags.cache.v4/
+
+# Media & assets
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.ico
+*.woff
+*.woff2
+*.ttf
+*.eot
+*.mp3
+*.mp4
+*.pdf
+*.zip
+*.tar
+*.gz
+
+# IDE and OS configurations
+.DS_Store
+.idea/
+.vscode/
+.aider.chat.history.md
+.aider.input.history

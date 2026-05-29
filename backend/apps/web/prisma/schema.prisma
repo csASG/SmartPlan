@@ -1,0 +1,140 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum UserRole {
+  ADMIN
+  TEACHER
+  STUDENT
+}
+
+enum AttendanceStatus {
+  PRESENT
+  ABSENT
+  LATE
+  EXCUSED
+}
+
+model User {
+  id          Int       @id @default(autoincrement())
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  email       String    @unique
+  password    String?
+  displayName String?
+  role        UserRole  @default(STUDENT)
+
+  student     Student?
+  teacher     Teacher?
+  permissions Permission[]
+}
+
+model Teacher {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User?    @relation(fields: [userId], references: [id])
+  userId    Int?     @unique
+  name      String
+
+  timetableEntries TimetableEntry[]
+  substitutions    Substitution[] @relation("SubstitutionTeacher")
+}
+
+model Student {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User?    @relation(fields: [userId], references: [id])
+  userId    Int?     @unique
+  firstName String
+  lastName  String
+  class     Class?   @relation(fields: [classId], references: [id])
+  classId   Int?
+
+  attendance Attendance[]
+}
+
+model Class {
+  id        Int      @id @default(autoincrement())
+  name      String
+  year      Int?
+  students  Student[]
+  timetableEntries TimetableEntry[]
+}
+
+model Room {
+  id       Int    @id @default(autoincrement())
+  name     String @unique
+  capacity Int?
+  timetableEntries TimetableEntry[]
+  substitutions Substitution[] @relation("SubstitutionRoom")
+}
+
+model Subject {
+  id        Int    @id @default(autoincrement())
+  name      String
+  code      String? @unique
+  timetableEntries TimetableEntry[]
+}
+
+model TimetableEntry {
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  class      Class?   @relation(fields: [classId], references: [id])
+  classId    Int?
+  subject    Subject  @relation(fields: [subjectId], references: [id])
+  subjectId  Int
+  teacher    Teacher? @relation(fields: [teacherId], references: [id])
+  teacherId  Int?
+  room       Room?    @relation(fields: [roomId], references: [id])
+  roomId     Int?
+  start      DateTime
+  end        DateTime
+  note       String?
+
+  attendance    Attendance[]
+  substitutions Substitution[] @relation("SubstitutionOriginal")
+
+  @@index([classId])
+  @@index([subjectId])
+  @@index([teacherId])
+}
+
+model Substitution {
+  id                   Int      @id @default(autoincrement())
+  createdAt            DateTime @default(now())
+  date                 DateTime
+  original             TimetableEntry @relation("SubstitutionOriginal", fields: [originalId], references: [id])
+  originalId           Int
+  substituteTeacher    Teacher? @relation("SubstitutionTeacher", fields: [substituteTeacherId], references: [id])
+  substituteTeacherId  Int?
+  substituteRoom       Room?   @relation("SubstitutionRoom", fields: [substituteRoomId], references: [id])
+  substituteRoomId     Int?
+  note                 String?
+}
+
+model Attendance {
+  id               Int      @id @default(autoincrement())
+  createdAt        DateTime @default(now())
+  timetableEntry   TimetableEntry @relation(fields: [timetableEntryId], references: [id])
+  timetableEntryId Int
+  student          Student  @relation(fields: [studentId], references: [id])
+  studentId        Int
+  status           AttendanceStatus @default(PRESENT)
+  recordedAt       DateTime @default(now())
+
+  @@unique([timetableEntryId, studentId])
+}
+
+model Permission {
+  id     Int    @id @default(autoincrement())
+  user   User   @relation(fields: [userId], references: [id])
+  userId Int
+  name   String
+}

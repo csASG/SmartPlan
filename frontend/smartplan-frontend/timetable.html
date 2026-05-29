@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPlan - Weekly Timetable</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .timetable-grid {
+            display: grid;
+            grid-template-columns: 80px repeat(5, 1fr);
+            grid-template-rows: 50px repeat(10, 80px);
+        }
+        .time-label {
+            border-bottom: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+        }
+        .day-label {
+            border-bottom: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+        }
+        .slot {
+            border-bottom: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            position: relative;
+        }
+        .lesson-card {
+            border-left-width: 4px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .lesson-card:hover {
+            transform: scale(1.02);
+            z-index: 10;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="flex min-h-screen bg-[var(--bg)] text-[var(--fg)]">
+
+    <!-- Sidebar (Same as dashboard) -->
+    <aside class="w-64 border-r border-[var(--border)] flex flex-col h-screen sticky top-0 shrink-0">
+        <div class="p-6 border-b border-[var(--border)] flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-[var(--accent)] flex items-center justify-center text-white shadow-lg">
+                <i class="ph ph-calendar-check text-xl"></i>
+            </div>
+            <span class="font-bold text-xl tracking-tight">SmartPlan</span>
+        </div>
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+            <div class="text-[10px] font-mono text-[var(--muted)] px-4 mb-2 uppercase tracking-widest">General</div>
+            <a href="admin-dashboard.html" class="sidebar-item">
+                <i class="ph ph-house"></i> Dashboard
+            </a>
+            <a href="timetable.html" class="sidebar-item active">
+                <i class="ph ph-grid-four"></i> Timetable
+            </a>
+            <a href="#" class="sidebar-item">
+                <i class="ph ph-users"></i> Teachers
+            </a>
+            <a href="#" class="sidebar-item">
+                <i class="ph ph-student"></i> Students
+            </a>
+        </nav>
+        <div class="p-4 border-t border-[var(--border)]">
+            <div class="flex items-center gap-3 p-2 rounded-lg bg-[var(--surface-higher)]">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-gray-400 to-gray-600"></div>
+                <div class="flex-1 min-w-0 text-sm">Admin User</div>
+                <a href="login.html" class="text-[var(--muted)]"><i class="ph ph-sign-out"></i></a>
+            </div>
+        </div>
+    </aside>
+
+    <div id="root" class="flex-1 flex flex-col min-w-0"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+        const TIMES = [
+            '08:00', '09:00', '10:00', '11:00', '12:00', 
+            '13:00', '14:00', '15:00', '16:00', '17:00'
+        ];
+
+        const LESSONS_DATA = [
+            { id: 1, day: 0, start: '08:00', duration: 1, subject: 'Mathematics', teacher: 'Dr. Smith', room: 'R204', class: '10B', type: 'normal' },
+            { id: 2, day: 0, start: '09:00', duration: 1, subject: 'Mathematics', teacher: 'Dr. Smith', room: 'R204', class: '10B', type: 'normal' },
+            { id: 3, day: 0, start: '11:00', duration: 1, subject: 'Physics', teacher: 'Prof. Weber', room: 'L102', class: '10B', type: 'cancelled' },
+            { id: 4, day: 1, start: '08:00', duration: 2, subject: 'English Literature', teacher: 'Ms. Green', room: 'R105', class: '10B', type: 'normal' },
+            { id: 5, day: 1, start: '13:00', duration: 1, subject: 'History', teacher: 'Mr. Brown', room: 'R301', class: '10B', type: 'substituted', subTeacher: 'Ms. White' },
+            { id: 6, day: 2, start: '10:00', duration: 1, subject: 'Computer Science', teacher: 'Mr. Stark', room: 'L005', class: '10B', type: 'normal' },
+            { id: 7, day: 3, start: '08:00', duration: 1, subject: 'Biology', teacher: 'Dr. Klein', room: 'L201', class: '10B', type: 'normal' },
+            { id: 8, day: 4, start: '14:00', duration: 2, subject: 'Physical Education', teacher: 'Coach Jack', room: 'Gym A', class: '10B', type: 'normal' },
+        ];
+
+        const TimetableApp = () => {
+            const [selectedLesson, setSelectedLesson] = useState(null);
+            const [filterClass, setFilterClass] = useState('10B');
+
+            return (
+                <div className="flex-1 flex flex-col h-screen overflow-hidden">
+                    {/* Topbar */}
+                    <header className="h-16 border-b border-[var(--border)] px-8 flex items-center justify-between bg-[var(--bg)]/80 backdrop-blur-md z-20 shrink-0">
+                        <div className="flex items-center gap-6">
+                            <h2 className="text-lg font-semibold">Interactive Timetable</h2>
+                            <div className="flex items-center gap-2 bg-[var(--surface-higher)] p-1 rounded-lg border border-[var(--border)]">
+                                <button className="px-3 py-1 rounded-md text-xs font-medium bg-[var(--surface)] border border-[var(--border)] shadow-sm">Class 10B</button>
+                                <button className="px-3 py-1 rounded-md text-xs font-medium text-[var(--muted)] hover:text-[var(--fg)]">Teacher Weber</button>
+                                <button className="px-3 py-1 rounded-md text-xs font-medium text-[var(--muted)] hover:text-[var(--fg)]">Room L102</button>
+                            </div>
+                        </div>
+                        
+                        <div className="flex items-center gap-4">
+                            <div className="flex items-center gap-2 bg-[var(--surface-higher)] rounded-lg p-1 border border-[var(--border)]">
+                                <button className="p-1.5 rounded-md hover:bg-[var(--surface)] text-[var(--muted)] hover:text-[var(--fg)]"><i className="ph ph-caret-left"></i></button>
+                                <span className="text-sm font-mono px-2">May 18 — 22, 2026</span>
+                                <button className="p-1.5 rounded-md hover:bg-[var(--surface)] text-[var(--muted)] hover:text-[var(--fg)]"><i className="ph ph-caret-right"></i></button>
+                            </div>
+                            <button className="btn btn-primary py-2 px-4 text-xs">
+                                <i className="ph ph-plus"></i> Add Entry
+                            </button>
+                        </div>
+                    </header>
+
+                    {/* Timetable Grid Container */}
+                    <div className="flex-1 overflow-auto p-8 bg-grid-bg">
+                        <div className="card shadow-2xl overflow-hidden min-w-[1000px]">
+                            <div className="timetable-grid">
+                                {/* Header Labels */}
+                                <div className="time-label bg-[var(--surface-higher)] flex items-center justify-center font-mono text-[10px] text-[var(--muted)] uppercase tracking-widest">Time</div>
+                                {DAYS.map(day => (
+                                    <div key={day} className="day-label bg-[var(--surface-higher)] flex items-center justify-center font-bold text-sm tracking-tight border-r border-[var(--border)]">{day}</div>
+                                ))}
+
+                                {/* Grid Body */}
+                                {TIMES.map((time, timeIdx) => (
+                                    <React.Fragment key={time}>
+                                        <div className="time-label flex items-center justify-center font-mono text-[10px] text-[var(--muted)]">{time}</div>
+                                        {DAYS.map((_, dayIdx) => (
+                                            <div key={`${time}-${dayIdx}`} className="slot relative">
+                                                {/* Render Lessons for this slot */}
+                                                {LESSONS_DATA.filter(l => l.day === dayIdx && l.start === time).map(lesson => (
+                                                    <div 
+                                                        key={lesson.id}
+                                                        onClick={() => setSelectedLesson(lesson)}
+                                                        className={`absolute inset-1 rounded-lg p-3 cursor-pointer lesson-card z-10 flex flex-col justify-between
+                                                            ${lesson.type === 'cancelled' ? 'bg-red-500/10 border-red-500/40 opacity-60 line-through' : 
+                                                              lesson.type === 'substituted' ? 'bg-amber-500/10 border-amber-500/40' : 
+                                                              'bg-[var(--accent-muted)] border-[var(--accent)]'}
+                                                        `}
+                                                        style={{ height: `calc(${lesson.duration} * 80px - 8px)` }}
+                                                    >
+                                                        <div>
+                                                            <div className="flex items-center justify-between mb-1">
+                                                                <span className="text-xs font-bold truncate">{lesson.subject}</span>
+                                                                <span className="text-[9px] font-mono opacity-60 uppercase">{lesson.room}</span>
+                                                            </div>
+                                                            <div className="text-[10px] text-[var(--muted)] truncate">
+                                                                {lesson.type === 'substituted' ? <s>{lesson.teacher}</s> : lesson.teacher}
+                                                                {lesson.type === 'substituted' && <span className="text-[var(--warning)] ml-1">→ {lesson.subTeacher}</span>}
+                                                            </div>
+                                                        </div>
+                                                        <div className="flex items-center justify-between mt-auto">
+                                                            <span className="text-[9px] px-1.5 py-0.5 rounded bg-black/20 font-mono">{lesson.class}</span>
+                                                            {lesson.type === 'cancelled' && <i className="ph ph-prohibit text-red-500 text-xs"></i>}
+                                                            {lesson.type === 'substituted' && <i className="ph ph-info text-amber-500 text-xs"></i>}
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        ))}
+                                    </React.Fragment>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Lesson Detail Modal */}
+                    {selectedLesson && (
+                        <div className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/60 backdrop-blur-sm">
+                            <div className="card w-full max-w-lg shadow-2xl animate-in zoom-in-95 duration-200">
+                                <div className="p-6 border-b border-[var(--border)] flex items-center justify-between">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-10 h-10 rounded-lg bg-[var(--accent-muted)] flex items-center justify-center text-[var(--accent)] border border-[var(--accent)]/20">
+                                            <i className="ph ph-chalkboard text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h3 className="font-bold text-xl">{selectedLesson.subject}</h3>
+                                            <p className="text-xs text-[var(--muted)] uppercase tracking-widest font-mono">{DAYS[selectedLesson.day]} • {selectedLesson.start}</p>
+                                        </div>
+                                    </div>
+                                    <button onClick={() => setSelectedLesson(null)} className="p-2 hover:bg-[var(--surface-higher)] rounded-full transition-colors">
+                                        <i className="ph ph-x text-xl"></i>
+                                    </button>
+                                </div>
+                                
+                                <div className="p-8 space-y-6">
+                                    <div className="grid grid-cols-2 gap-8">
+                                        <div className="space-y-1">
+                                            <p className="text-[10px] text-[var(--muted)] uppercase tracking-wider font-mono">Teacher</p>
+                                            <p className="font-medium flex items-center gap-2">
+                                                <i className="ph ph-user-circle text-lg opacity-60"></i>
+                                                {selectedLesson.teacher}
+                                            </p>
+                                        </div>
+                                        <div className="space-y-1">
+                                            <p className="text-[10px] text-[var(--muted)] uppercase tracking-wider font-mono">Room</p>
+                                            <p className="font-medium flex items-center gap-2">
+                                                <i className="ph ph-door text-lg opacity-60"></i>
+                                                {selectedLesson.room} (Building B)
+                                            </p>
+                                        </div>
+                                        <div className="space-y-1">
+                                            <p className="text-[10px] text-[var(--muted)] uppercase tracking-wider font-mono">Class</p>
+                                            <p className="font-medium flex items-center gap-2">
+                                                <i className="ph ph-users text-lg opacity-60"></i>
+                                                Grade {selectedLesson.class}
+                                            </p>
+                                        </div>
+                                        <div className="space-y-1">
+                                            <p className="text-[10px] text-[var(--muted)] uppercase tracking-wider font-mono">Status</p>
+                                            <div className="flex items-center gap-2 capitalize">
+                                                <span className={`w-2 h-2 rounded-full ${selectedLesson.type === 'normal' ? 'bg-[var(--success)]' : selectedLesson.type === 'cancelled' ? 'bg-red-500' : 'bg-amber-500'}`}></span>
+                                                <span className="font-medium">{selectedLesson.type}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="p-4 rounded-xl bg-[var(--surface-higher)] border border-[var(--border)] space-y-2">
+                                        <p className="text-[10px] text-[var(--muted)] uppercase tracking-wider font-mono">Lesson Notes</p>
+                                        <p className="text-sm leading-relaxed opacity-80">
+                                            Topic: Introduction to Calculus. Please bring your graphing calculators and the workbook from last week. Homework review will be done in the first 15 minutes.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="p-6 bg-[var(--surface-higher)]/50 border-t border-[var(--border)] flex gap-3">
+                                    <button className="btn btn-primary flex-1">Edit Lesson</button>
+                                    <button className="btn btn-ghost px-4 border border-[var(--border)]"><i className="ph ph-trash text-lg"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<TimetableApp />);
+    </script>
+</body>
+</html>

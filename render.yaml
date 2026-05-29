@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: smartplan-api
+    runtime: node
+    rootDir: backend/apps/api
+    buildCommand: npm install && npx prisma generate && npm run build
+    startCommand: node dist/main.js
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PORT
+        value: 3001
+
+  - type: web
+    name: smartplan-solver
+    runtime: python
+    rootDir: backend/services/scheduler
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 8000
+    envVars:
+      - key: SOLVER_SECRET
+        generateValue: true

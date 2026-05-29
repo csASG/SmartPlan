@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+
+# Build
+.next/
+dist/
+build/
+*.tsbuildinfo
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Debug
+.aider*
+debug_*.py
+test_*.py
+benchmark_*.py
+status_check.py
+final_trace.py
+integration_test.py
+
+# Docker
+postgres_data/
+
+# Logs
+*.log
+npm-debug.log*

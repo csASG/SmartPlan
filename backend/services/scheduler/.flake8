@@ -1,0 +1,5 @@
+[flake8]
+max-line-length = 100
+extend-ignore = E203, W503, W504
+exclude = .venv,__pycache__,node_modules,.git,dist
+per-file-ignores = __init__.py:F401

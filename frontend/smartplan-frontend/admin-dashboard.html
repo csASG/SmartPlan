@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPlan - Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .stat-card {
+            background: linear-gradient(135deg, var(--surface) 0%, oklch(20% 0.015 250) 100%);
+        }
+    </style>
+</head>
+<body class="flex min-h-screen bg-[var(--bg)] text-[var(--fg)]">
+
+    <!-- Sidebar -->
+    <aside class="w-64 border-r border-[var(--border)] flex flex-col h-screen sticky top-0 shrink-0">
+        <div class="p-6 border-b border-[var(--border)] flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-[var(--accent)] flex items-center justify-center text-white shadow-lg">
+                <i class="ph ph-calendar-check text-xl"></i>
+            </div>
+            <span class="font-bold text-xl tracking-tight">SmartPlan</span>
+        </div>
+        
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+            <div class="text-[10px] font-mono text-[var(--muted)] px-4 mb-2 uppercase tracking-widest">General</div>
+            <a href="admin-dashboard.html" class="sidebar-item active">
+                <i class="ph ph-house"></i> Dashboard
+            </a>
+            <a href="timetable.html" class="sidebar-item">
+                <i class="ph ph-grid-four"></i> Timetable
+            </a>
+            <a href="resources.html" class="sidebar-item">
+                <i class="ph ph-users"></i> Teachers
+            </a>
+            <a href="resources.html" class="sidebar-item">
+                <i class="ph ph-student"></i> Students
+            </a>
+            
+            <div class="text-[10px] font-mono text-[var(--muted)] px-4 mt-8 mb-2 uppercase tracking-widest">Management</div>
+            <a href="resources.html" class="sidebar-item">
+                <i class="ph ph-door"></i> Rooms
+            </a>
+            <a href="resources.html" class="sidebar-item">
+                <i class="ph ph-chalkboard-teacher"></i> Classes
+            </a>
+            <a href="substitutions.html" class="sidebar-item">
+                <i class="ph ph-lightning"></i> Substitutions
+            </a>
+            
+            <div class="text-[10px] font-mono text-[var(--muted)] px-4 mt-8 mb-2 uppercase tracking-widest">System</div>
+            <a href="#" class="sidebar-item">
+                <i class="ph ph-gear"></i> Settings
+            </a>
+            <a href="#" class="sidebar-item">
+                <i class="ph ph-terminal"></i> Logs
+            </a>
+        </nav>
+        
+        <div class="p-4 border-t border-[var(--border)]">
+            <div class="flex items-center gap-3 p-2 rounded-lg bg-[var(--surface-higher)]">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-gray-400 to-gray-600"></div>
+                <div class="flex-1 min-w-0">
+                    <p class="text-sm font-medium truncate">Admin User</p>
+                    <p class="text-xs text-[var(--muted)] truncate">System Administrator</p>
+                </div>
+                <a href="login.html" class="text-[var(--muted)] hover:text-[var(--accent)] transition-colors">
+                    <i class="ph ph-sign-out text-lg"></i>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col min-w-0">
+        <!-- Topbar -->
+        <header class="h-16 border-b border-[var(--border)] px-8 flex items-center justify-between sticky top-0 bg-[var(--bg)]/80 backdrop-blur-md z-20">
+            <div class="flex items-center gap-4">
+                <h2 class="text-lg font-semibold">Dashboard Overview</h2>
+                <div class="px-2 py-0.5 rounded-full bg-[var(--accent-muted)] text-[var(--accent)] text-[10px] font-mono border border-[var(--accent)]/20 uppercase tracking-tighter">Admin View</div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <div class="relative">
+                    <i class="ph ph-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-[var(--muted)]"></i>
+                    <input type="text" placeholder="Search resources..." class="pl-10 pr-4 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--surface)] text-sm focus:outline-none focus:border-[var(--accent)] w-64 transition-all">
+                </div>
+                <button class="relative w-8 h-8 flex items-center justify-center text-[var(--muted)] hover:text-[var(--fg)] transition-colors">
+                    <i class="ph ph-bell text-xl"></i>
+                    <span class="absolute top-1 right-1 w-2 h-2 bg-[var(--accent)] rounded-full border-2 border-[var(--bg)]"></span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Page Scrollable Content -->
+        <div class="p-8 overflow-y-auto space-y-8">
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card p-6 stat-card flex flex-col gap-4">
+                    <div class="flex items-center justify-between">
+                        <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-500 flex items-center justify-center border border-blue-500/20">
+                            <i class="ph ph-users text-xl"></i>
+                        </div>
+                        <span class="text-xs font-mono text-[var(--success)]">+12%</span>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-bold font-mono">1,248</p>
+                        <p class="text-xs text-[var(--muted)] uppercase tracking-wider font-mono">Active Students</p>
+                    </div>
+                </div>
+                
+                <div class="card p-6 stat-card flex flex-col gap-4">
+                    <div class="flex items-center justify-between">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-500 flex items-center justify-center border border-emerald-500/20">
+                            <i class="ph ph-chalkboard-teacher text-xl"></i>
+                        </div>
+                        <span class="text-xs font-mono text-[var(--muted)]">Stable</span>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-bold font-mono">84</p>
+                        <p class="text-xs text-[var(--muted)] uppercase tracking-wider font-mono">Teachers On-Duty</p>
+                    </div>
+                </div>
+
+                <div class="card p-6 stat-card flex flex-col gap-4">
+                    <div class="flex items-center justify-between">
+                        <div class="w-10 h-10 rounded-lg bg-[var(--accent-muted)] text-[var(--accent)] flex items-center justify-center border border-[var(--accent)]/20">
+                            <i class="ph ph-door text-xl"></i>
+                        </div>
+                        <span class="text-xs font-mono text-[var(--danger)]">92%</span>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-bold font-mono">42 / 48</p>
+                        <p class="text-xs text-[var(--muted)] uppercase tracking-wider font-mono">Room Occupancy</p>
+                    </div>
+                </div>
+
+                <div class="card p-6 stat-card flex flex-col gap-4">
+                    <div class="flex items-center justify-between">
+                        <div class="w-10 h-10 rounded-lg bg-purple-500/10 text-purple-500 flex items-center justify-center border border-purple-500/20">
+                            <i class="ph ph-lightning text-xl"></i>
+                        </div>
+                        <span class="text-xs font-mono text-[var(--accent)]">3 Today</span>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-bold font-mono">14</p>
+                        <p class="text-xs text-[var(--muted)] uppercase tracking-wider font-mono">Substitution Req.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scheduler Interface Section -->
+            <div class="card p-8 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-[var(--accent-muted)] blur-[100px] -z-10 rounded-full"></div>
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div class="max-w-xl">
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="ph ph-cpu text-2xl text-[var(--accent)]"></i>
+                            <h3 class="text-xl font-bold">SmartPlan Scheduler</h3>
+                        </div>
+                        <p class="text-[var(--muted)] leading-relaxed">
+                            Run the specialized Python-based optimization algorithm to generate a conflict-free timetable for the next period. The process considers teacher availability, room capacity, and curriculum constraints.
+                        </p>
+                    </div>
+                    <button class="btn btn-primary h-14 px-8 text-lg shadow-xl shadow-[var(--accent-muted)] group">
+                        <i class="ph ph-play-circle text-2xl group-hover:scale-110 transition-transform"></i>
+                        Solve Timetable
+                    </button>
+                </div>
+                
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="p-4 rounded-xl bg-[var(--surface-higher)] border border-[var(--border)] flex items-center gap-4">
+                        <div class="w-2 h-2 rounded-full bg-[var(--success)] animate-pulse"></div>
+                        <div class="text-sm font-mono">
+                            <div class="text-[var(--muted)] text-[10px]">BACKEND STATUS</div>
+                            NESTJS API ACTIVE
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-[var(--surface-higher)] border border-[var(--border)] flex items-center gap-4">
+                        <div class="w-2 h-2 rounded-full bg-[var(--success)] animate-pulse"></div>
+                        <div class="text-sm font-mono">
+                            <div class="text-[var(--muted)] text-[10px]">SCHEDULER ENGINE</div>
+                            PYTHON OR-TOOLS READY
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-[var(--surface-higher)] border border-[var(--border)] flex items-center gap-4">
+                        <div class="w-2 h-2 rounded-full bg-[var(--warning)]"></div>
+                        <div class="text-sm font-mono">
+                            <div class="text-[var(--muted)] text-[10px]">LAST RUN</div>
+                            2 DAYS AGO
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Management Previews -->
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+                <!-- Recent Resource Management -->
+                <div class="card overflow-hidden">
+                    <div class="p-6 border-b border-[var(--border)] flex items-center justify-between">
+                        <h3 class="font-bold">Recent Resource Activity</h3>
+                        <button class="btn btn-ghost text-xs">View All</button>
+                    </div>
+                    <div class="divide-y divide-[var(--border)]">
+                        <div class="p-4 flex items-center gap-4 hover:bg-[var(--surface-higher)] transition-colors">
+                            <div class="w-10 h-10 rounded bg-[var(--bg)] border border-[var(--border)] flex items-center justify-center">
+                                <i class="ph ph-user-plus text-[var(--muted)]"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm font-medium">New Teacher Added</p>
+                                <p class="text-xs text-[var(--muted)]">Sarah Miller (Mathematics)</p>
+                            </div>
+                            <span class="text-xs font-mono text-[var(--muted)]">12m ago</span>
+                        </div>
+                        <div class="p-4 flex items-center gap-4 hover:bg-[var(--surface-higher)] transition-colors">
+                            <div class="w-10 h-10 rounded bg-[var(--bg)] border border-[var(--border)] flex items-center justify-center">
+                                <i class="ph ph-door text-[var(--muted)]"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm font-medium">Room Constraint Updated</p>
+                                <p class="text-xs text-[var(--muted)]">Room 204 - Lab Maintenance</p>
+                            </div>
+                            <span class="text-xs font-mono text-[var(--muted)]">45m ago</span>
+                        </div>
+                        <div class="p-4 flex items-center gap-4 hover:bg-[var(--surface-higher)] transition-colors">
+                            <div class="w-10 h-10 rounded bg-[var(--bg)] border border-[var(--border)] flex items-center justify-center">
+                                <i class="ph ph-trash text-[var(--danger)]"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm font-medium">Class Group Deleted</p>
+                                <p class="text-xs text-[var(--muted)]">Class 12C - Graduation</p>
+                            </div>
+                            <span class="text-xs font-mono text-[var(--muted)]">2h ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System Logs / Monitoring -->
+                <div class="card flex flex-col">
+                    <div class="p-6 border-b border-[var(--border)] flex items-center justify-between">
+                        <h3 class="font-bold">System Health</h3>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-[var(--success)]"></span>
+                            <span class="text-xs font-mono text-[var(--muted)]">Uptime: 99.9%</span>
+                        </div>
+                    </div>
+                    <div class="flex-1 p-6 font-mono text-[10px] space-y-2 text-[var(--muted)]">
+                        <div class="flex gap-4">
+                            <span class="text-[var(--accent)] opacity-50">[14:22:10]</span>
+                            <span>AUTH: JWT issued for user 8241 (Teacher)</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-[var(--accent)] opacity-50">[14:22:45]</span>
+                            <span>API: GET /timetable/weekly?classId=10B - 200 OK</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-[var(--accent)] opacity-50">[14:23:12]</span>
+                            <span>DB: PostgreSQL connection pool optimized (active: 4)</span>
+                        </div>
+                        <div class="flex gap-4 text-[var(--warning)]">
+                            <span class="opacity-50">[14:25:01]</span>
+                            <span>SCHEDULER: Cache invalidated for room 102</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-[var(--accent)] opacity-50">[14:28:15]</span>
+                            <span>API: POST /substitutions/create - 201 Created</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-[var(--accent)] opacity-50">[14:30:00]</span>
+                            <span>CRON: Attendance cleanup complete</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

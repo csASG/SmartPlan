@@ -1,0 +1,3907 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "V17",
+    "languages": [
+      "css",
+      "dockerfile",
+      "html",
+      "json",
+      "prisma",
+      "python",
+      "sql",
+      "toml",
+      "txt",
+      "typescript",
+      "yaml"
+    ],
+    "frameworks": [
+      "NestJS",
+      "Next.js",
+      "Prisma",
+      "React",
+      "TailwindCSS",
+      "FastAPI",
+      "Docker",
+      "Docker Compose"
+    ],
+    "description": "Ein webbasiertes Stundenplan-Projekt mit NestJS und Prisma im Backend, einem Next.js-Frontend sowie einem Python-basierten Scheduler zur automatisierten Stundenplanerstellung.",
+    "analyzedAt": "2026-05-27T21:11:10.724Z",
+    "gitCommitHash": ""
+  },
+  "nodes": [
+    {
+      "id": "file:backend/services/scheduler/app/app.py",
+      "type": "file",
+      "name": "app.py",
+      "filePath": "backend/services/scheduler/app/app.py",
+      "summary": "Eine Python-Anwendung, die HTTP-Endpunkte für den Stundenplaner bereitstellt, wie z.B. einen Health-Check und eine Lösungs-API.",
+      "tags": [
+        "python",
+        "scheduler",
+        "web-api",
+        "entry-point",
+        "tested"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/services/scheduler/app/app.py:health",
+      "type": "function",
+      "name": "health",
+      "filePath": "backend/services/scheduler/app/app.py",
+      "summary": "Ein einfacher API-Endpunkt für die Systemgesundheitsprüfung (Health Check).",
+      "tags": [
+        "health-check",
+        "api-endpoint"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/services/scheduler/app/app.py:solve",
+      "type": "function",
+      "name": "solve",
+      "filePath": "backend/services/scheduler/app/app.py",
+      "summary": "API-Endpunkt, der Eingabedaten für den Stundenplaner entgegennimmt, den Solver aufruft und das Ergebnis zurückgibt.",
+      "tags": [
+        "solver",
+        "api-endpoint",
+        "scheduling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/services/scheduler/app/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "backend/services/scheduler/app/main.py",
+      "summary": "Haupt-Einstiegspunkt für den Stundenplanungs-Service unter Verwendung von FastAPI. Definiert Datenmodelle und stellt die API-Endpunkte bereit.",
+      "tags": [
+        "python",
+        "fastapi",
+        "entry-point",
+        "api"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/services/scheduler/app/main.py:health",
+      "type": "function",
+      "name": "health",
+      "filePath": "backend/services/scheduler/app/main.py",
+      "summary": "Health-Check-Endpunkt für den FastAPI-Service.",
+      "tags": [
+        "health-check",
+        "api"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/services/scheduler/app/main.py:solve",
+      "type": "function",
+      "name": "solve",
+      "filePath": "backend/services/scheduler/app/main.py",
+      "summary": "FastAPI-Endpunkt zur Ausführung des Stundenplanungs-Optimierungsalgorithmus.",
+      "tags": [
+        "api",
+        "solver",
+        "optimization"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/services/scheduler/app/main.py:Requirement",
+      "type": "class",
+      "name": "Requirement",
+      "filePath": "backend/services/scheduler/app/main.py",
+      "summary": "Datenmodell, das eine Stundenplananforderung (Lehrer, Klasse, Stunden pro Woche) repräsentiert.",
+      "tags": [
+        "data-model",
+        "pydantic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/services/scheduler/app/main.py:Room",
+      "type": "class",
+      "name": "Room",
+      "filePath": "backend/services/scheduler/app/main.py",
+      "summary": "Datenmodell für einen Raum im Stundenplaner.",
+      "tags": [
+        "data-model",
+        "pydantic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/services/scheduler/app/main.py:Slot",
+      "type": "class",
+      "name": "Slot",
+      "filePath": "backend/services/scheduler/app/main.py",
+      "summary": "Datenmodell für ein Zeitfenster (Slot).",
+      "tags": [
+        "data-model",
+        "pydantic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/services/scheduler/app/main.py:Teacher",
+      "type": "class",
+      "name": "Teacher",
+      "filePath": "backend/services/scheduler/app/main.py",
+      "summary": "Datenmodell für einen Lehrer.",
+      "tags": [
+        "data-model",
+        "pydantic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/services/scheduler/app/main.py:ClassItem",
+      "type": "class",
+      "name": "ClassItem",
+      "filePath": "backend/services/scheduler/app/main.py",
+      "summary": "Datenmodell für eine Schulklasse.",
+      "tags": [
+        "data-model",
+        "pydantic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/services/scheduler/app/main.py:ScheduleRequest",
+      "type": "class",
+      "name": "ScheduleRequest",
+      "filePath": "backend/services/scheduler/app/main.py",
+      "summary": "Gesamtes Anfrage-Datenmodell, das alle notwendigen Inputs für die Generierung eines Stundenplans kapselt.",
+      "tags": [
+        "data-model",
+        "pydantic",
+        "request"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/services/scheduler/app/schemas.py",
+      "type": "file",
+      "name": "schemas.py",
+      "filePath": "backend/services/scheduler/app/schemas.py",
+      "summary": "Definiert die Pydantic-Datenmodelle und -Schemata, die für die Validierung der Ein- und Ausgabedaten des Stundenplan-Solvers verwendet werden.",
+      "tags": [
+        "python",
+        "pydantic",
+        "schema",
+        "validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/services/scheduler/app/schemas.py:Requirement",
+      "type": "class",
+      "name": "Requirement",
+      "filePath": "backend/services/scheduler/app/schemas.py",
+      "summary": "Detailliertes Datenmodell für eine Unterrichtsanforderung inklusive Raumtyp-Anforderungen.",
+      "tags": [
+        "pydantic",
+        "schema"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/services/scheduler/app/schemas.py:Teacher",
+      "type": "class",
+      "name": "Teacher",
+      "filePath": "backend/services/scheduler/app/schemas.py",
+      "summary": "Detailliertes Datenmodell für einen Lehrer inklusive Verfügbarkeiten und Qualifikationen.",
+      "tags": [
+        "pydantic",
+        "schema"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/services/scheduler/app/schemas.py:ClassItem",
+      "type": "class",
+      "name": "ClassItem",
+      "filePath": "backend/services/scheduler/app/schemas.py",
+      "summary": "Detailliertes Datenmodell für eine Klasse.",
+      "tags": [
+        "pydantic",
+        "schema"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/services/scheduler/app/schemas.py:Room",
+      "type": "class",
+      "name": "Room",
+      "filePath": "backend/services/scheduler/app/schemas.py",
+      "summary": "Detailliertes Datenmodell für einen Raum inklusive Raumtyp.",
+      "tags": [
+        "pydantic",
+        "schema"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/services/scheduler/app/schemas.py:Slot",
+      "type": "class",
+      "name": "Slot",
+      "filePath": "backend/services/scheduler/app/schemas.py",
+      "summary": "Detailliertes Datenmodell für ein Zeitfenster (Tag und Stunde).",
+      "tags": [
+        "pydantic",
+        "schema"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/services/scheduler/app/schemas.py:SchedulerInput",
+      "type": "class",
+      "name": "SchedulerInput",
+      "filePath": "backend/services/scheduler/app/schemas.py",
+      "summary": "Das vollständige Eingabeschema für den Stundenplan-Solver, das alle Lehrer, Klassen, Räume, Slots und Anforderungen aggregiert.",
+      "tags": [
+        "pydantic",
+        "schema",
+        "input"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/services/scheduler/app/solver.py",
+      "type": "file",
+      "name": "solver.py",
+      "filePath": "backend/services/scheduler/app/solver.py",
+      "summary": "Implementiert den Kern-Stundenplan-Solver unter Verwendung des Google OR-Tools CP-SAT Solvers. Löst das Constraint-Satisfaction-Problem in zwei Phasen.",
+      "tags": [
+        "python",
+        "or-tools",
+        "cp-sat",
+        "solver",
+        "algorithm",
+        "tested"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:backend/services/scheduler/app/solver.py:_str",
+      "type": "function",
+      "name": "_str",
+      "filePath": "backend/services/scheduler/app/solver.py",
+      "summary": "Hilfsfunktion zur Konvertierung von IDs in Strings zur Gewährleistung der Einheitlichkeit.",
+      "tags": [
+        "helper"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/services/scheduler/app/solver.py:_normalise",
+      "type": "function",
+      "name": "_normalise",
+      "filePath": "backend/services/scheduler/app/solver.py",
+      "summary": "Normalisiert die Eingabedaten für den Solver, extrahiert IDs und konvertiert Datenmodelle in Dictionaries.",
+      "tags": [
+        "helper",
+        "normalization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:backend/services/scheduler/app/solver.py:solve_scheduler",
+      "type": "function",
+      "name": "solve_scheduler",
+      "filePath": "backend/services/scheduler/app/solver.py",
+      "summary": "Hauptfunktion, die das Constraint-Programming-Modell aufbaut, alle harten und weichen Bedingungen (Verfügbarkeit, Raumtyp, Qualifikation) hinzufügt und den Solver ausführt.",
+      "tags": [
+        "solver-core",
+        "optimization",
+        "constraints"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:backend/services/scheduler/app/solver.py:_collect",
+      "type": "function",
+      "name": "_collect",
+      "filePath": "backend/services/scheduler/app/solver.py",
+      "summary": "Sammelt die Ergebnisse der Variablenzuweisungen aus dem Modell-Modus des Solvers.",
+      "tags": [
+        "helper"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/services/scheduler/app/solver_optimized.py",
+      "type": "file",
+      "name": "solver_optimized.py",
+      "filePath": "backend/services/scheduler/app/solver_optimized.py",
+      "summary": "Eine optimierte Variante des Stundenplanungs-Solvers, die effizientere Einschränkungen und Strukturen für eine schnellere Ausführungszeit nutzt.",
+      "tags": [
+        "python",
+        "or-tools",
+        "optimization",
+        "solver",
+        "tested"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:backend/services/scheduler/app/solver_optimized.py:solve_scheduler_optimized",
+      "type": "function",
+      "name": "solve_scheduler_optimized",
+      "filePath": "backend/services/scheduler/app/solver_optimized.py",
+      "summary": "Optimierte Implementierung des Solvers, die AddAtMostOne und schlankere Variablenstrukturen verwendet.",
+      "tags": [
+        "solver-core",
+        "optimization",
+        "cp-sat"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:backend/services/scheduler/app/solver_optimized.py:solve_scheduler",
+      "type": "function",
+      "name": "solve_scheduler",
+      "filePath": "backend/services/scheduler/app/solver_optimized.py",
+      "summary": "Wrapper-Funktion, die die optimierte Implementierung aufruft.",
+      "tags": [
+        "wrapper"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/services/scheduler/benchmark_solver.py",
+      "type": "file",
+      "name": "benchmark_solver.py",
+      "filePath": "backend/services/scheduler/benchmark_solver.py",
+      "summary": "Ein Skript zum Benchmarken und Vergleichen der Leistung des ursprünglichen und des optimierten Solvers bei verschiedenen Problemgrößen.",
+      "tags": [
+        "python",
+        "benchmark",
+        "performance",
+        "test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:backend/services/scheduler/benchmark_solver.py:create_larger_test_data",
+      "type": "function",
+      "name": "create_larger_test_data",
+      "filePath": "backend/services/scheduler/benchmark_solver.py",
+      "summary": "Generiert synthetische Testdaten beliebiger Größe für Performance-Tests.",
+      "tags": [
+        "data-generation",
+        "benchmark"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:backend/services/scheduler/benchmark_solver.py:benchmark_solvers",
+      "type": "function",
+      "name": "benchmark_solvers",
+      "filePath": "backend/services/scheduler/benchmark_solver.py",
+      "summary": "Führt Zeitmessungen für beide Solver-Implementierungen mit größeren Datensätzen durch.",
+      "tags": [
+        "benchmark",
+        "performance"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:backend/services/scheduler/benchmark_solver.py:verify_correctness",
+      "type": "function",
+      "name": "verify_correctness",
+      "filePath": "backend/services/scheduler/benchmark_solver.py",
+      "summary": "Verifiziert, dass der optimierte Solver korrekte Ergebnisse liefert, indem er die Ausgabe gegen Validierungsregeln prüft.",
+      "tags": [
+        "validation",
+        "correctness"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:backend/services/scheduler/integration_test.py",
+      "type": "file",
+      "name": "integration_test.py",
+      "filePath": "backend/services/scheduler/integration_test.py",
+      "summary": "Integrationstests für den Stundenplanungsdienst, die die korrekte Ausführung des Solvers über verschiedene Testszenarien hinweg sicherstellen.",
+      "tags": [
+        "python",
+        "integration-test",
+        "test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:backend/services/scheduler/integration_test.py:test",
+      "type": "function",
+      "name": "test",
+      "filePath": "backend/services/scheduler/integration_test.py",
+      "summary": "Führt einen einzelnen Integrationstest aus und validiert den Solver-Erfolg.",
+      "tags": [
+        "test-suite",
+        "integration-test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:backend/services/scheduler/test_feasible.py",
+      "type": "file",
+      "name": "test_feasible.py",
+      "filePath": "backend/services/scheduler/test_feasible.py",
+      "summary": "Testskript zur Überprüfung der Machbarkeit (Feasibility) des Solvers unter spezifischen Randbedingungen.",
+      "tags": [
+        "python",
+        "test",
+        "feasibility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:backend/services/scheduler/test_feasible.py:create_feasible_test_data",
+      "type": "function",
+      "name": "create_feasible_test_data",
+      "filePath": "backend/services/scheduler/test_feasible.py",
+      "summary": "Erstellt Testdaten, von denen bekannt ist, dass sie eine gültige Lösung besitzen.",
+      "tags": [
+        "test-data",
+        "feasibility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:backend/services/scheduler/test_feasible.py:test_feasible_case",
+      "type": "function",
+      "name": "test_feasible_case",
+      "filePath": "backend/services/scheduler/test_feasible.py",
+      "summary": "Löst ein machbares Szenario mit beiden Solvern und validiert, dass eine Lösung gefunden wird.",
+      "tags": [
+        "test-case",
+        "correctness"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:backend/services/scheduler/test_solver.py",
+      "type": "file",
+      "name": "test_solver.py",
+      "filePath": "backend/services/scheduler/test_solver.py",
+      "summary": "Unit-Tests für die Constraint-Solving-Logik, die die grundlegende Zuweisungskorrektheit prüfen.",
+      "tags": [
+        "python",
+        "unit-test",
+        "test"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:backend/services/scheduler/test_solver.py:create_test_data",
+      "type": "function",
+      "name": "create_test_data",
+      "filePath": "backend/services/scheduler/test_solver.py",
+      "summary": "Generiert Basis-Testdaten für Unit-Tests.",
+      "tags": [
+        "test-data"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:backend/services/scheduler/test_solver.py:test_solvers",
+      "type": "function",
+      "name": "test_solvers",
+      "filePath": "backend/services/scheduler/test_solver.py",
+      "summary": "Führt den Standardtestlauf für beide Solver-Implementierungen aus.",
+      "tags": [
+        "test-case"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:backend/apps/api/src/classes/classes.controller.spec.ts",
+      "type": "file",
+      "name": "classes.controller.spec.ts",
+      "filePath": "backend/apps/api/src/classes/classes.controller.spec.ts",
+      "summary": "Unit-Tests für den ClassesController unter Verwendung von NestJS-Testwerkzeugen.",
+      "tags": [
+        "typescript",
+        "nestjs",
+        "unit-test",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/classes/classes.controller.ts",
+      "type": "file",
+      "name": "classes.controller.ts",
+      "filePath": "backend/apps/api/src/classes/classes.controller.ts",
+      "summary": "NestJS-Controller für Schulklassen. Definiert HTTP-Routen (GET, POST, PATCH, DELETE) zur Verwaltung von Klassen.",
+      "tags": [
+        "typescript",
+        "nestjs",
+        "controller",
+        "api-endpoint",
+        "tested"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:backend/apps/api/src/classes/classes.controller.ts:ClassesController",
+      "type": "class",
+      "name": "ClassesController",
+      "filePath": "backend/apps/api/src/classes/classes.controller.ts",
+      "summary": "Controller-Klasse, die HTTP-Anfragen für Klassen an den ClassesService delegiert.",
+      "tags": [
+        "nestjs",
+        "controller"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:backend/apps/api/src/classes/classes.module.ts",
+      "type": "file",
+      "name": "classes.module.ts",
+      "filePath": "backend/apps/api/src/classes/classes.module.ts",
+      "summary": "NestJS-Modul, das den ClassesController und ClassesService sowie den PrismaService deklariert und importiert.",
+      "tags": [
+        "typescript",
+        "nestjs",
+        "module"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/apps/api/src/classes/classes.module.ts:ClassesModule",
+      "type": "class",
+      "name": "ClassesModule",
+      "filePath": "backend/apps/api/src/classes/classes.module.ts",
+      "summary": "Modul-Klasse für den Kontext der Klassenverwaltung.",
+      "tags": [
+        "nestjs",
+        "module"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/classes/classes.service.spec.ts",
+      "type": "file",
+      "name": "classes.service.spec.ts",
+      "filePath": "backend/apps/api/src/classes/classes.service.spec.ts",
+      "summary": "Unit-Tests für den ClassesService.",
+      "tags": [
+        "typescript",
+        "nestjs",
+        "unit-test",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/classes/classes.service.ts",
+      "type": "file",
+      "name": "classes.service.ts",
+      "filePath": "backend/apps/api/src/classes/classes.service.ts",
+      "summary": "NestJS-Service zur Abwicklung der Geschäftslogik für Schulklassen. Interagiert mit der Datenbank über Prisma.",
+      "tags": [
+        "typescript",
+        "nestjs",
+        "service",
+        "business-logic",
+        "tested"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:backend/apps/api/src/classes/classes.service.ts:ClassesService",
+      "type": "class",
+      "name": "ClassesService",
+      "filePath": "backend/apps/api/src/classes/classes.service.ts",
+      "summary": "Service-Klasse zur Erstellung, Abfrage, Aktualisierung und Löschung von Klassen in der Prisma-Datenbank.",
+      "tags": [
+        "nestjs",
+        "service",
+        "prisma"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:backend/apps/api/src/classes/dto/create-class.dto.ts",
+      "type": "file",
+      "name": "create-class.dto.ts",
+      "filePath": "backend/apps/api/src/classes/dto/create-class.dto.ts",
+      "summary": "Data Transfer Object (DTO) für die Erstellung einer neuen Schulklasse.",
+      "tags": [
+        "typescript",
+        "dto",
+        "validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/apps/api/src/classes/dto/create-class.dto.ts:CreateClassDto",
+      "type": "class",
+      "name": "CreateClassDto",
+      "filePath": "backend/apps/api/src/classes/dto/create-class.dto.ts",
+      "summary": "DTO-Klasse, die die Struktur der Eingabedaten beim Erstellen einer Klasse definiert.",
+      "tags": [
+        "dto",
+        "validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/classes/dto/update-class.dto.ts",
+      "type": "file",
+      "name": "update-class.dto.ts",
+      "filePath": "backend/apps/api/src/classes/dto/update-class.dto.ts",
+      "summary": "Data Transfer Object (DTO) für das Aktualisieren einer Schulklasse, das auf CreateClassDto basiert.",
+      "tags": [
+        "typescript",
+        "dto",
+        "validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/apps/api/src/classes/dto/update-class.dto.ts:UpdateClassDto",
+      "type": "class",
+      "name": "UpdateClassDto",
+      "filePath": "backend/apps/api/src/classes/dto/update-class.dto.ts",
+      "summary": "DTO-Klasse für Klassen-Updates, die Eigenschaften von CreateClassDto optional erbt.",
+      "tags": [
+        "dto",
+        "validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/teachers/dto/create-teacher.dto.ts",
+      "type": "file",
+      "name": "create-teacher.dto.ts",
+      "filePath": "backend/apps/api/src/teachers/dto/create-teacher.dto.ts",
+      "summary": "Data Transfer Object (DTO) für die Erstellung eines neuen Lehrers.",
+      "tags": [
+        "typescript",
+        "dto",
+        "validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/apps/api/src/teachers/dto/create-teacher.dto.ts:CreateTeacherDto",
+      "type": "class",
+      "name": "CreateTeacherDto",
+      "filePath": "backend/apps/api/src/teachers/dto/create-teacher.dto.ts",
+      "summary": "DTO-Klasse, die die Struktur der Eingabedaten beim Erstellen eines Lehrers definiert.",
+      "tags": [
+        "dto",
+        "validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/teachers/dto/update-teacher.dto.ts",
+      "type": "file",
+      "name": "update-teacher.dto.ts",
+      "filePath": "backend/apps/api/src/teachers/dto/update-teacher.dto.ts",
+      "summary": "Data Transfer Object (DTO) für das Aktualisieren eines Lehrers, das auf CreateTeacherDto basiert.",
+      "tags": [
+        "typescript",
+        "dto",
+        "validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/apps/api/src/teachers/dto/update-teacher.dto.ts:UpdateTeacherDto",
+      "type": "class",
+      "name": "UpdateTeacherDto",
+      "filePath": "backend/apps/api/src/teachers/dto/update-teacher.dto.ts",
+      "summary": "DTO-Klasse für Lehrer-Updates, die Eigenschaften von CreateTeacherDto optional erbt.",
+      "tags": [
+        "dto",
+        "validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/teachers/teachers.controller.spec.ts",
+      "type": "file",
+      "name": "teachers.controller.spec.ts",
+      "filePath": "backend/apps/api/src/teachers/teachers.controller.spec.ts",
+      "summary": "Unit-Tests für den TeachersController unter Verwendung von NestJS-Testwerkzeugen.",
+      "tags": [
+        "typescript",
+        "nestjs",
+        "unit-test",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/teachers/teachers.controller.ts",
+      "type": "file",
+      "name": "teachers.controller.ts",
+      "filePath": "backend/apps/api/src/teachers/teachers.controller.ts",
+      "summary": "NestJS-Controller für Lehrer. Definiert HTTP-Routen (GET, POST, PATCH, DELETE) zur Verwaltung von Lehrern.",
+      "tags": [
+        "typescript",
+        "nestjs",
+        "controller",
+        "api-endpoint",
+        "tested"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:backend/apps/api/src/teachers/teachers.controller.ts:TeachersController",
+      "type": "class",
+      "name": "TeachersController",
+      "filePath": "backend/apps/api/src/teachers/teachers.controller.ts",
+      "summary": "Controller-Klasse, die HTTP-Anfragen für Lehrer an den TeachersService delegiert.",
+      "tags": [
+        "nestjs",
+        "controller"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:backend/apps/api/src/teachers/teachers.module.ts",
+      "type": "file",
+      "name": "teachers.module.ts",
+      "filePath": "backend/apps/api/src/teachers/teachers.module.ts",
+      "summary": "NestJS-Modul, das den TeachersController and TeachersService deklariert und importiert.",
+      "tags": [
+        "typescript",
+        "nestjs",
+        "module"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/apps/api/src/teachers/teachers.module.ts:TeachersModule",
+      "type": "class",
+      "name": "TeachersModule",
+      "filePath": "backend/apps/api/src/teachers/teachers.module.ts",
+      "summary": "Modul-Klasse für den Kontext der Lehrerverwaltung.",
+      "tags": [
+        "nestjs",
+        "module"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/teachers/teachers.service.spec.ts",
+      "type": "file",
+      "name": "teachers.service.spec.ts",
+      "filePath": "backend/apps/api/src/teachers/teachers.service.spec.ts",
+      "summary": "Unit-Tests für den TeachersService.",
+      "tags": [
+        "typescript",
+        "nestjs",
+        "unit-test",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/teachers/teachers.service.ts",
+      "type": "file",
+      "name": "teachers.service.ts",
+      "filePath": "backend/apps/api/src/teachers/teachers.service.ts",
+      "summary": "NestJS-Service zur Abwicklung der Geschäftslogik für Lehrer. Interagiert mit der Datenbank über Prisma.",
+      "tags": [
+        "typescript",
+        "nestjs",
+        "service",
+        "business-logic",
+        "tested"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:backend/apps/api/src/teachers/teachers.service.ts:TeachersService",
+      "type": "class",
+      "name": "TeachersService",
+      "filePath": "backend/apps/api/src/teachers/teachers.service.ts",
+      "summary": "Service-Klasse zur Erstellung, Abfrage, Aktualisierung und Löschung von Lehrern in der Prisma-Datenbank.",
+      "tags": [
+        "nestjs",
+        "service",
+        "prisma"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:backend/apps/api/src/timetable/dto/create-timetable.dto.ts",
+      "type": "file",
+      "name": "create-timetable.dto.ts",
+      "filePath": "backend/apps/api/src/timetable/dto/create-timetable.dto.ts",
+      "summary": "Ein Data Transfer Object (DTO) zur Validierung und Typisierung der Daten beim Erstellen eines neuen Stundenplaneintrags.",
+      "tags": [
+        "typescript",
+        "dto",
+        "validation",
+        "timetable"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/apps/api/src/timetable/dto/create-timetable.dto.ts:CreateTimetableDto",
+      "type": "class",
+      "name": "CreateTimetableDto",
+      "filePath": "backend/apps/api/src/timetable/dto/create-timetable.dto.ts",
+      "summary": "Klasse zur Validierung der Eingabedaten für die Erstellung eines Stundenplaneintrags.",
+      "tags": [
+        "dto",
+        "validation",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/timetable/dto/generate-schedule.dto.ts",
+      "type": "file",
+      "name": "generate-schedule.dto.ts",
+      "filePath": "backend/apps/api/src/timetable/dto/generate-schedule.dto.ts",
+      "summary": "Ein DTO, das die Datenstruktur für die automatische Stundenplangenerierung definiert, einschließlich Lehrern, Klassen, Räumen, Zeitfenstern und Anforderungen.",
+      "tags": [
+        "typescript",
+        "dto",
+        "scheduler",
+        "validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/apps/api/src/timetable/dto/generate-schedule.dto.ts:GenerateScheduleDto",
+      "type": "class",
+      "name": "GenerateScheduleDto",
+      "filePath": "backend/apps/api/src/timetable/dto/generate-schedule.dto.ts",
+      "summary": "Klasse, die die Eingabedatenstruktur für den Stundenplan-Generierungsalgorithmus validiert.",
+      "tags": [
+        "dto",
+        "validation",
+        "scheduler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/timetable/dto/update-timetable.dto.ts",
+      "type": "file",
+      "name": "update-timetable.dto.ts",
+      "filePath": "backend/apps/api/src/timetable/dto/update-timetable.dto.ts",
+      "summary": "Ein DTO zur Aktualisierung eines Stundenplaneintrags, welches die Felder des Erstellungs-DTOs erbt und optional macht.",
+      "tags": [
+        "typescript",
+        "dto",
+        "validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/apps/api/src/timetable/dto/update-timetable.dto.ts:UpdateTimetableDto",
+      "type": "class",
+      "name": "UpdateTimetableDto",
+      "filePath": "backend/apps/api/src/timetable/dto/update-timetable.dto.ts",
+      "summary": "Klasse für die Validierung der Änderungsdaten eines bestehenden Stundenplaneintrags.",
+      "tags": [
+        "dto",
+        "validation",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/timetable/timetable.controller.spec.ts",
+      "type": "file",
+      "name": "timetable.controller.spec.ts",
+      "filePath": "backend/apps/api/src/timetable/timetable.controller.spec.ts",
+      "summary": "Unit-Tests für den TimetableController, um das Routing und die API-Endpunkt-Verbindung zu überprüfen.",
+      "tags": [
+        "typescript",
+        "test",
+        "unit-test",
+        "controller"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/timetable/timetable.controller.ts",
+      "type": "file",
+      "name": "timetable.controller.ts",
+      "filePath": "backend/apps/api/src/timetable/timetable.controller.ts",
+      "summary": "NestJS-Controller, der HTTP-Endpunkte für CRUD-Operationen auf Stundenplaneinträgen und die Stundenplangenerierung bereitstellt.",
+      "tags": [
+        "typescript",
+        "nestjs",
+        "controller",
+        "api",
+        "tested"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/apps/api/src/timetable/timetable.controller.ts:TimetableController",
+      "type": "class",
+      "name": "TimetableController",
+      "filePath": "backend/apps/api/src/timetable/timetable.controller.ts",
+      "summary": "Controller-Klasse zur Verarbeitung eingehender HTTP-Anfragen bezüglich des Stundenplans.",
+      "tags": [
+        "nestjs",
+        "controller",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/timetable/timetable.service.spec.ts",
+      "type": "file",
+      "name": "timetable.service.spec.ts",
+      "filePath": "backend/apps/api/src/timetable/timetable.service.spec.ts",
+      "summary": "Unit-Tests für den TimetableService zur Verifizierung der Geschäftslogik für Stundenplaneinträge.",
+      "tags": [
+        "typescript",
+        "test",
+        "unit-test",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/timetable/timetable.service.ts",
+      "type": "file",
+      "name": "timetable.service.ts",
+      "filePath": "backend/apps/api/src/timetable/timetable.service.ts",
+      "summary": "NestJS-Service zur Abwicklung der Geschäftslogik von Stundenplänen, einschließlich der Datenbankabfragen über Prisma und dem Aufruf des externen Schedulers.",
+      "tags": [
+        "typescript",
+        "nestjs",
+        "service",
+        "prisma",
+        "tested"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:backend/apps/api/src/timetable/timetable.service.ts:TimetableService",
+      "type": "class",
+      "name": "TimetableService",
+      "filePath": "backend/apps/api/src/timetable/timetable.service.ts",
+      "summary": "Service-Klasse zur Interaktion mit der Datenbank und der API-Stundenplangenerierung.",
+      "tags": [
+        "nestjs",
+        "service",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:backend/apps/api/src/timetable/timetable.service.ts:findAll",
+      "type": "function",
+      "name": "findAll",
+      "filePath": "backend/apps/api/src/timetable/timetable.service.ts",
+      "summary": "Ruft alle Stundenplaneinträge inklusive der verknüpften Beziehungen (Klasse, Fach, Lehrer, Raum) ab.",
+      "tags": [
+        "service-method",
+        "database",
+        "query"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/apps/api/src/timetable/timetable.service.ts:findOne",
+      "type": "function",
+      "name": "findOne",
+      "filePath": "backend/apps/api/src/timetable/timetable.service.ts",
+      "summary": "Sucht einen einzelnen Stundenplaneintrag anhand seiner ID inklusive verknüpfter Beziehungen.",
+      "tags": [
+        "service-method",
+        "database",
+        "query"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/apps/api/src/timetable/timetable.service.ts:generateSchedule",
+      "type": "function",
+      "name": "generateSchedule",
+      "filePath": "backend/apps/api/src/timetable/timetable.service.ts",
+      "summary": "Sendet eine Anfrage mit den Stundenplandaten an den externen Scheduler-Service und verarbeitet das Ergebnis.",
+      "tags": [
+        "service-method",
+        "http-client",
+        "scheduler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:backend/apps/api/src/timetable/timetable.service.ts:generateScheduleFromDb",
+      "type": "function",
+      "name": "generateScheduleFromDb",
+      "filePath": "backend/apps/api/src/timetable/timetable.service.ts",
+      "summary": "Lädt alle relevanten Daten aus der Datenbank, bereitet die Stundenplananforderung vor und initiiert die automatische Stundenplangenerierung.",
+      "tags": [
+        "service-method",
+        "database",
+        "scheduler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:backend/apps/api/src/users/dto/create-user.dto.ts",
+      "type": "file",
+      "name": "create-user.dto.ts",
+      "filePath": "backend/apps/api/src/users/dto/create-user.dto.ts",
+      "summary": "Ein DTO zur Definition und Validierung der Eingabedaten für das Erstellen eines neuen Benutzers.",
+      "tags": [
+        "typescript",
+        "dto",
+        "validation",
+        "user"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/apps/api/src/users/dto/create-user.dto.ts:CreateUserDto",
+      "type": "class",
+      "name": "CreateUserDto",
+      "filePath": "backend/apps/api/src/users/dto/create-user.dto.ts",
+      "summary": "Klasse zur Validierung der Daten eines neu zu erstellenden Benutzers.",
+      "tags": [
+        "dto",
+        "validation",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/users/dto/update-user.dto.ts",
+      "type": "file",
+      "name": "update-user.dto.ts",
+      "filePath": "backend/apps/api/src/users/dto/update-user.dto.ts",
+      "summary": "Ein DTO für das Aktualisieren von Benutzerdaten, welches vom Erstellungs-DTO erbt.",
+      "tags": [
+        "typescript",
+        "dto",
+        "validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/apps/api/src/users/dto/update-user.dto.ts:UpdateUserDto",
+      "type": "class",
+      "name": "UpdateUserDto",
+      "filePath": "backend/apps/api/src/users/dto/update-user.dto.ts",
+      "summary": "Klasse für die Validierung der Änderungsdaten eines bestehenden Benutzers.",
+      "tags": [
+        "dto",
+        "validation",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/users/users.controller.spec.ts",
+      "type": "file",
+      "name": "users.controller.spec.ts",
+      "filePath": "backend/apps/api/src/users/users.controller.spec.ts",
+      "summary": "Unit-Tests für den UsersController zur Verifizierung des Endpunkt-Verhaltens.",
+      "tags": [
+        "typescript",
+        "test",
+        "unit-test",
+        "controller"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/users/users.controller.ts",
+      "type": "file",
+      "name": "users.controller.ts",
+      "filePath": "backend/apps/api/src/users/users.controller.ts",
+      "summary": "NestJS-Controller für die Verwaltung von Benutzern, der die API-Endpunkte für CRUD-Operationen bereitstellt.",
+      "tags": [
+        "typescript",
+        "nestjs",
+        "controller",
+        "api",
+        "tested"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/apps/api/src/users/users.controller.ts:UsersController",
+      "type": "class",
+      "name": "UsersController",
+      "filePath": "backend/apps/api/src/users/users.controller.ts",
+      "summary": "Controller-Klasse zur Verarbeitung eingehender HTTP-Anfragen bezüglich der Benutzerverwaltung.",
+      "tags": [
+        "nestjs",
+        "controller",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/users/users.service.spec.ts",
+      "type": "file",
+      "name": "users.service.spec.ts",
+      "filePath": "backend/apps/api/src/users/users.service.spec.ts",
+      "summary": "Unit-Tests für den UsersService zur Sicherstellung der korrekten Ausführung der Benutzer-Geschäftslogik.",
+      "tags": [
+        "typescript",
+        "test",
+        "unit-test",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/users/users.service.ts",
+      "type": "file",
+      "name": "users.service.ts",
+      "filePath": "backend/apps/api/src/users/users.service.ts",
+      "summary": "NestJS-Service, der die Geschäftslogik für Benutzer implementiert, einschließlich Passwort-Hashing mit bcrypt und Datenbankinteraktionen.",
+      "tags": [
+        "typescript",
+        "nestjs",
+        "service",
+        "prisma",
+        "bcrypt",
+        "tested"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:backend/apps/api/src/users/users.service.ts:UsersService",
+      "type": "class",
+      "name": "UsersService",
+      "filePath": "backend/apps/api/src/users/users.service.ts",
+      "summary": "Service-Klasse zur Abwicklung von Datenbankabfragen und Hashing-Logik für Benutzer.",
+      "tags": [
+        "nestjs",
+        "service",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:backend/apps/api/src/users/users.service.ts:create",
+      "type": "function",
+      "name": "create",
+      "filePath": "backend/apps/api/src/users/users.service.ts",
+      "summary": "Erstellt einen neuen Benutzer in der Datenbank und hasht das Passwort, falls vorhanden, mit bcrypt.",
+      "tags": [
+        "service-method",
+        "database",
+        "security"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:backend/apps/api/src/app.module.ts",
+      "type": "file",
+      "name": "app.module.ts",
+      "filePath": "backend/apps/api/src/app.module.ts",
+      "summary": "Das Hauptmodul (Root-Modul) der NestJS-Anwendung, das alle Feature-Module importiert und konfigurierte Dienste bereitstellt.",
+      "tags": [
+        "typescript",
+        "nestjs",
+        "module",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/apps/api/src/app.module.ts:AppModule",
+      "type": "class",
+      "name": "AppModule",
+      "filePath": "backend/apps/api/src/app.module.ts",
+      "summary": "Die Hauptmodul-Klasse, die die Struktur der NestJS-API organisiert.",
+      "tags": [
+        "nestjs",
+        "module",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/main.ts",
+      "type": "file",
+      "name": "main.ts",
+      "filePath": "backend/apps/api/src/main.ts",
+      "summary": "Der Haupteinstiegspunkt (Entry-Point) für die NestJS-Backend-API, der den HTTP-Server startet, globale Pipes konfiguriert und CORS aktiviert.",
+      "tags": [
+        "typescript",
+        "nestjs",
+        "entry-point",
+        "bootstrap"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/prisma.service.ts",
+      "type": "file",
+      "name": "prisma.service.ts",
+      "filePath": "backend/apps/api/src/prisma.service.ts",
+      "summary": "Ein NestJS-Dienst, der den PrismaClient instanziiert und verwaltet, um Datenbankverbindungen im Lebenszyklus der Anwendung zu steuern.",
+      "tags": [
+        "typescript",
+        "nestjs",
+        "prisma",
+        "database"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/apps/api/src/prisma.service.ts:PrismaService",
+      "type": "class",
+      "name": "PrismaService",
+      "filePath": "backend/apps/api/src/prisma.service.ts",
+      "summary": "Service-Klasse zur Bereitstellung der Prisma-Datenbankverbindung für andere Services.",
+      "tags": [
+        "nestjs",
+        "service",
+        "database",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/timetable/timetable.module.ts",
+      "type": "file",
+      "name": "timetable.module.ts",
+      "filePath": "backend/apps/api/src/timetable/timetable.module.ts",
+      "summary": "Das Stundenplan-Modul (TimetableModule), welches Controller, Services und die Datenbankanbindung für die Stundenplanverwaltung kapselt.",
+      "tags": [
+        "typescript",
+        "nestjs",
+        "module",
+        "timetable"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/apps/api/src/timetable/timetable.module.ts:TimetableModule",
+      "type": "class",
+      "name": "TimetableModule",
+      "filePath": "backend/apps/api/src/timetable/timetable.module.ts",
+      "summary": "Modulklasse zur Kapselung aller Stundenplan-bezogenen Funktionalitäten.",
+      "tags": [
+        "nestjs",
+        "module",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/users/users.module.ts",
+      "type": "file",
+      "name": "users.module.ts",
+      "filePath": "backend/apps/api/src/users/users.module.ts",
+      "summary": "Das Benutzermodul (UsersModule), das den UsersController und UsersService deklariert und exportiert, um die Benutzerverwaltung bereitzustellen.",
+      "tags": [
+        "typescript",
+        "nestjs",
+        "module",
+        "users"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/apps/api/src/users/users.module.ts:UsersModule",
+      "type": "class",
+      "name": "UsersModule",
+      "filePath": "backend/apps/api/src/users/users.module.ts",
+      "summary": "Modulklasse zur Kapselung aller benutzerbezogenen Funktionalitäten.",
+      "tags": [
+        "nestjs",
+        "module",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/auth/auth.controller.spec.ts",
+      "type": "file",
+      "name": "auth.controller.spec.ts",
+      "filePath": "backend/apps/api/src/auth/auth.controller.spec.ts",
+      "summary": "Unit-Tests für den AuthController zur Überprüfung der Authentifizierungs-Routen.",
+      "tags": [
+        "typescript",
+        "nest",
+        "auth",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/auth/auth.controller.ts",
+      "type": "file",
+      "name": "auth.controller.ts",
+      "filePath": "backend/apps/api/src/auth/auth.controller.ts",
+      "summary": "Controller für die Authentifizierung, der HTTP-Endpunkte wie z.B. das Anmelden (Sign-In) bereitstellt.",
+      "tags": [
+        "typescript",
+        "nest",
+        "auth",
+        "controller",
+        "tested"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/apps/api/src/auth/auth.controller.ts:AuthController",
+      "type": "class",
+      "name": "AuthController",
+      "filePath": "backend/apps/api/src/auth/auth.controller.ts",
+      "summary": "Controller-Klasse zur Bearbeitung von Authentifizierungsanfragen im API-Service.",
+      "tags": [
+        "controller",
+        "auth",
+        "nest"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/auth/auth.module.ts",
+      "type": "file",
+      "name": "auth.module.ts",
+      "filePath": "backend/apps/api/src/auth/auth.module.ts",
+      "summary": "NestJS-Modul zur Definition und Konfiguration aller Authentifizierungskomponenten.",
+      "tags": [
+        "typescript",
+        "nest",
+        "auth",
+        "module"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/apps/api/src/auth/auth.module.ts:AuthModule",
+      "type": "class",
+      "name": "AuthModule",
+      "filePath": "backend/apps/api/src/auth/auth.module.ts",
+      "summary": "Modul-Klasse, die Controller, Services und externe Abhängigkeiten für die Authentifizierung importiert und exportiert.",
+      "tags": [
+        "module",
+        "auth",
+        "nest"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/auth/auth.service.spec.ts",
+      "type": "file",
+      "name": "auth.service.spec.ts",
+      "filePath": "backend/apps/api/src/auth/auth.service.spec.ts",
+      "summary": "Unit-Tests zur Validierung der Authentifizierungslogik im AuthService.",
+      "tags": [
+        "typescript",
+        "nest",
+        "auth",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/auth/auth.service.ts",
+      "type": "file",
+      "name": "auth.service.ts",
+      "filePath": "backend/apps/api/src/auth/auth.service.ts",
+      "summary": "Service, der die Authentifizierungslogik wie Benutzer-Validierung und JWT-Token-Ausstellung implementiert.",
+      "tags": [
+        "typescript",
+        "nest",
+        "auth",
+        "service",
+        "tested"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/apps/api/src/auth/auth.service.ts:AuthService",
+      "type": "class",
+      "name": "AuthService",
+      "filePath": "backend/apps/api/src/auth/auth.service.ts",
+      "summary": "Service-Klasse zur Bereitstellung von Authentifizierungsmethoden wie dem Sign-In.",
+      "tags": [
+        "service",
+        "auth",
+        "nest"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/apps/api/src/auth/auth.service.ts:AuthService.signIn",
+      "type": "function",
+      "name": "AuthService.signIn",
+      "filePath": "backend/apps/api/src/auth/auth.service.ts",
+      "summary": "Authentifiziert Benutzer anhand von E-Mail und Passwort und generiert ein JWT-Token.",
+      "tags": [
+        "authentication",
+        "jwt",
+        "login"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "service:backend/apps/api/Dockerfile",
+      "type": "service",
+      "name": "Dockerfile",
+      "filePath": "backend/apps/api/Dockerfile",
+      "summary": "Dockerfile für den API-Dienst (NestJS), welches ein Multi-Stage-Build-Verfahren zur Reduzierung der Image-Größe nutzt.",
+      "tags": [
+        "docker",
+        "dockerfile",
+        "api",
+        "container",
+        "build"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:backend/services/scheduler/Dockerfile",
+      "type": "service",
+      "name": "Dockerfile",
+      "filePath": "backend/services/scheduler/Dockerfile",
+      "summary": "Dockerfile für den Scheduler-Dienst (Python). Installiert die Python-Abhängigkeiten und startet den FastAPI/Uvicorn-Server.",
+      "tags": [
+        "docker",
+        "dockerfile",
+        "scheduler",
+        "python",
+        "fastapi"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frontend/smartplan-frontend/admin-dashboard.html",
+      "type": "file",
+      "name": "admin-dashboard.html",
+      "filePath": "frontend/smartplan-frontend/admin-dashboard.html",
+      "summary": "HTML-Datei für das Admin-Dashboard zur Verwaltung von Benutzern, Fächern, Klassen und Stundenplänen.",
+      "tags": [
+        "html",
+        "markup",
+        "admin-dashboard",
+        "frontend"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frontend/smartplan-frontend/attendance.html",
+      "type": "file",
+      "name": "attendance.html",
+      "filePath": "frontend/smartplan-frontend/attendance.html",
+      "summary": "HTML-Datei zur Aufzeichnung und Überprüfung der Anwesenheit von Schülern.",
+      "tags": [
+        "html",
+        "markup",
+        "attendance",
+        "frontend"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frontend/smartplan-frontend/index.html",
+      "type": "file",
+      "name": "index.html",
+      "filePath": "frontend/smartplan-frontend/index.html",
+      "summary": "Haupt-Einstiegsseite der Anwendung, die als Landingpage dient und Links zu anderen Dashboards bereitstellt.",
+      "tags": [
+        "html",
+        "markup",
+        "landing-page",
+        "frontend",
+        "entry-point"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frontend/smartplan-frontend/login.html",
+      "type": "file",
+      "name": "login.html",
+      "filePath": "frontend/smartplan-frontend/login.html",
+      "summary": "HTML-Anmeldeseite für Benutzer, um sich bei der SmartPlan-Plattform zu authentifizieren.",
+      "tags": [
+        "html",
+        "markup",
+        "login",
+        "frontend"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frontend/smartplan-frontend/resources.html",
+      "type": "file",
+      "name": "resources.html",
+      "filePath": "frontend/smartplan-frontend/resources.html",
+      "summary": "HTML-Datei zur Verwaltung und Darstellung von Schulressourcen wie Räumen und Fächern.",
+      "tags": [
+        "html",
+        "markup",
+        "resources",
+        "frontend"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frontend/smartplan-frontend/student-dashboard.html",
+      "type": "file",
+      "name": "student-dashboard.html",
+      "filePath": "frontend/smartplan-frontend/student-dashboard.html",
+      "summary": "HTML-Datei für das Schüler-Dashboard zur Anzeige des eigenen Stundenplans und der Anwesenheitsstatistik.",
+      "tags": [
+        "html",
+        "markup",
+        "student-dashboard",
+        "frontend"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frontend/smartplan-frontend/styles.css",
+      "type": "file",
+      "name": "styles.css",
+      "filePath": "frontend/smartplan-frontend/styles.css",
+      "summary": "Zentrale Stylesheet-Datei für das einheitliche Styling und Layout aller Frontend-Komponenten.",
+      "tags": [
+        "css",
+        "markup",
+        "styles",
+        "frontend"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frontend/smartplan-frontend/substitutions.html",
+      "type": "file",
+      "name": "substitutions.html",
+      "filePath": "frontend/smartplan-frontend/substitutions.html",
+      "summary": "HTML-Datei zur Darstellung von Vertretungen und Stundenplanänderungen.",
+      "tags": [
+        "html",
+        "markup",
+        "substitutions",
+        "frontend"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frontend/smartplan-frontend/teacher-dashboard.html",
+      "type": "file",
+      "name": "teacher-dashboard.html",
+      "filePath": "frontend/smartplan-frontend/teacher-dashboard.html",
+      "summary": "HTML-Datei für das Lehrer-Dashboard zur Verwaltung des Unterrichts und der Kurslisten.",
+      "tags": [
+        "html",
+        "markup",
+        "teacher-dashboard",
+        "frontend"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frontend/smartplan-frontend/timetable.html",
+      "type": "file",
+      "name": "timetable.html",
+      "filePath": "frontend/smartplan-frontend/timetable.html",
+      "summary": "HTML-Datei für die detaillierte und interaktive Stundenplanansicht.",
+      "tags": [
+        "html",
+        "markup",
+        "timetable",
+        "frontend"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:.understand-anything/.understandignore",
+      "type": "file",
+      "name": ".understandignore",
+      "filePath": ".understand-anything/.understandignore",
+      "summary": "Konfigurationsdatei zur Definition von Mustern und Pfaden, die bei der statischen Code-Analyse ignoriert werden sollen.",
+      "tags": [
+        "config",
+        "tooling",
+        "ignore-list"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.understand-anything/config.json",
+      "type": "config",
+      "name": "config.json",
+      "filePath": ".understand-anything/config.json",
+      "summary": "Zentrale Konfigurationsdatei für das Analyse-Werkzeug, definiert globale Parameter wie die Zielsprache.",
+      "tags": [
+        "config",
+        "json",
+        "tooling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/lib/prisma.ts",
+      "type": "file",
+      "name": "prisma.ts",
+      "filePath": "backend/apps/api/lib/prisma.ts",
+      "summary": "Initialisiert und exportiert eine globale Instanz des PrismaClient zur Interaktion mit der PostgreSQL-Datenbank.",
+      "tags": [
+        "typescript",
+        "prisma",
+        "database-client",
+        "helper"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:backend/apps/api/package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "backend/apps/api/package.json",
+      "summary": "Paketkonfigurationsdatei für den API-Dienst. Verwaltet npm-Abhängigkeiten, Startskripte und Build-Befehle.",
+      "tags": [
+        "config",
+        "package-json",
+        "dependencies",
+        "npm"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/prisma.config.ts",
+      "type": "file",
+      "name": "prisma.config.ts",
+      "filePath": "backend/apps/api/prisma.config.ts",
+      "summary": "TypeScript-Konfiguration für Prisma zur Bereitstellung anwendungsspezifischer Einstellungen.",
+      "tags": [
+        "typescript",
+        "prisma",
+        "config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:backend/apps/api/prisma/migrations/20260517143134_init/migration.sql",
+      "type": "table",
+      "name": "migration.sql",
+      "filePath": "backend/apps/api/prisma/migrations/20260517143134_init/migration.sql",
+      "summary": "Initiale SQL-Migrationsdatei, die das relationale Datenbankschema aufbaut, inklusive Tabellen wie User, Teacher, Student und TimetableEntry.",
+      "tags": [
+        "sql",
+        "migration",
+        "database-schema",
+        "table-definition"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:backend/apps/api/prisma/migrations/migration_lock.toml",
+      "type": "config",
+      "name": "migration_lock.toml",
+      "filePath": "backend/apps/api/prisma/migrations/migration_lock.toml",
+      "summary": "Prisma-Sperrdatei, die verhindert, dass konkurrierende Migrationen gleichzeitig auf der Datenbank ausgeführt werden.",
+      "tags": [
+        "config",
+        "toml",
+        "prisma",
+        "lockfile"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "schema:backend/apps/api/prisma/schema.prisma",
+      "type": "schema",
+      "name": "schema.prisma",
+      "filePath": "backend/apps/api/prisma/schema.prisma",
+      "summary": "Prisma-Schema-Datei, die das Datenmodell und die Relationen für das gesamte System (User, Teacher, Student, Class, TimetableEntry usw.) deklariert.",
+      "tags": [
+        "prisma",
+        "database-schema",
+        "data-modeling"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:backend/apps/api/prisma/seed.ts",
+      "type": "file",
+      "name": "seed.ts",
+      "filePath": "backend/apps/api/prisma/seed.ts",
+      "summary": "TypeScript-Seed-Skript zum automatischen Einfügen von Testdaten in die Datenbank bei der Initialisierung.",
+      "tags": [
+        "typescript",
+        "seeding",
+        "database",
+        "dev-tool"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:backend/apps/api/prisma/seed.ts:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "backend/apps/api/prisma/seed.ts",
+      "summary": "Asynchrone Hauptfunktion zum Ausführen des Datenbank-Seedings. Baut Verbindungen auf und führt Roh-SQL-Inserts aus.",
+      "tags": [
+        "seeding",
+        "async",
+        "database-init"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:backend/apps/api/scripts/verify-prisma.ts",
+      "type": "file",
+      "name": "verify-prisma.ts",
+      "filePath": "backend/apps/api/scripts/verify-prisma.ts",
+      "summary": "Verifizierungsskript zur schnellen Prüfung der Datenbankverbindung und zum Auslesen eines Testbenutzers über Prisma.",
+      "tags": [
+        "typescript",
+        "script",
+        "prisma",
+        "helper"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/apps/api/scripts/verify-prisma.ts:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "backend/apps/api/scripts/verify-prisma.ts",
+      "summary": "Hauptfunktion der Verifizierung, die eine einfache Abfrage an Prisma sendet, um die Konnektivität sicherzustellen.",
+      "tags": [
+        "verification",
+        "async",
+        "prisma"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/classes/entities/class.entity.ts",
+      "type": "file",
+      "name": "class.entity.ts",
+      "filePath": "backend/apps/api/src/classes/entities/class.entity.ts",
+      "summary": "Definiert die Entity-Klasse für Schulklassen im NestJS-Kontext.",
+      "tags": [
+        "typescript",
+        "nestjs",
+        "entity",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/apps/api/src/classes/entities/class.entity.ts:Class",
+      "type": "class",
+      "name": "Class",
+      "filePath": "backend/apps/api/src/classes/entities/class.entity.ts",
+      "summary": "Datenmodell-Klasse zur Repräsentation einer Schulklasse im Domänenmodell.",
+      "tags": [
+        "entity",
+        "class-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/teachers/entities/teacher.entity.ts",
+      "type": "file",
+      "name": "teacher.entity.ts",
+      "filePath": "backend/apps/api/src/teachers/entities/teacher.entity.ts",
+      "summary": "Definiert die Entity-Klasse für Lehrkräfte im NestJS-Kontext.",
+      "tags": [
+        "typescript",
+        "nestjs",
+        "entity",
+        "teacher"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/apps/api/src/teachers/entities/teacher.entity.ts:Teacher",
+      "type": "class",
+      "name": "Teacher",
+      "filePath": "backend/apps/api/src/teachers/entities/teacher.entity.ts",
+      "summary": "Datenmodell-Klasse zur Repräsentation eines Lehrers.",
+      "tags": [
+        "entity",
+        "teacher-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/timetable/entities/timetable.entity.ts",
+      "type": "file",
+      "name": "timetable.entity.ts",
+      "filePath": "backend/apps/api/src/timetable/entities/timetable.entity.ts",
+      "summary": "Definiert die Entity-Klasse für den Stundenplan im NestJS-Kontext.",
+      "tags": [
+        "typescript",
+        "nestjs",
+        "entity",
+        "timetable"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/apps/api/src/timetable/entities/timetable.entity.ts:Timetable",
+      "type": "class",
+      "name": "Timetable",
+      "filePath": "backend/apps/api/src/timetable/entities/timetable.entity.ts",
+      "summary": "Datenmodell-Klasse zur Repräsentation von Stundenplaneinträgen.",
+      "tags": [
+        "entity",
+        "timetable-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/apps/api/src/users/entities/user.entity.ts",
+      "type": "file",
+      "name": "user.entity.ts",
+      "filePath": "backend/apps/api/src/users/entities/user.entity.ts",
+      "summary": "Definiert die Entity-Klasse für Benutzer im NestJS-Kontext.",
+      "tags": [
+        "typescript",
+        "nestjs",
+        "entity",
+        "user"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/apps/api/src/users/entities/user.entity.ts:User",
+      "type": "class",
+      "name": "User",
+      "filePath": "backend/apps/api/src/users/entities/user.entity.ts",
+      "summary": "Datenmodell-Klasse zur Repräsentation eines Systembenutzers.",
+      "tags": [
+        "entity",
+        "user-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:backend/apps/api/tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "backend/apps/api/tsconfig.json",
+      "summary": "Compiler-Konfigurationsdatei für TypeScript im API-Projekt. Legt Ausgabeordner und Sprachfeatures fest.",
+      "tags": [
+        "config",
+        "tsconfig",
+        "typescript",
+        "compiler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:backend/docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "backend/docker-compose.yml",
+      "summary": "Docker-Compose-Manifest zur Orchestrierung der lokalen Datenbank (PostgreSQL) und der Scheduler-Dienste.",
+      "tags": [
+        "docker-compose",
+        "infrastructure",
+        "postgres",
+        "containers"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:backend/services/scheduler/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "backend/services/scheduler/app/__init__.py",
+      "summary": "Initialisierungsdatei für das Scheduler-App-Modul in Python.",
+      "tags": [
+        "python",
+        "package-init",
+        "scheduler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/services/scheduler/app/models.py",
+      "type": "file",
+      "name": "models.py",
+      "filePath": "backend/services/scheduler/app/models.py",
+      "summary": "Definiert Datenmodelle für den Scheduler-Dienst zur Validierung von Anfragen und Antworten.",
+      "tags": [
+        "python",
+        "pydantic",
+        "models",
+        "data-transfer"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/services/scheduler/debug_t4b.py",
+      "type": "file",
+      "name": "debug_t4b.py",
+      "filePath": "backend/services/scheduler/debug_t4b.py",
+      "summary": "Hilfsskript zur manuellen Fehlersuche und zum Testen der Stundenplangenerierung.",
+      "tags": [
+        "python",
+        "debugging",
+        "scheduler",
+        "script"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:backend/services/scheduler/debug_t4b.py:load",
+      "type": "function",
+      "name": "load",
+      "filePath": "backend/services/scheduler/debug_t4b.py",
+      "summary": "Dynamischer Modullader zum flexiblen Einbinden von Python-Dateien zu Testzwecken.",
+      "tags": [
+        "python",
+        "dynamic-import",
+        "debug-tool"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/services/scheduler/final_trace.py",
+      "type": "file",
+      "name": "final_trace.py",
+      "filePath": "backend/services/scheduler/final_trace.py",
+      "summary": "Skript zur Erfassung und Aufzeichnung finaler Traces des Stundenplan-Algorithmus zur Performance-Analyse.",
+      "tags": [
+        "python",
+        "tracing",
+        "scheduler",
+        "debugging"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:backend/services/scheduler/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "backend/services/scheduler/main.py",
+      "summary": "Haupteinstiegspunkt für den Python-Scheduler. Konfiguriert die FastAPI-App und startet den Server.",
+      "tags": [
+        "python",
+        "fastapi",
+        "entry-point",
+        "scheduler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/services/scheduler/main.py:root",
+      "type": "function",
+      "name": "root",
+      "filePath": "backend/services/scheduler/main.py",
+      "summary": "FastAPI-Pfadoperation für die Root-Route, dient als einfacher Status- und Ping-Endpunkt.",
+      "tags": [
+        "fastapi",
+        "endpoint",
+        "health-check"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:backend/services/scheduler/requirements.txt",
+      "type": "document",
+      "name": "requirements.txt",
+      "filePath": "backend/services/scheduler/requirements.txt",
+      "summary": "Pip-Anforderungsdatei, welche alle Python-Bibliotheken (FastAPI, uvicorn, ortools etc.) für den Scheduler auflistet.",
+      "tags": [
+        "docs",
+        "pip",
+        "dependencies",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/services/scheduler/status_check.py",
+      "type": "file",
+      "name": "status_check.py",
+      "filePath": "backend/services/scheduler/status_check.py",
+      "summary": "Überwachungsskript zur Überprüfung der Systemressourcen und des Solver-Dienstes.",
+      "tags": [
+        "python",
+        "healthcheck",
+        "monitoring"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:backend/services/scheduler/t_room_debug.py",
+      "type": "file",
+      "name": "t_room_debug.py",
+      "filePath": "backend/services/scheduler/t_room_debug.py",
+      "summary": "Diagnoseskript zur detaillierten Überprüfung von Raumkonflikten und Belegungsszenarien.",
+      "tags": [
+        "python",
+        "debugging",
+        "room-constraints",
+        "scheduler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:backend/services/scheduler/t_room_debug.py:show_constraints",
+      "type": "function",
+      "name": "show_constraints",
+      "filePath": "backend/services/scheduler/t_room_debug.py",
+      "summary": "Konsolenausgabefunktion für die Visualisierung aktiver Modellbeschränkungen.",
+      "tags": [
+        "debugging",
+        "output",
+        "constraints"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/services/solver_phase2_check.py",
+      "type": "file",
+      "name": "solver_phase2_check.py",
+      "filePath": "backend/services/solver_phase2_check.py",
+      "summary": "Test- und Validierungsskript für die Optimierungsphase 2 des Stundenplan-Solvers.",
+      "tags": [
+        "python",
+        "solver",
+        "optimization",
+        "or-tools"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:backend/services/solver_phase2_check.py:test_phase2",
+      "type": "function",
+      "name": "test_phase2",
+      "filePath": "backend/services/solver_phase2_check.py",
+      "summary": "Generiert Testdaten für die Raumbelegung und validiert die Leistung des CP-SAT-Optimierungsmodells.",
+      "tags": [
+        "constraint-programming",
+        "or-tools",
+        "solver",
+        "test"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frontend/substitutions.html",
+      "type": "file",
+      "name": "substitutions.html",
+      "filePath": "frontend/substitutions.html",
+      "summary": "HTML-Datei zur Anzeige und Verwaltung von Vertretungsplänen und Ausfällen im System.",
+      "tags": [
+        "html",
+        "markup",
+        "substitutions",
+        "frontend"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:backend/services/scheduler/app/app.py",
+      "target": "function:backend/services/scheduler/app/app.py:health",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/app.py",
+      "target": "function:backend/services/scheduler/app/app.py:solve",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/main.py",
+      "target": "function:backend/services/scheduler/app/main.py:health",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/main.py",
+      "target": "function:backend/services/scheduler/app/main.py:solve",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/main.py",
+      "target": "class:backend/services/scheduler/app/main.py:Requirement",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/main.py",
+      "target": "class:backend/services/scheduler/app/main.py:Room",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/main.py",
+      "target": "class:backend/services/scheduler/app/main.py:Slot",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/main.py",
+      "target": "class:backend/services/scheduler/app/main.py:Teacher",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/main.py",
+      "target": "class:backend/services/scheduler/app/main.py:ClassItem",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/main.py",
+      "target": "class:backend/services/scheduler/app/main.py:ScheduleRequest",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/schemas.py",
+      "target": "class:backend/services/scheduler/app/schemas.py:Requirement",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/schemas.py",
+      "target": "class:backend/services/scheduler/app/schemas.py:Teacher",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/schemas.py",
+      "target": "class:backend/services/scheduler/app/schemas.py:ClassItem",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/schemas.py",
+      "target": "class:backend/services/scheduler/app/schemas.py:Room",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/schemas.py",
+      "target": "class:backend/services/scheduler/app/schemas.py:Slot",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/schemas.py",
+      "target": "class:backend/services/scheduler/app/schemas.py:SchedulerInput",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/solver.py",
+      "target": "function:backend/services/scheduler/app/solver.py:_str",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/solver.py",
+      "target": "function:backend/services/scheduler/app/solver.py:_normalise",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/solver.py",
+      "target": "function:backend/services/scheduler/app/solver.py:solve_scheduler",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/solver.py",
+      "target": "function:backend/services/scheduler/app/solver.py:_collect",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/solver_optimized.py",
+      "target": "function:backend/services/scheduler/app/solver_optimized.py:solve_scheduler_optimized",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/solver_optimized.py",
+      "target": "function:backend/services/scheduler/app/solver_optimized.py:solve_scheduler",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/benchmark_solver.py",
+      "target": "function:backend/services/scheduler/benchmark_solver.py:create_larger_test_data",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/benchmark_solver.py",
+      "target": "function:backend/services/scheduler/benchmark_solver.py:benchmark_solvers",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/benchmark_solver.py",
+      "target": "function:backend/services/scheduler/benchmark_solver.py:verify_correctness",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/integration_test.py",
+      "target": "function:backend/services/scheduler/integration_test.py:test",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/test_feasible.py",
+      "target": "function:backend/services/scheduler/test_feasible.py:create_feasible_test_data",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/test_feasible.py",
+      "target": "function:backend/services/scheduler/test_feasible.py:test_feasible_case",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/test_solver.py",
+      "target": "function:backend/services/scheduler/test_solver.py:create_test_data",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/test_solver.py",
+      "target": "function:backend/services/scheduler/test_solver.py:test_solvers",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/app.py",
+      "target": "file:backend/services/scheduler/app/schemas.py",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/app.py",
+      "target": "file:backend/services/scheduler/app/solver.py",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/main.py",
+      "target": "file:backend/services/scheduler/app/solver.py",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/benchmark_solver.py",
+      "target": "file:backend/services/scheduler/app/schemas.py",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/benchmark_solver.py",
+      "target": "file:backend/services/scheduler/app/solver_optimized.py",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/benchmark_solver.py",
+      "target": "file:backend/services/scheduler/app/solver.py",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/integration_test.py",
+      "target": "file:backend/services/scheduler/app/schemas.py",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/integration_test.py",
+      "target": "file:backend/services/scheduler/app/solver.py",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/test_feasible.py",
+      "target": "file:backend/services/scheduler/app/schemas.py",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/test_feasible.py",
+      "target": "file:backend/services/scheduler/app/solver_optimized.py",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/test_feasible.py",
+      "target": "file:backend/services/scheduler/app/solver.py",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/test_solver.py",
+      "target": "file:backend/services/scheduler/app/schemas.py",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/test_solver.py",
+      "target": "file:backend/services/scheduler/app/solver_optimized.py",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/test_solver.py",
+      "target": "file:backend/services/scheduler/app/solver.py",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "function:backend/services/scheduler/app/app.py:solve",
+      "target": "function:backend/services/scheduler/app/solver.py:solve_scheduler",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "function:backend/services/scheduler/app/main.py:solve",
+      "target": "function:backend/services/scheduler/app/solver.py:solve_scheduler",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "function:backend/services/scheduler/app/solver.py:solve_scheduler",
+      "target": "function:backend/services/scheduler/app/solver.py:_normalise",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "function:backend/services/scheduler/app/solver.py:solve_scheduler",
+      "target": "function:backend/services/scheduler/app/solver.py:_collect",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "function:backend/services/scheduler/app/solver.py:_normalise",
+      "target": "function:backend/services/scheduler/app/solver.py:_str",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "function:backend/services/scheduler/app/solver_optimized.py:solve_scheduler",
+      "target": "function:backend/services/scheduler/app/solver_optimized.py:solve_scheduler_optimized",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "function:backend/services/scheduler/benchmark_solver.py:benchmark_solvers",
+      "target": "function:backend/services/scheduler/benchmark_solver.py:create_larger_test_data",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "function:backend/services/scheduler/benchmark_solver.py:benchmark_solvers",
+      "target": "function:backend/services/scheduler/app/solver.py:solve_scheduler",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "function:backend/services/scheduler/benchmark_solver.py:benchmark_solvers",
+      "target": "function:backend/services/scheduler/app/solver_optimized.py:solve_scheduler_optimized",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "function:backend/services/scheduler/benchmark_solver.py:verify_correctness",
+      "target": "function:backend/services/scheduler/benchmark_solver.py:create_larger_test_data",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "function:backend/services/scheduler/benchmark_solver.py:verify_correctness",
+      "target": "function:backend/services/scheduler/app/solver.py:solve_scheduler",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "function:backend/services/scheduler/benchmark_solver.py:verify_correctness",
+      "target": "function:backend/services/scheduler/app/solver_optimized.py:solve_scheduler_optimized",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "function:backend/services/scheduler/integration_test.py:test",
+      "target": "function:backend/services/scheduler/app/solver.py:solve_scheduler",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "function:backend/services/scheduler/test_feasible.py:test_feasible_case",
+      "target": "function:backend/services/scheduler/test_feasible.py:create_feasible_test_data",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "function:backend/services/scheduler/test_feasible.py:test_feasible_case",
+      "target": "function:backend/services/scheduler/app/solver.py:solve_scheduler",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "function:backend/services/scheduler/test_feasible.py:test_feasible_case",
+      "target": "function:backend/services/scheduler/app/solver_optimized.py:solve_scheduler_optimized",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "function:backend/services/scheduler/test_solver.py:test_solvers",
+      "target": "function:backend/services/scheduler/test_solver.py:create_test_data",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "function:backend/services/scheduler/test_solver.py:test_solvers",
+      "target": "function:backend/services/scheduler/app/solver.py:solve_scheduler",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "function:backend/services/scheduler/test_solver.py:test_solvers",
+      "target": "function:backend/services/scheduler/app/solver_optimized.py:solve_scheduler_optimized",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/app.py",
+      "target": "file:backend/services/scheduler/integration_test.py",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/solver.py",
+      "target": "file:backend/services/scheduler/test_solver.py",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/solver_optimized.py",
+      "target": "file:backend/services/scheduler/test_feasible.py",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/schemas.py",
+      "target": "class:backend/services/scheduler/app/schemas.py:Requirement",
+      "type": "defines_schema",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/schemas.py",
+      "target": "class:backend/services/scheduler/app/schemas.py:Teacher",
+      "type": "defines_schema",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/schemas.py",
+      "target": "class:backend/services/scheduler/app/schemas.py:ClassItem",
+      "type": "defines_schema",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/schemas.py",
+      "target": "class:backend/services/scheduler/app/schemas.py:Room",
+      "type": "defines_schema",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/schemas.py",
+      "target": "class:backend/services/scheduler/app/schemas.py:Slot",
+      "type": "defines_schema",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/schemas.py",
+      "target": "class:backend/services/scheduler/app/schemas.py:SchedulerInput",
+      "type": "defines_schema",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/main.py",
+      "target": "class:backend/services/scheduler/app/main.py:Requirement",
+      "type": "defines_schema",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/main.py",
+      "target": "class:backend/services/scheduler/app/main.py:Room",
+      "type": "defines_schema",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/main.py",
+      "target": "class:backend/services/scheduler/app/main.py:Slot",
+      "type": "defines_schema",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/main.py",
+      "target": "class:backend/services/scheduler/app/main.py:Teacher",
+      "type": "defines_schema",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/main.py",
+      "target": "class:backend/services/scheduler/app/main.py:ClassItem",
+      "type": "defines_schema",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/app/main.py",
+      "target": "class:backend/services/scheduler/app/main.py:ScheduleRequest",
+      "type": "defines_schema",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/classes/classes.controller.ts",
+      "target": "class:backend/apps/api/src/classes/classes.controller.ts:ClassesController",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/classes/classes.module.ts",
+      "target": "class:backend/apps/api/src/classes/classes.module.ts:ClassesModule",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/classes/classes.service.ts",
+      "target": "class:backend/apps/api/src/classes/classes.service.ts:ClassesService",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/classes/dto/create-class.dto.ts",
+      "target": "class:backend/apps/api/src/classes/dto/create-class.dto.ts:CreateClassDto",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/classes/dto/update-class.dto.ts",
+      "target": "class:backend/apps/api/src/classes/dto/update-class.dto.ts:UpdateClassDto",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/classes/classes.controller.spec.ts",
+      "target": "file:backend/apps/api/src/classes/classes.controller.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/classes/classes.controller.spec.ts",
+      "target": "file:backend/apps/api/src/classes/classes.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/classes/classes.controller.ts",
+      "target": "file:backend/apps/api/src/classes/classes.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/classes/classes.controller.ts",
+      "target": "file:backend/apps/api/src/classes/dto/create-class.dto.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/classes/classes.controller.ts",
+      "target": "file:backend/apps/api/src/classes/dto/update-class.dto.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/classes/classes.module.ts",
+      "target": "file:backend/apps/api/src/classes/classes.controller.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/classes/classes.module.ts",
+      "target": "file:backend/apps/api/src/classes/classes.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/classes/classes.module.ts",
+      "target": "file:backend/apps/api/src/prisma.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/classes/classes.service.spec.ts",
+      "target": "file:backend/apps/api/src/classes/classes.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/classes/classes.service.ts",
+      "target": "file:backend/apps/api/src/classes/dto/create-class.dto.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/classes/classes.service.ts",
+      "target": "file:backend/apps/api/src/classes/dto/update-class.dto.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/classes/classes.service.ts",
+      "target": "file:backend/apps/api/src/prisma.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/classes/dto/update-class.dto.ts",
+      "target": "file:backend/apps/api/src/classes/dto/create-class.dto.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "class:backend/apps/api/src/classes/classes.controller.ts:ClassesController",
+      "target": "class:backend/apps/api/src/classes/classes.service.ts:ClassesService",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/classes/classes.controller.ts",
+      "target": "file:backend/apps/api/src/classes/classes.controller.spec.ts",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/classes/classes.service.ts",
+      "target": "file:backend/apps/api/src/classes/classes.service.spec.ts",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/teachers/teachers.controller.ts",
+      "target": "class:backend/apps/api/src/teachers/teachers.controller.ts:TeachersController",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/teachers/teachers.module.ts",
+      "target": "class:backend/apps/api/src/teachers/teachers.module.ts:TeachersModule",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/teachers/teachers.service.ts",
+      "target": "class:backend/apps/api/src/teachers/teachers.service.ts:TeachersService",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/teachers/dto/create-teacher.dto.ts",
+      "target": "class:backend/apps/api/src/teachers/dto/create-teacher.dto.ts:CreateTeacherDto",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/teachers/dto/update-teacher.dto.ts",
+      "target": "class:backend/apps/api/src/teachers/dto/update-teacher.dto.ts:UpdateTeacherDto",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/teachers/dto/update-teacher.dto.ts",
+      "target": "file:backend/apps/api/src/teachers/dto/create-teacher.dto.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/teachers/teachers.controller.spec.ts",
+      "target": "file:backend/apps/api/src/teachers/teachers.controller.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/teachers/teachers.controller.spec.ts",
+      "target": "file:backend/apps/api/src/teachers/teachers.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/teachers/teachers.controller.ts",
+      "target": "file:backend/apps/api/src/teachers/dto/create-teacher.dto.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/teachers/teachers.controller.ts",
+      "target": "file:backend/apps/api/src/teachers/dto/update-teacher.dto.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/teachers/teachers.controller.ts",
+      "target": "file:backend/apps/api/src/teachers/teachers.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/teachers/teachers.module.ts",
+      "target": "file:backend/apps/api/src/prisma.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/teachers/teachers.module.ts",
+      "target": "file:backend/apps/api/src/teachers/teachers.controller.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/teachers/teachers.module.ts",
+      "target": "file:backend/apps/api/src/teachers/teachers.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/teachers/teachers.service.spec.ts",
+      "target": "file:backend/apps/api/src/teachers/teachers.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/teachers/teachers.service.ts",
+      "target": "file:backend/apps/api/src/prisma.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/teachers/teachers.service.ts",
+      "target": "file:backend/apps/api/src/teachers/dto/create-teacher.dto.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/teachers/teachers.service.ts",
+      "target": "file:backend/apps/api/src/teachers/dto/update-teacher.dto.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "class:backend/apps/api/src/teachers/teachers.controller.ts:TeachersController",
+      "target": "class:backend/apps/api/src/teachers/teachers.service.ts:TeachersService",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/teachers/teachers.controller.ts",
+      "target": "file:backend/apps/api/src/teachers/teachers.controller.spec.ts",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/teachers/teachers.service.ts",
+      "target": "file:backend/apps/api/src/teachers/teachers.service.spec.ts",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/timetable/dto/create-timetable.dto.ts",
+      "target": "class:backend/apps/api/src/timetable/dto/create-timetable.dto.ts:CreateTimetableDto",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/timetable/dto/generate-schedule.dto.ts",
+      "target": "class:backend/apps/api/src/timetable/dto/generate-schedule.dto.ts:GenerateScheduleDto",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/timetable/dto/update-timetable.dto.ts",
+      "target": "class:backend/apps/api/src/timetable/dto/update-timetable.dto.ts:UpdateTimetableDto",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/timetable/timetable.controller.ts",
+      "target": "class:backend/apps/api/src/timetable/timetable.controller.ts:TimetableController",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/timetable/timetable.service.ts",
+      "target": "class:backend/apps/api/src/timetable/timetable.service.ts:TimetableService",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:backend/apps/api/src/timetable/timetable.service.ts:TimetableService",
+      "target": "function:backend/apps/api/src/timetable/timetable.service.ts:findAll",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:backend/apps/api/src/timetable/timetable.service.ts:TimetableService",
+      "target": "function:backend/apps/api/src/timetable/timetable.service.ts:findOne",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:backend/apps/api/src/timetable/timetable.service.ts:TimetableService",
+      "target": "function:backend/apps/api/src/timetable/timetable.service.ts:generateSchedule",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:backend/apps/api/src/timetable/timetable.service.ts:TimetableService",
+      "target": "function:backend/apps/api/src/timetable/timetable.service.ts:generateScheduleFromDb",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/timetable/dto/update-timetable.dto.ts",
+      "target": "file:backend/apps/api/src/timetable/dto/create-timetable.dto.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/timetable/timetable.controller.spec.ts",
+      "target": "file:backend/apps/api/src/timetable/timetable.controller.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/timetable/timetable.controller.spec.ts",
+      "target": "file:backend/apps/api/src/timetable/timetable.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/timetable/timetable.controller.ts",
+      "target": "file:backend/apps/api/src/timetable/dto/create-timetable.dto.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/timetable/timetable.controller.ts",
+      "target": "file:backend/apps/api/src/timetable/dto/generate-schedule.dto.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/timetable/timetable.controller.ts",
+      "target": "file:backend/apps/api/src/timetable/dto/update-timetable.dto.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/timetable/timetable.controller.ts",
+      "target": "file:backend/apps/api/src/timetable/timetable.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/timetable/timetable.service.spec.ts",
+      "target": "file:backend/apps/api/src/timetable/timetable.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/timetable/timetable.service.ts",
+      "target": "file:backend/apps/api/src/prisma.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/timetable/timetable.service.ts",
+      "target": "file:backend/apps/api/src/timetable/dto/create-timetable.dto.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/timetable/timetable.service.ts",
+      "target": "file:backend/apps/api/src/timetable/dto/update-timetable.dto.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "class:backend/apps/api/src/timetable/dto/update-timetable.dto.ts:UpdateTimetableDto",
+      "target": "class:backend/apps/api/src/timetable/dto/create-timetable.dto.ts:CreateTimetableDto",
+      "type": "inherits",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/timetable/timetable.controller.ts",
+      "target": "file:backend/apps/api/src/timetable/timetable.controller.spec.ts",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/timetable/timetable.service.ts",
+      "target": "file:backend/apps/api/src/timetable/timetable.service.spec.ts",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "class:backend/apps/api/src/timetable/timetable.controller.ts:TimetableController",
+      "target": "function:backend/apps/api/src/timetable/timetable.service.ts:findAll",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:backend/apps/api/src/timetable/timetable.controller.ts:TimetableController",
+      "target": "function:backend/apps/api/src/timetable/timetable.service.ts:findOne",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:backend/apps/api/src/timetable/timetable.controller.ts:TimetableController",
+      "target": "function:backend/apps/api/src/timetable/timetable.service.ts:generateSchedule",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:backend/apps/api/src/timetable/timetable.controller.ts:TimetableController",
+      "target": "function:backend/apps/api/src/timetable/timetable.service.ts:generateScheduleFromDb",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "function:backend/apps/api/src/timetable/timetable.service.ts:generateScheduleFromDb",
+      "target": "function:backend/apps/api/src/timetable/timetable.service.ts:generateSchedule",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/users/dto/create-user.dto.ts",
+      "target": "class:backend/apps/api/src/users/dto/create-user.dto.ts:CreateUserDto",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/users/dto/update-user.dto.ts",
+      "target": "class:backend/apps/api/src/users/dto/update-user.dto.ts:UpdateUserDto",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/users/users.controller.ts",
+      "target": "class:backend/apps/api/src/users/users.controller.ts:UsersController",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/users/users.service.ts",
+      "target": "class:backend/apps/api/src/users/users.service.ts:UsersService",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:backend/apps/api/src/users/users.service.ts:UsersService",
+      "target": "function:backend/apps/api/src/users/users.service.ts:create",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/users/dto/update-user.dto.ts",
+      "target": "file:backend/apps/api/src/users/dto/create-user.dto.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/users/users.controller.spec.ts",
+      "target": "file:backend/apps/api/src/users/users.controller.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/users/users.controller.spec.ts",
+      "target": "file:backend/apps/api/src/users/users.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/users/users.controller.ts",
+      "target": "file:backend/apps/api/src/users/dto/create-user.dto.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/users/users.controller.ts",
+      "target": "file:backend/apps/api/src/users/dto/update-user.dto.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/users/users.controller.ts",
+      "target": "file:backend/apps/api/src/users/users.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/users/users.service.spec.ts",
+      "target": "file:backend/apps/api/src/users/users.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/users/users.service.ts",
+      "target": "file:backend/apps/api/src/prisma.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/users/users.service.ts",
+      "target": "file:backend/apps/api/src/users/dto/create-user.dto.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/users/users.service.ts",
+      "target": "file:backend/apps/api/src/users/dto/update-user.dto.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "class:backend/apps/api/src/users/dto/update-user.dto.ts:UpdateUserDto",
+      "target": "class:backend/apps/api/src/users/dto/create-user.dto.ts:CreateUserDto",
+      "type": "inherits",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/users/users.controller.ts",
+      "target": "file:backend/apps/api/src/users/users.controller.spec.ts",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/users/users.service.ts",
+      "target": "file:backend/apps/api/src/users/users.service.spec.ts",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "class:backend/apps/api/src/users/users.controller.ts:UsersController",
+      "target": "function:backend/apps/api/src/users/users.service.ts:create",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/app.module.ts",
+      "target": "class:backend/apps/api/src/app.module.ts:AppModule",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/prisma.service.ts",
+      "target": "class:backend/apps/api/src/prisma.service.ts:PrismaService",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/timetable/timetable.module.ts",
+      "target": "class:backend/apps/api/src/timetable/timetable.module.ts:TimetableModule",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/users/users.module.ts",
+      "target": "class:backend/apps/api/src/users/users.module.ts:UsersModule",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/app.module.ts",
+      "target": "file:backend/apps/api/src/auth/auth.module.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/app.module.ts",
+      "target": "file:backend/apps/api/src/classes/classes.module.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/app.module.ts",
+      "target": "file:backend/apps/api/src/prisma.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/app.module.ts",
+      "target": "file:backend/apps/api/src/teachers/teachers.module.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/app.module.ts",
+      "target": "file:backend/apps/api/src/timetable/timetable.module.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/app.module.ts",
+      "target": "file:backend/apps/api/src/users/users.module.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/main.ts",
+      "target": "file:backend/apps/api/src/app.module.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/timetable/timetable.module.ts",
+      "target": "file:backend/apps/api/src/prisma.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/timetable/timetable.module.ts",
+      "target": "file:backend/apps/api/src/timetable/timetable.controller.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/timetable/timetable.module.ts",
+      "target": "file:backend/apps/api/src/timetable/timetable.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/users/users.module.ts",
+      "target": "file:backend/apps/api/src/prisma.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/users/users.module.ts",
+      "target": "file:backend/apps/api/src/users/users.controller.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/users/users.module.ts",
+      "target": "file:backend/apps/api/src/users/users.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "class:backend/apps/api/src/app.module.ts:AppModule",
+      "target": "class:backend/apps/api/src/timetable/timetable.module.ts:TimetableModule",
+      "type": "configures",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "class:backend/apps/api/src/app.module.ts:AppModule",
+      "target": "class:backend/apps/api/src/users/users.module.ts:UsersModule",
+      "type": "configures",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "class:backend/apps/api/src/timetable/timetable.module.ts:TimetableModule",
+      "target": "class:backend/apps/api/src/prisma.service.ts:PrismaService",
+      "type": "configures",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "class:backend/apps/api/src/users/users.module.ts:UsersModule",
+      "target": "class:backend/apps/api/src/prisma.service.ts:PrismaService",
+      "type": "configures",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/main.ts",
+      "target": "class:backend/apps/api/src/app.module.ts:AppModule",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/auth/auth.controller.ts",
+      "target": "class:backend/apps/api/src/auth/auth.controller.ts:AuthController",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/auth/auth.module.ts",
+      "target": "class:backend/apps/api/src/auth/auth.module.ts:AuthModule",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/auth/auth.service.ts",
+      "target": "class:backend/apps/api/src/auth/auth.service.ts:AuthService",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/auth/auth.service.ts",
+      "target": "function:backend/apps/api/src/auth/auth.service.ts:AuthService.signIn",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "class:backend/apps/api/src/auth/auth.service.ts:AuthService",
+      "target": "function:backend/apps/api/src/auth/auth.service.ts:AuthService.signIn",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/auth/auth.controller.spec.ts",
+      "target": "file:backend/apps/api/src/auth/auth.controller.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/auth/auth.controller.ts",
+      "target": "file:backend/apps/api/src/auth/auth.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/auth/auth.module.ts",
+      "target": "file:backend/apps/api/src/auth/auth.controller.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/auth/auth.module.ts",
+      "target": "file:backend/apps/api/src/auth/auth.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/auth/auth.module.ts",
+      "target": "file:backend/apps/api/src/users/users.module.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/auth/auth.service.spec.ts",
+      "target": "file:backend/apps/api/src/auth/auth.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/auth/auth.service.ts",
+      "target": "file:backend/apps/api/src/users/users.service.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "class:backend/apps/api/src/auth/auth.controller.ts:AuthController",
+      "target": "class:backend/apps/api/src/auth/auth.service.ts:AuthService",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "class:backend/apps/api/src/auth/auth.service.ts:AuthService",
+      "target": "class:backend/apps/api/src/users/users.service.ts:UsersService",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/auth/auth.controller.ts",
+      "target": "file:backend/apps/api/src/auth/auth.controller.spec.ts",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/auth/auth.service.ts",
+      "target": "file:backend/apps/api/src/auth/auth.service.spec.ts",
+      "type": "tested_by",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "service:backend/apps/api/Dockerfile",
+      "target": "file:backend/apps/api/src/main.ts",
+      "type": "deploys",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "service:backend/services/scheduler/Dockerfile",
+      "target": "file:backend/services/scheduler/app/main.py",
+      "type": "deploys",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/prisma/seed.ts",
+      "target": "function:backend/apps/api/prisma/seed.ts:main",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/scripts/verify-prisma.ts",
+      "target": "function:backend/apps/api/scripts/verify-prisma.ts:main",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/classes/entities/class.entity.ts",
+      "target": "class:backend/apps/api/src/classes/entities/class.entity.ts:Class",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/teachers/entities/teacher.entity.ts",
+      "target": "class:backend/apps/api/src/teachers/entities/teacher.entity.ts:Teacher",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/timetable/entities/timetable.entity.ts",
+      "target": "class:backend/apps/api/src/timetable/entities/timetable.entity.ts:Timetable",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/src/users/entities/user.entity.ts",
+      "target": "class:backend/apps/api/src/users/entities/user.entity.ts:User",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/debug_t4b.py",
+      "target": "function:backend/services/scheduler/debug_t4b.py:load",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/main.py",
+      "target": "function:backend/services/scheduler/main.py:root",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/scheduler/t_room_debug.py",
+      "target": "function:backend/services/scheduler/t_room_debug.py:show_constraints",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/services/solver_phase2_check.py",
+      "target": "function:backend/services/solver_phase2_check.py:test_phase2",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/scripts/verify-prisma.ts",
+      "target": "file:backend/apps/api/lib/prisma.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "function:backend/apps/api/scripts/verify-prisma.ts:main",
+      "target": "file:backend/apps/api/lib/prisma.ts",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "table:backend/apps/api/prisma/migrations/20260517143134_init/migration.sql",
+      "target": "schema:backend/apps/api/prisma/schema.prisma",
+      "type": "migrates",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:backend/apps/api/prisma.config.ts",
+      "target": "schema:backend/apps/api/prisma/schema.prisma",
+      "type": "configures",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "schema:backend/apps/api/prisma/schema.prisma",
+      "target": "class:backend/apps/api/src/classes/entities/class.entity.ts:Class",
+      "type": "defines_schema",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "schema:backend/apps/api/prisma/schema.prisma",
+      "target": "class:backend/apps/api/src/teachers/entities/teacher.entity.ts:Teacher",
+      "type": "defines_schema",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "schema:backend/apps/api/prisma/schema.prisma",
+      "target": "class:backend/apps/api/src/timetable/entities/timetable.entity.ts:Timetable",
+      "type": "defines_schema",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "schema:backend/apps/api/prisma/schema.prisma",
+      "target": "class:backend/apps/api/src/users/entities/user.entity.ts:User",
+      "type": "defines_schema",
+      "weight": 0.8,
+      "direction": "forward"
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:ui",
+      "name": "Frontend-Schicht",
+      "description": "Enthält alle clientseitigen Benutzeroberflächen-Dateien, einschließlich HTML-Templates und globaler Stylesheets für die Darstellung im Browser.",
+      "nodeIds": [
+        "file:frontend/smartplan-frontend/admin-dashboard.html",
+        "file:frontend/smartplan-frontend/attendance.html",
+        "file:frontend/smartplan-frontend/index.html",
+        "file:frontend/smartplan-frontend/login.html",
+        "file:frontend/smartplan-frontend/resources.html",
+        "file:frontend/smartplan-frontend/student-dashboard.html",
+        "file:frontend/smartplan-frontend/styles.css",
+        "file:frontend/smartplan-frontend/substitutions.html",
+        "file:frontend/smartplan-frontend/teacher-dashboard.html",
+        "file:frontend/smartplan-frontend/timetable.html",
+        "file:frontend/substitutions.html"
+      ]
+    },
+    {
+      "id": "layer:api",
+      "name": "API- und Controller-Schicht",
+      "description": "Definiert die HTTP-Endpunkte und verarbeitet eingehende Anfragen sowohl für die NestJS-Hauptanwendung als auch für den Python-Planungsdienst.",
+      "nodeIds": [
+        "file:backend/services/scheduler/app/app.py",
+        "file:backend/services/scheduler/app/main.py",
+        "file:backend/apps/api/src/classes/classes.controller.ts",
+        "file:backend/apps/api/src/teachers/teachers.controller.ts",
+        "file:backend/apps/api/src/timetable/timetable.controller.ts",
+        "file:backend/apps/api/src/users/users.controller.ts",
+        "file:backend/apps/api/src/auth/auth.controller.ts",
+        "file:backend/services/scheduler/main.py"
+      ]
+    },
+    {
+      "id": "layer:service",
+      "name": "Service- und Logikschicht",
+      "description": "Enthält die Geschäftslogik der Anwendung, einschließlich der NestJS-Services und der mathematischen Stundenplanungs-Algorithmen (Solver).",
+      "nodeIds": [
+        "file:backend/services/scheduler/app/solver.py",
+        "file:backend/services/scheduler/app/solver_optimized.py",
+        "file:backend/apps/api/src/classes/classes.module.ts",
+        "file:backend/apps/api/src/classes/classes.service.ts",
+        "file:backend/apps/api/src/teachers/teachers.module.ts",
+        "file:backend/apps/api/src/teachers/teachers.service.ts",
+        "file:backend/apps/api/src/timetable/timetable.service.ts",
+        "file:backend/apps/api/src/users/users.service.ts",
+        "file:backend/apps/api/src/timetable/timetable.module.ts",
+        "file:backend/apps/api/src/users/users.module.ts",
+        "file:backend/apps/api/src/auth/auth.module.ts",
+        "file:backend/apps/api/src/auth/auth.service.ts",
+        "file:backend/services/solver_phase2_check.py"
+      ]
+    },
+    {
+      "id": "layer:data",
+      "name": "Daten- und Persistenzschicht",
+      "description": "Verantwortlich für das Datenbankschema, Datenzugriff über Prisma, Seed-Skripte, SQL-Migrationen sowie Datenvalidierungsmodelle (DTOs, Entities, Pydantic-Schemas).",
+      "nodeIds": [
+        "file:backend/services/scheduler/app/schemas.py",
+        "file:backend/apps/api/src/classes/dto/create-class.dto.ts",
+        "file:backend/apps/api/src/classes/dto/update-class.dto.ts",
+        "file:backend/apps/api/src/teachers/dto/create-teacher.dto.ts",
+        "file:backend/apps/api/src/teachers/dto/update-teacher.dto.ts",
+        "file:backend/apps/api/src/timetable/dto/create-timetable.dto.ts",
+        "file:backend/apps/api/src/timetable/dto/generate-schedule.dto.ts",
+        "file:backend/apps/api/src/timetable/dto/update-timetable.dto.ts",
+        "file:backend/apps/api/src/users/dto/create-user.dto.ts",
+        "file:backend/apps/api/src/users/dto/update-user.dto.ts",
+        "file:backend/apps/api/src/prisma.service.ts",
+        "file:backend/apps/api/lib/prisma.ts",
+        "file:backend/apps/api/prisma.config.ts",
+        "table:backend/apps/api/prisma/migrations/20260517143134_init/migration.sql",
+        "config:backend/apps/api/prisma/migrations/migration_lock.toml",
+        "schema:backend/apps/api/prisma/schema.prisma",
+        "file:backend/apps/api/prisma/seed.ts",
+        "file:backend/apps/api/scripts/verify-prisma.ts",
+        "file:backend/apps/api/src/classes/entities/class.entity.ts",
+        "file:backend/apps/api/src/teachers/entities/teacher.entity.ts",
+        "file:backend/apps/api/src/timetable/entities/timetable.entity.ts",
+        "file:backend/apps/api/src/users/entities/user.entity.ts",
+        "file:backend/services/scheduler/app/models.py"
+      ]
+    },
+    {
+      "id": "layer:test",
+      "name": "Test- und Diagnoseschicht",
+      "description": "Umfasst alle Unit-, Integrations- und Machbarkeitstests sowie Hilfsskripte zum Debugging, Benchmarking und Tracing des Planers.",
+      "nodeIds": [
+        "file:backend/services/scheduler/benchmark_solver.py",
+        "file:backend/services/scheduler/integration_test.py",
+        "file:backend/services/scheduler/test_feasible.py",
+        "file:backend/services/scheduler/test_solver.py",
+        "file:backend/apps/api/src/classes/classes.controller.spec.ts",
+        "file:backend/apps/api/src/classes/classes.service.spec.ts",
+        "file:backend/apps/api/src/teachers/teachers.controller.spec.ts",
+        "file:backend/apps/api/src/teachers/teachers.service.spec.ts",
+        "file:backend/apps/api/src/timetable/timetable.controller.spec.ts",
+        "file:backend/apps/api/src/timetable/timetable.service.spec.ts",
+        "file:backend/apps/api/src/users/users.controller.spec.ts",
+        "file:backend/apps/api/src/users/users.service.spec.ts",
+        "file:backend/apps/api/src/auth/auth.controller.spec.ts",
+        "file:backend/apps/api/src/auth/auth.service.spec.ts",
+        "file:backend/services/scheduler/debug_t4b.py",
+        "file:backend/services/scheduler/final_trace.py",
+        "file:backend/services/scheduler/status_check.py",
+        "file:backend/services/scheduler/t_room_debug.py"
+      ]
+    },
+    {
+      "id": "layer:config",
+      "name": "Konfigurations- und Infrastrukturschicht",
+      "description": "Enthält Build-Konfigurationen, Docker-Definitionen, Abhängigkeitslisten, Tooling-Einstellungen sowie Bootstrapping-Code (z.B. main.ts, app.module.ts).",
+      "nodeIds": [
+        "file:backend/apps/api/src/app.module.ts",
+        "file:backend/apps/api/src/main.ts",
+        "service:backend/apps/api/Dockerfile",
+        "service:backend/services/scheduler/Dockerfile",
+        "file:.understand-anything/.understandignore",
+        "config:.understand-anything/config.json",
+        "config:backend/apps/api/package.json",
+        "config:backend/apps/api/tsconfig.json",
+        "service:backend/docker-compose.yml",
+        "file:backend/services/scheduler/app/__init__.py",
+        "document:backend/services/scheduler/requirements.txt"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "Einstiegspunkt des Clients (Frontend)",
+      "description": "Die Datei index.html dient als Einstiegspunkt für das Web-Frontend. Hier können sich Benutzer einloggen und auf die Dashboards für Administratoren, Lehrer und Schüler zugreifen.",
+      "nodeIds": [
+        "file:frontend/smartplan-frontend/index.html"
+      ],
+      "languageLesson": "In dieser traditionellen Web-Struktur werden statische HTML-Dateien direkt für das Client-Rendering verwendet, ohne dass ein komplexes Build-System wie React oder Vue notwendig ist. Dies hält die Client-Architektur extrem einfach und verständlich."
+    },
+    {
+      "order": 2,
+      "title": "Einstiegspunkt der API (NestJS Backend)",
+      "description": "Die main.ts ist der Haupteinstiegspunkt für das NestJS-Backend. Hier wird der NestJS-Server gestartet, globale Validierungs-Pipes eingerichtet und der API-Server auf Port 3000 gebunden.",
+      "nodeIds": [
+        "file:backend/apps/api/src/main.ts"
+      ],
+      "languageLesson": "In TypeScript/Node.js-Anwendungen wird das Bootstrapping oft in einer asynchronen Funktion (meistens `bootstrap()`) durchgeführt, um auf Datenbankverbindungen oder Konfigurationen warten zu können."
+    },
+    {
+      "order": 3,
+      "title": "Datenbankmodellierung mit Prisma",
+      "description": "Im Prisma-Schema werden alle Modelle wie Klassen, Lehrer und der fertige Stundenplan deklariert. Es definiert die Relationen und dient als Source-of-Truth für das Datenbankschema.",
+      "nodeIds": [
+        "schema:backend/apps/api/prisma/schema.prisma"
+      ],
+      "languageLesson": "Das Prisma-Schema verwendet eine deklarative Sprache, um Datenbankmodelle und Relationen (z.B. `@relation`) abzubilden. Aus dieser Datei generiert Prisma automatisch TypeScript-Typen für Typensicherheit im gesamten Backend."
+    },
+    {
+      "order": 4,
+      "title": "Datenbankverbindung über PrismaService",
+      "description": "Der PrismaService initialisiert die Verbindung zur PostgreSQL-Datenbank. Er erbt vom PrismaClient und wird als wiederverwendbarer Service in NestJS registriert.",
+      "nodeIds": [
+        "file:backend/apps/api/src/prisma.service.ts"
+      ],
+      "languageLesson": "NestJS verwendet Dependency Injection (DI) über den `@Injectable()` Dekodierer (Decorator). Services, die so markiert sind, können in anderen Controllern oder Modulen verwendet werden, indem sie einfach im Konstruktor deklariert werden."
+    },
+    {
+      "order": 5,
+      "title": "Klassenverwaltung: API & Geschäftslogik",
+      "description": "Diese Dateien zeigen die typische Controller- und Service-Struktur von NestJS. Der ClassesController nimmt HTTP-Anfragen für Klassen entgegen, während der ClassesService die Logik über Prisma steuert.",
+      "nodeIds": [
+        "file:backend/apps/api/src/classes/classes.controller.ts",
+        "file:backend/apps/api/src/classes/classes.service.ts"
+      ],
+      "languageLesson": "Das Controller-Service-Pattern trennt die HTTP-Transportschicht (Routing, HTTP-Statuscodes, Request-Validierung) sauber von der eigentlichen Geschäftslogik (Prisma-Abfragen, Berechnungen)."
+    },
+    {
+      "order": 6,
+      "title": "Schnittstelle zur Stundenplan-Generierung",
+      "description": "Der TimetableController steuert die API-Endpunkte für die Generierung von Stundenplänen. Wenn eine Anfrage eingeht, leitet er die Daten an den Python-Planungsdienst weiter.",
+      "nodeIds": [
+        "file:backend/apps/api/src/timetable/timetable.controller.ts"
+      ],
+      "languageLesson": "In NestJS werden DTOs (Data Transfer Objects) verwendet, um die Struktur von API-Anfragen zu definieren. Zusammen mit `class-validator` werden ungültige Anfragen automatisch blockiert, bevor sie den Controller erreichen."
+    },
+    {
+      "order": 7,
+      "title": "FastAPI Schnittstelle des Schedulers",
+      "description": "Der Stundenplan-Optimierungsdienst ist in Python geschrieben. Die Datei main.py stellt unter Verwendung von FastAPI Endpunkte bereit, um Stundenplandaten entgegenzunehmen und den CP-SAT Solver auszuführen.",
+      "nodeIds": [
+        "file:backend/services/scheduler/app/main.py"
+      ],
+      "languageLesson": "FastAPI nutzt Pythons Typ-Annotations und Pydantic für die automatische Validierung und Dokumentation von APIs, ähnlich wie DTOs in NestJS. Dies vereinfacht die Kommunikation zwischen Microservices erhebt die Typsicherheit."
+    },
+    {
+      "order": 8,
+      "title": "Mathematische Optimierung mit Google OR-Tools",
+      "description": "Die Solver-Module implementieren den Kern-Algorithmus unter Verwendung von CP-SAT. Hier werden Bedingungen wie 'Kein Lehrer unterrichtet zwei Klassen gleichzeitig' als Einschränkungen modelliert.",
+      "nodeIds": [
+        "file:backend/services/scheduler/app/solver.py",
+        "file:backend/services/scheduler/app/solver_optimized.py"
+      ],
+      "languageLesson": "Constraint Programming (CP) ist ein Paradigma zur Lösung kombinatorischer Probleme. Bei Google OR-Tools CP-SAT definieren wir Variablen (z.B. Zuweisung Lehrer-Klasse-Slot) und schränken deren Wertebereich durch Gleichungen und Ungleichungen ein."
+    },
+    {
+      "order": 9,
+      "title": "Machbarkeitstests für den Solver",
+      "description": "Dieses Testskript überprüft, ob der Solver in der Lage ist, für vordefinierte, lösbare Szenarien (feasible cases) erfolgreich einen gültigen Stundenplan zu generieren.",
+      "nodeIds": [
+        "file:backend/services/scheduler/test_feasible.py"
+      ],
+      "languageLesson": "Beim Unit-Testing in Python wird häufig das eingebaute `unittest`-Modul verwendet. Für komplexe mathematische Algorithmen sind Machbarkeitstests (Feasibility Tests) unerlässlich, da sich das Verhalten des Solvers bei kleinen Codeänderungen drastisch ändern kann."
+    },
+    {
+      "order": 10,
+      "title": "Multi-Container-Infrastruktur mit Docker Compose",
+      "description": "Docker Compose orchestriert das Zusammenspiel zwischen dem NestJS-Backend, dem Python-Scheduler-Service und der PostgreSQL-Datenbank, sodass alles mit einem Befehl gestartet werden kann.",
+      "nodeIds": [
+        "service:backend/docker-compose.yml"
+      ],
+      "languageLesson": "Docker Compose verwendet YAML-Dateien zur Konfiguration von Anwendungsdiensten. Mit Direktiven wie `depends_on` und `healthcheck` lässt sich steuern, in welcher Reihenfolge die Container gestartet und verbunden werden."
+    }
+  ]
+}

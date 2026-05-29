@@ -1,0 +1,2830 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "",
+  "generatedAt": "2026-05-27T21:11:38.885Z",
+  "files": {
+    ".understand-anything/.understandignore": {
+      "filePath": ".understand-anything/.understandignore",
+      "contentHash": "b82c2b7552122fa732e1fcab8e0e7379de9eeab6a37fa163caab9e75c4b0b641",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 50,
+      "hasStructuralAnalysis": false
+    },
+    ".understand-anything/config.json": {
+      "filePath": ".understand-anything/config.json",
+      "contentHash": "5c43ae8dd4a7dd93d7445ba2176ebe727b6227333d2d410528188360241c92a6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/Dockerfile": {
+      "filePath": "backend/apps/api/Dockerfile",
+      "contentHash": "5e7e1d701fabf86554afea2bb660fa0780f0ef0f62588a1276170255c11416f1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 19,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/lib/prisma.ts": {
+      "filePath": "backend/apps/api/lib/prisma.ts",
+      "contentHash": "5b0a8f4247bcffda014cf490711f05bd0058e831db3744031fa15c84b95d8387",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "dotenv/config",
+          "specifiers": []
+        },
+        {
+          "source": "@prisma/client",
+          "specifiers": [
+            "PrismaClient"
+          ]
+        }
+      ],
+      "exports": [
+        "prisma"
+      ],
+      "totalLines": 15,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/package.json": {
+      "filePath": "backend/apps/api/package.json",
+      "contentHash": "716b00679fc25f1c3e0a38cf4fd9c6193a2627f131fbe021720631ca9c22704c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 35,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/prisma.config.ts": {
+      "filePath": "backend/apps/api/prisma.config.ts",
+      "contentHash": "a6b05ffd22cc6035c50fe83546895b5f66dd5aa56c1c49ff6daf2c71056d48de",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "dotenv/config",
+          "specifiers": []
+        },
+        {
+          "source": "prisma/config",
+          "specifiers": [
+            "defineConfig",
+            "env"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/prisma/migrations/20260517143134_init/migration.sql": {
+      "filePath": "backend/apps/api/prisma/migrations/20260517143134_init/migration.sql",
+      "contentHash": "05566f9f567aa76c4d401c6c63cdbd1fb0dbba1098f40f5e4954cabff1ff26e2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 186,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/prisma/migrations/migration_lock.toml": {
+      "filePath": "backend/apps/api/prisma/migrations/migration_lock.toml",
+      "contentHash": "99836963713b4f5b269ad49af0ed3d7b0b2e336115c2f92dc9ac683d139d0900",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 4,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/prisma/schema.prisma": {
+      "filePath": "backend/apps/api/prisma/schema.prisma",
+      "contentHash": "9011defb8add3d267239ff08ffc65ade35b694bd6ff9c3c8a1df79bb8b746144",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 147,
+      "hasStructuralAnalysis": false
+    },
+    "backend/apps/api/prisma/seed.ts": {
+      "filePath": "backend/apps/api/prisma/seed.ts",
+      "contentHash": "04ddd92bac2906a5510fa28a2e1eb6ba3a3061015e9632f7ee7f865efc075cb1",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "exported": false,
+          "lineCount": 40
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "dotenv/config",
+          "specifiers": []
+        },
+        {
+          "source": "pg",
+          "specifiers": [
+            "Client"
+          ]
+        },
+        {
+          "source": "bcrypt",
+          "specifiers": [
+            "* as bcrypt"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 47,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/scripts/verify-prisma.ts": {
+      "filePath": "backend/apps/api/scripts/verify-prisma.ts",
+      "contentHash": "932af188156b73a13b97606e357cd2c5019cdade3046c6a3b59e779709215ed2",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "exported": false,
+          "lineCount": 11
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "dotenv/config",
+          "specifiers": []
+        },
+        {
+          "source": "../lib/prisma",
+          "specifiers": [
+            "prisma"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 17,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/app.module.ts": {
+      "filePath": "backend/apps/api/src/app.module.ts",
+      "contentHash": "f2956e8b2013b41784af7f9ea15629d5b99e1ba65e39db34191ba8b2172c89a2",
+      "functions": [],
+      "classes": [
+        {
+          "name": "AppModule",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "@nestjs/common",
+          "specifiers": [
+            "Module"
+          ]
+        },
+        {
+          "source": "./users/users.module",
+          "specifiers": [
+            "UsersModule"
+          ]
+        },
+        {
+          "source": "./auth/auth.module",
+          "specifiers": [
+            "AuthModule"
+          ]
+        },
+        {
+          "source": "./timetable/timetable.module",
+          "specifiers": [
+            "TimetableModule"
+          ]
+        },
+        {
+          "source": "./teachers/teachers.module",
+          "specifiers": [
+            "TeachersModule"
+          ]
+        },
+        {
+          "source": "./classes/classes.module",
+          "specifiers": [
+            "ClassesModule"
+          ]
+        },
+        {
+          "source": "./prisma.service",
+          "specifiers": [
+            "PrismaService"
+          ]
+        }
+      ],
+      "exports": [
+        "AppModule"
+      ],
+      "totalLines": 22,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/auth/auth.controller.spec.ts": {
+      "filePath": "backend/apps/api/src/auth/auth.controller.spec.ts",
+      "contentHash": "225b3d38302a0c7f3dd28be82f5242758ef8307b11ac83e4a91659df8bd77e65",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@nestjs/testing",
+          "specifiers": [
+            "Test",
+            "TestingModule"
+          ]
+        },
+        {
+          "source": "./auth.controller",
+          "specifiers": [
+            "AuthController"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 19,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/auth/auth.controller.ts": {
+      "filePath": "backend/apps/api/src/auth/auth.controller.ts",
+      "contentHash": "50cc0df66a1cfcff99deed2754b7f10dd16ede7b7abd8ffd9d8d08d3b2ab1b41",
+      "functions": [],
+      "classes": [
+        {
+          "name": "AuthController",
+          "methods": [
+            "constructor",
+            "signIn"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 9
+        }
+      ],
+      "imports": [
+        {
+          "source": "@nestjs/common",
+          "specifiers": [
+            "Body",
+            "Controller",
+            "Post",
+            "HttpCode",
+            "HttpStatus"
+          ]
+        },
+        {
+          "source": "./auth.service",
+          "specifiers": [
+            "AuthService"
+          ]
+        }
+      ],
+      "exports": [
+        "AuthController"
+      ],
+      "totalLines": 20,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/auth/auth.module.ts": {
+      "filePath": "backend/apps/api/src/auth/auth.module.ts",
+      "contentHash": "01384dea09eb9f979838704e265172a13c560dab58fa36f3ebf650c43fe33ad5",
+      "functions": [],
+      "classes": [
+        {
+          "name": "AuthModule",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "@nestjs/common",
+          "specifiers": [
+            "Module"
+          ]
+        },
+        {
+          "source": "./auth.service",
+          "specifiers": [
+            "AuthService"
+          ]
+        },
+        {
+          "source": "./auth.controller",
+          "specifiers": [
+            "AuthController"
+          ]
+        },
+        {
+          "source": "../users/users.module",
+          "specifiers": [
+            "UsersModule"
+          ]
+        },
+        {
+          "source": "@nestjs/jwt",
+          "specifiers": [
+            "JwtModule"
+          ]
+        }
+      ],
+      "exports": [
+        "AuthModule"
+      ],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/auth/auth.service.spec.ts": {
+      "filePath": "backend/apps/api/src/auth/auth.service.spec.ts",
+      "contentHash": "97bbc6835e25318e40a5d32ae0f97d39333c753c3779d957ebf8231139e9ea34",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@nestjs/testing",
+          "specifiers": [
+            "Test",
+            "TestingModule"
+          ]
+        },
+        {
+          "source": "./auth.service",
+          "specifiers": [
+            "AuthService"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 19,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/auth/auth.service.ts": {
+      "filePath": "backend/apps/api/src/auth/auth.service.ts",
+      "contentHash": "05e267b613e6ff2f0fb14c67b59628d1c1ff2abdc0a548b61902dd748d55665f",
+      "functions": [],
+      "classes": [
+        {
+          "name": "AuthService",
+          "methods": [
+            "constructor",
+            "signIn"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 29
+        }
+      ],
+      "imports": [
+        {
+          "source": "@nestjs/common",
+          "specifiers": [
+            "Injectable",
+            "UnauthorizedException"
+          ]
+        },
+        {
+          "source": "../users/users.service",
+          "specifiers": [
+            "UsersService"
+          ]
+        },
+        {
+          "source": "@nestjs/jwt",
+          "specifiers": [
+            "JwtService"
+          ]
+        },
+        {
+          "source": "bcrypt",
+          "specifiers": [
+            "* as bcrypt"
+          ]
+        }
+      ],
+      "exports": [
+        "AuthService"
+      ],
+      "totalLines": 36,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/classes/classes.controller.spec.ts": {
+      "filePath": "backend/apps/api/src/classes/classes.controller.spec.ts",
+      "contentHash": "0b66a952fdd594706a5767a6d2ce12393c18913272744e5d2f566e3a278cb1b4",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@nestjs/testing",
+          "specifiers": [
+            "Test",
+            "TestingModule"
+          ]
+        },
+        {
+          "source": "./classes.controller",
+          "specifiers": [
+            "ClassesController"
+          ]
+        },
+        {
+          "source": "./classes.service",
+          "specifiers": [
+            "ClassesService"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/classes/classes.controller.ts": {
+      "filePath": "backend/apps/api/src/classes/classes.controller.ts",
+      "contentHash": "c5a81af2dbeb4221cca0064ad49096d0705c8ec8e8f63ce964836b3be52a8e8d",
+      "functions": [],
+      "classes": [
+        {
+          "name": "ClassesController",
+          "methods": [
+            "constructor",
+            "create",
+            "findAll",
+            "findOne",
+            "update",
+            "remove"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 28
+        }
+      ],
+      "imports": [
+        {
+          "source": "@nestjs/common",
+          "specifiers": [
+            "Controller",
+            "Get",
+            "Post",
+            "Body",
+            "Patch",
+            "Param",
+            "Delete"
+          ]
+        },
+        {
+          "source": "./classes.service",
+          "specifiers": [
+            "ClassesService"
+          ]
+        },
+        {
+          "source": "./dto/create-class.dto",
+          "specifiers": [
+            "CreateClassDto"
+          ]
+        },
+        {
+          "source": "./dto/update-class.dto",
+          "specifiers": [
+            "UpdateClassDto"
+          ]
+        }
+      ],
+      "exports": [
+        "ClassesController"
+      ],
+      "totalLines": 35,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/classes/classes.module.ts": {
+      "filePath": "backend/apps/api/src/classes/classes.module.ts",
+      "contentHash": "1026c2b8283105f70b93763f04104eac86680c7c73b344934ffbc98c06d0e718",
+      "functions": [],
+      "classes": [
+        {
+          "name": "ClassesModule",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "@nestjs/common",
+          "specifiers": [
+            "Module"
+          ]
+        },
+        {
+          "source": "./classes.service",
+          "specifiers": [
+            "ClassesService"
+          ]
+        },
+        {
+          "source": "./classes.controller",
+          "specifiers": [
+            "ClassesController"
+          ]
+        },
+        {
+          "source": "../prisma.service",
+          "specifiers": [
+            "PrismaService"
+          ]
+        }
+      ],
+      "exports": [
+        "ClassesModule"
+      ],
+      "totalLines": 11,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/classes/classes.service.spec.ts": {
+      "filePath": "backend/apps/api/src/classes/classes.service.spec.ts",
+      "contentHash": "f77cd48904a3d52a290884d222658793abc58277f7e2ad1a0a80c6bee93a765e",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@nestjs/testing",
+          "specifiers": [
+            "Test",
+            "TestingModule"
+          ]
+        },
+        {
+          "source": "./classes.service",
+          "specifiers": [
+            "ClassesService"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 19,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/classes/classes.service.ts": {
+      "filePath": "backend/apps/api/src/classes/classes.service.ts",
+      "contentHash": "8b0f43cccd62404affa00b449e155ded7a8296b4faa2349979d2723131f00127",
+      "functions": [],
+      "classes": [
+        {
+          "name": "ClassesService",
+          "methods": [
+            "constructor",
+            "create",
+            "findAll",
+            "findOne",
+            "update",
+            "remove"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 35
+        }
+      ],
+      "imports": [
+        {
+          "source": "@nestjs/common",
+          "specifiers": [
+            "Injectable"
+          ]
+        },
+        {
+          "source": "./dto/create-class.dto",
+          "specifiers": [
+            "CreateClassDto"
+          ]
+        },
+        {
+          "source": "./dto/update-class.dto",
+          "specifiers": [
+            "UpdateClassDto"
+          ]
+        },
+        {
+          "source": "../prisma.service",
+          "specifiers": [
+            "PrismaService"
+          ]
+        }
+      ],
+      "exports": [
+        "ClassesService"
+      ],
+      "totalLines": 42,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/classes/dto/create-class.dto.ts": {
+      "filePath": "backend/apps/api/src/classes/dto/create-class.dto.ts",
+      "contentHash": "49626af349d21c8f6e8581780cceb1396f966aeeb77d1cc07768e50cc2bcbf9d",
+      "functions": [],
+      "classes": [
+        {
+          "name": "CreateClassDto",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "CreateClassDto"
+      ],
+      "totalLines": 4,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/classes/dto/update-class.dto.ts": {
+      "filePath": "backend/apps/api/src/classes/dto/update-class.dto.ts",
+      "contentHash": "b4b670ccb4504fff9ec2724b69dcd42ab40672bb3b0c0f06bf99eff215ac4e03",
+      "functions": [],
+      "classes": [
+        {
+          "name": "UpdateClassDto",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "@nestjs/mapped-types",
+          "specifiers": [
+            "PartialType"
+          ]
+        },
+        {
+          "source": "./create-class.dto",
+          "specifiers": [
+            "CreateClassDto"
+          ]
+        }
+      ],
+      "exports": [
+        "UpdateClassDto"
+      ],
+      "totalLines": 5,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/classes/entities/class.entity.ts": {
+      "filePath": "backend/apps/api/src/classes/entities/class.entity.ts",
+      "contentHash": "e6865a60be34857273e9d0bb65025da62d1fb17a58e48ada22350a659003ec7b",
+      "functions": [],
+      "classes": [
+        {
+          "name": "Class",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "Class"
+      ],
+      "totalLines": 2,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/main.ts": {
+      "filePath": "backend/apps/api/src/main.ts",
+      "contentHash": "6801106e18f89616231cbe1216e6473fb1cd375b4b520709f710e88de5fd49ee",
+      "functions": [
+        {
+          "name": "bootstrap",
+          "params": [],
+          "exported": false,
+          "lineCount": 6
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@nestjs/core",
+          "specifiers": [
+            "NestFactory"
+          ]
+        },
+        {
+          "source": "./app.module",
+          "specifiers": [
+            "AppModule"
+          ]
+        },
+        {
+          "source": "@nestjs/common",
+          "specifiers": [
+            "ValidationPipe"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 12,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/prisma.service.ts": {
+      "filePath": "backend/apps/api/src/prisma.service.ts",
+      "contentHash": "ff89cb6ad14d192d52788c586d9adb9a02c199a5abf871103100b80e4f096708",
+      "functions": [],
+      "classes": [
+        {
+          "name": "PrismaService",
+          "methods": [
+            "constructor",
+            "onModuleInit"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 13
+        }
+      ],
+      "imports": [
+        {
+          "source": "@nestjs/common",
+          "specifiers": [
+            "Injectable",
+            "OnModuleInit"
+          ]
+        },
+        {
+          "source": "@prisma/client",
+          "specifiers": [
+            "PrismaClient"
+          ]
+        },
+        {
+          "source": "@prisma/adapter-pg",
+          "specifiers": [
+            "PrismaPg"
+          ]
+        }
+      ],
+      "exports": [
+        "PrismaService"
+      ],
+      "totalLines": 19,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/teachers/dto/create-teacher.dto.ts": {
+      "filePath": "backend/apps/api/src/teachers/dto/create-teacher.dto.ts",
+      "contentHash": "49078673b15a0b11a34f8e57f29b2f5d0d547eeba1aed5c156c0fa4b515deb97",
+      "functions": [],
+      "classes": [
+        {
+          "name": "CreateTeacherDto",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "CreateTeacherDto"
+      ],
+      "totalLines": 4,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/teachers/dto/update-teacher.dto.ts": {
+      "filePath": "backend/apps/api/src/teachers/dto/update-teacher.dto.ts",
+      "contentHash": "a3becfcba9c3b7220f6d1bb7eeba06ab04dffda350cc74008b8d0909aff9f28c",
+      "functions": [],
+      "classes": [
+        {
+          "name": "UpdateTeacherDto",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "@nestjs/mapped-types",
+          "specifiers": [
+            "PartialType"
+          ]
+        },
+        {
+          "source": "./create-teacher.dto",
+          "specifiers": [
+            "CreateTeacherDto"
+          ]
+        }
+      ],
+      "exports": [
+        "UpdateTeacherDto"
+      ],
+      "totalLines": 5,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/teachers/entities/teacher.entity.ts": {
+      "filePath": "backend/apps/api/src/teachers/entities/teacher.entity.ts",
+      "contentHash": "7d8f45014424aae3c9240769aa2c43d1c3e632944332901cdbca167f4764475b",
+      "functions": [],
+      "classes": [
+        {
+          "name": "Teacher",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "Teacher"
+      ],
+      "totalLines": 2,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/teachers/teachers.controller.spec.ts": {
+      "filePath": "backend/apps/api/src/teachers/teachers.controller.spec.ts",
+      "contentHash": "d80712865d3e85e64d18a2cee72a43b7b55a915558239ca1ae362e0b1951567e",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@nestjs/testing",
+          "specifiers": [
+            "Test",
+            "TestingModule"
+          ]
+        },
+        {
+          "source": "./teachers.controller",
+          "specifiers": [
+            "TeachersController"
+          ]
+        },
+        {
+          "source": "./teachers.service",
+          "specifiers": [
+            "TeachersService"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/teachers/teachers.controller.ts": {
+      "filePath": "backend/apps/api/src/teachers/teachers.controller.ts",
+      "contentHash": "8b1f70f5c5087a0240f587f98841422a1af8cf01ebc7f94943225ccc96f635a5",
+      "functions": [],
+      "classes": [
+        {
+          "name": "TeachersController",
+          "methods": [
+            "constructor",
+            "create",
+            "findAll",
+            "findOne",
+            "update",
+            "remove"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 28
+        }
+      ],
+      "imports": [
+        {
+          "source": "@nestjs/common",
+          "specifiers": [
+            "Controller",
+            "Get",
+            "Post",
+            "Body",
+            "Patch",
+            "Param",
+            "Delete"
+          ]
+        },
+        {
+          "source": "./teachers.service",
+          "specifiers": [
+            "TeachersService"
+          ]
+        },
+        {
+          "source": "./dto/create-teacher.dto",
+          "specifiers": [
+            "CreateTeacherDto"
+          ]
+        },
+        {
+          "source": "./dto/update-teacher.dto",
+          "specifiers": [
+            "UpdateTeacherDto"
+          ]
+        }
+      ],
+      "exports": [
+        "TeachersController"
+      ],
+      "totalLines": 35,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/teachers/teachers.module.ts": {
+      "filePath": "backend/apps/api/src/teachers/teachers.module.ts",
+      "contentHash": "275d2c6d40e9f8614519aaf6a6b52c4f6da46bde7052728d8c2176d9c8e58f23",
+      "functions": [],
+      "classes": [
+        {
+          "name": "TeachersModule",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "@nestjs/common",
+          "specifiers": [
+            "Module"
+          ]
+        },
+        {
+          "source": "./teachers.service",
+          "specifiers": [
+            "TeachersService"
+          ]
+        },
+        {
+          "source": "./teachers.controller",
+          "specifiers": [
+            "TeachersController"
+          ]
+        },
+        {
+          "source": "../prisma.service",
+          "specifiers": [
+            "PrismaService"
+          ]
+        }
+      ],
+      "exports": [
+        "TeachersModule"
+      ],
+      "totalLines": 11,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/teachers/teachers.service.spec.ts": {
+      "filePath": "backend/apps/api/src/teachers/teachers.service.spec.ts",
+      "contentHash": "40b8d0b33bf81a75ac5e4fd0c9005fd9ac5dcf07fb4d9a037dfd793b01db41da",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@nestjs/testing",
+          "specifiers": [
+            "Test",
+            "TestingModule"
+          ]
+        },
+        {
+          "source": "./teachers.service",
+          "specifiers": [
+            "TeachersService"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 19,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/teachers/teachers.service.ts": {
+      "filePath": "backend/apps/api/src/teachers/teachers.service.ts",
+      "contentHash": "c7fb77d608d35cc951f212ec12ed29230fc904d3aedf4c8274c2fc1880a47ec8",
+      "functions": [],
+      "classes": [
+        {
+          "name": "TeachersService",
+          "methods": [
+            "constructor",
+            "create",
+            "findAll",
+            "findOne",
+            "update",
+            "remove"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 35
+        }
+      ],
+      "imports": [
+        {
+          "source": "@nestjs/common",
+          "specifiers": [
+            "Injectable"
+          ]
+        },
+        {
+          "source": "./dto/create-teacher.dto",
+          "specifiers": [
+            "CreateTeacherDto"
+          ]
+        },
+        {
+          "source": "./dto/update-teacher.dto",
+          "specifiers": [
+            "UpdateTeacherDto"
+          ]
+        },
+        {
+          "source": "../prisma.service",
+          "specifiers": [
+            "PrismaService"
+          ]
+        }
+      ],
+      "exports": [
+        "TeachersService"
+      ],
+      "totalLines": 42,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/timetable/dto/create-timetable.dto.ts": {
+      "filePath": "backend/apps/api/src/timetable/dto/create-timetable.dto.ts",
+      "contentHash": "e66c5adfb74c7881dbde3f39e10d88ff8a932e1f2a23dc3633cac05268eb5811",
+      "functions": [],
+      "classes": [
+        {
+          "name": "CreateTimetableDto",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "CreateTimetableDto"
+      ],
+      "totalLines": 4,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/timetable/dto/generate-schedule.dto.ts": {
+      "filePath": "backend/apps/api/src/timetable/dto/generate-schedule.dto.ts",
+      "contentHash": "78fa9e4bc19dfe2e9f818456dfd39951f5f35b4aa70f6837f9207374544da9a5",
+      "functions": [],
+      "classes": [
+        {
+          "name": "TeacherDto",
+          "methods": [],
+          "properties": [
+            "id"
+          ],
+          "exported": false,
+          "lineCount": 4
+        },
+        {
+          "name": "ClassDto",
+          "methods": [],
+          "properties": [
+            "id"
+          ],
+          "exported": false,
+          "lineCount": 4
+        },
+        {
+          "name": "RoomDto",
+          "methods": [],
+          "properties": [
+            "id"
+          ],
+          "exported": false,
+          "lineCount": 4
+        },
+        {
+          "name": "SlotDto",
+          "methods": [],
+          "properties": [
+            "id"
+          ],
+          "exported": false,
+          "lineCount": 4
+        },
+        {
+          "name": "RequirementDto",
+          "methods": [],
+          "properties": [
+            "teacherId",
+            "classId",
+            "subjectId",
+            "hoursPerWeek"
+          ],
+          "exported": false,
+          "lineCount": 14
+        },
+        {
+          "name": "GenerateScheduleDto",
+          "methods": [],
+          "properties": [
+            "teachers",
+            "classes",
+            "rooms",
+            "slots",
+            "requirements"
+          ],
+          "exported": true,
+          "lineCount": 26
+        }
+      ],
+      "imports": [
+        {
+          "source": "class-transformer",
+          "specifiers": [
+            "Type"
+          ]
+        },
+        {
+          "source": "class-validator",
+          "specifiers": [
+            "IsArray",
+            "IsInt",
+            "Min",
+            "ValidateNested"
+          ]
+        }
+      ],
+      "exports": [
+        "GenerateScheduleDto"
+      ],
+      "totalLines": 70,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/timetable/dto/update-timetable.dto.ts": {
+      "filePath": "backend/apps/api/src/timetable/dto/update-timetable.dto.ts",
+      "contentHash": "0cd87007d2135588cf9080bcd690a49799144ab8592b23f05c21f578705ab9da",
+      "functions": [],
+      "classes": [
+        {
+          "name": "UpdateTimetableDto",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "@nestjs/mapped-types",
+          "specifiers": [
+            "PartialType"
+          ]
+        },
+        {
+          "source": "./create-timetable.dto",
+          "specifiers": [
+            "CreateTimetableDto"
+          ]
+        }
+      ],
+      "exports": [
+        "UpdateTimetableDto"
+      ],
+      "totalLines": 5,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/timetable/entities/timetable.entity.ts": {
+      "filePath": "backend/apps/api/src/timetable/entities/timetable.entity.ts",
+      "contentHash": "8232f849f71b240033d4800ae8f9dd8661dc01a8d818a03d022b3fe85de6614c",
+      "functions": [],
+      "classes": [
+        {
+          "name": "Timetable",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "Timetable"
+      ],
+      "totalLines": 2,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/timetable/timetable.controller.spec.ts": {
+      "filePath": "backend/apps/api/src/timetable/timetable.controller.spec.ts",
+      "contentHash": "b6f0e3531ee93efd5d5c784184ebbb27c37348e87126ee2ff20fff5329ae4748",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@nestjs/testing",
+          "specifiers": [
+            "Test",
+            "TestingModule"
+          ]
+        },
+        {
+          "source": "./timetable.controller",
+          "specifiers": [
+            "TimetableController"
+          ]
+        },
+        {
+          "source": "./timetable.service",
+          "specifiers": [
+            "TimetableService"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/timetable/timetable.controller.ts": {
+      "filePath": "backend/apps/api/src/timetable/timetable.controller.ts",
+      "contentHash": "dd44c9bdbd6c39c408860986e0fa921456065353c2d476cc17a2aff14eae5371",
+      "functions": [],
+      "classes": [
+        {
+          "name": "TimetableController",
+          "methods": [
+            "constructor",
+            "create",
+            "generate",
+            "generateFromDb",
+            "findAll",
+            "findOne",
+            "update",
+            "remove"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 38
+        }
+      ],
+      "imports": [
+        {
+          "source": "@nestjs/common",
+          "specifiers": [
+            "Controller",
+            "Get",
+            "Post",
+            "Body",
+            "Patch",
+            "Param",
+            "Delete"
+          ]
+        },
+        {
+          "source": "./timetable.service",
+          "specifiers": [
+            "TimetableService"
+          ]
+        },
+        {
+          "source": "./dto/create-timetable.dto",
+          "specifiers": [
+            "CreateTimetableDto"
+          ]
+        },
+        {
+          "source": "./dto/update-timetable.dto",
+          "specifiers": [
+            "UpdateTimetableDto"
+          ]
+        },
+        {
+          "source": "./dto/generate-schedule.dto",
+          "specifiers": [
+            "GenerateScheduleDto"
+          ]
+        }
+      ],
+      "exports": [
+        "TimetableController"
+      ],
+      "totalLines": 46,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/timetable/timetable.module.ts": {
+      "filePath": "backend/apps/api/src/timetable/timetable.module.ts",
+      "contentHash": "1878b438e1ff8cc3e4502ca8851e1a19deacc2b570f5c9d7e8b31356fa153680",
+      "functions": [],
+      "classes": [
+        {
+          "name": "TimetableModule",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "@nestjs/common",
+          "specifiers": [
+            "Module"
+          ]
+        },
+        {
+          "source": "./timetable.service",
+          "specifiers": [
+            "TimetableService"
+          ]
+        },
+        {
+          "source": "./timetable.controller",
+          "specifiers": [
+            "TimetableController"
+          ]
+        },
+        {
+          "source": "../prisma.service",
+          "specifiers": [
+            "PrismaService"
+          ]
+        }
+      ],
+      "exports": [
+        "TimetableModule"
+      ],
+      "totalLines": 11,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/timetable/timetable.service.spec.ts": {
+      "filePath": "backend/apps/api/src/timetable/timetable.service.spec.ts",
+      "contentHash": "084951377738ebf74a5e2c10482fa85b5ca20ec5921f2e4bb70c424b095b1448",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@nestjs/testing",
+          "specifiers": [
+            "Test",
+            "TestingModule"
+          ]
+        },
+        {
+          "source": "./timetable.service",
+          "specifiers": [
+            "TimetableService"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 19,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/timetable/timetable.service.ts": {
+      "filePath": "backend/apps/api/src/timetable/timetable.service.ts",
+      "contentHash": "1e2e0609e7a77bc847f907d412ff79e279f700a93ebded743e49d1198c2ec08a",
+      "functions": [],
+      "classes": [
+        {
+          "name": "TimetableService",
+          "methods": [
+            "constructor",
+            "create",
+            "findAll",
+            "findOne",
+            "update",
+            "remove",
+            "generateSchedule",
+            "generateScheduleFromDb"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 135
+        }
+      ],
+      "imports": [
+        {
+          "source": "@nestjs/common",
+          "specifiers": [
+            "Injectable"
+          ]
+        },
+        {
+          "source": "./dto/create-timetable.dto",
+          "specifiers": [
+            "CreateTimetableDto"
+          ]
+        },
+        {
+          "source": "./dto/update-timetable.dto",
+          "specifiers": [
+            "UpdateTimetableDto"
+          ]
+        },
+        {
+          "source": "../prisma.service",
+          "specifiers": [
+            "PrismaService"
+          ]
+        },
+        {
+          "source": "axios",
+          "specifiers": [
+            "axios"
+          ]
+        }
+      ],
+      "exports": [
+        "TimetableService"
+      ],
+      "totalLines": 143,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/users/dto/create-user.dto.ts": {
+      "filePath": "backend/apps/api/src/users/dto/create-user.dto.ts",
+      "contentHash": "379bc79072cbca579a15ac8965221a596dc1187bdbf68de336b2ef49c234001f",
+      "functions": [],
+      "classes": [
+        {
+          "name": "CreateUserDto",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "CreateUserDto"
+      ],
+      "totalLines": 4,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/users/dto/update-user.dto.ts": {
+      "filePath": "backend/apps/api/src/users/dto/update-user.dto.ts",
+      "contentHash": "7ae221f2ac29a269c32baa485f4bfbd13b97d63159c6bb0471b0789104858642",
+      "functions": [],
+      "classes": [
+        {
+          "name": "UpdateUserDto",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "@nestjs/mapped-types",
+          "specifiers": [
+            "PartialType"
+          ]
+        },
+        {
+          "source": "./create-user.dto",
+          "specifiers": [
+            "CreateUserDto"
+          ]
+        }
+      ],
+      "exports": [
+        "UpdateUserDto"
+      ],
+      "totalLines": 5,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/users/entities/user.entity.ts": {
+      "filePath": "backend/apps/api/src/users/entities/user.entity.ts",
+      "contentHash": "cfb7388a4dc3c9f2d22fa30dd81008b7006b59ab18556f83affd9996aa4a826f",
+      "functions": [],
+      "classes": [
+        {
+          "name": "User",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "User"
+      ],
+      "totalLines": 2,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/users/users.controller.spec.ts": {
+      "filePath": "backend/apps/api/src/users/users.controller.spec.ts",
+      "contentHash": "8942916720048c588e548eb5674bd6492336da514759133ec7d8d3da94a6d0e4",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@nestjs/testing",
+          "specifiers": [
+            "Test",
+            "TestingModule"
+          ]
+        },
+        {
+          "source": "./users.controller",
+          "specifiers": [
+            "UsersController"
+          ]
+        },
+        {
+          "source": "./users.service",
+          "specifiers": [
+            "UsersService"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/users/users.controller.ts": {
+      "filePath": "backend/apps/api/src/users/users.controller.ts",
+      "contentHash": "e7c4c54e754332f727c684d5ec4ca6dccac5a61bf9c49dd2c4988406ab65a6df",
+      "functions": [],
+      "classes": [
+        {
+          "name": "UsersController",
+          "methods": [
+            "constructor",
+            "create",
+            "findAll",
+            "findOne",
+            "update",
+            "remove"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 28
+        }
+      ],
+      "imports": [
+        {
+          "source": "@nestjs/common",
+          "specifiers": [
+            "Controller",
+            "Get",
+            "Post",
+            "Body",
+            "Patch",
+            "Param",
+            "Delete"
+          ]
+        },
+        {
+          "source": "./users.service",
+          "specifiers": [
+            "UsersService"
+          ]
+        },
+        {
+          "source": "./dto/create-user.dto",
+          "specifiers": [
+            "CreateUserDto"
+          ]
+        },
+        {
+          "source": "./dto/update-user.dto",
+          "specifiers": [
+            "UpdateUserDto"
+          ]
+        }
+      ],
+      "exports": [
+        "UsersController"
+      ],
+      "totalLines": 35,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/users/users.module.ts": {
+      "filePath": "backend/apps/api/src/users/users.module.ts",
+      "contentHash": "a95bfa9c16630a1866953ce206d7101c0ecf158e5b65282b96c8059b6a29d9e8",
+      "functions": [],
+      "classes": [
+        {
+          "name": "UsersModule",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "@nestjs/common",
+          "specifiers": [
+            "Module"
+          ]
+        },
+        {
+          "source": "./users.service",
+          "specifiers": [
+            "UsersService"
+          ]
+        },
+        {
+          "source": "./users.controller",
+          "specifiers": [
+            "UsersController"
+          ]
+        },
+        {
+          "source": "../prisma.service",
+          "specifiers": [
+            "PrismaService"
+          ]
+        }
+      ],
+      "exports": [
+        "UsersModule"
+      ],
+      "totalLines": 12,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/users/users.service.spec.ts": {
+      "filePath": "backend/apps/api/src/users/users.service.spec.ts",
+      "contentHash": "c5b98b99fdaf48c0872e0ce12a77742d984098240c3e041a268efd4f68330236",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@nestjs/testing",
+          "specifiers": [
+            "Test",
+            "TestingModule"
+          ]
+        },
+        {
+          "source": "./users.service",
+          "specifiers": [
+            "UsersService"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 19,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/src/users/users.service.ts": {
+      "filePath": "backend/apps/api/src/users/users.service.ts",
+      "contentHash": "fe0ba7925dc053af303c7e25a136edcd54a8b0f6fa25843f7e89ea2c21fde810",
+      "functions": [],
+      "classes": [
+        {
+          "name": "UsersService",
+          "methods": [
+            "constructor",
+            "create",
+            "findAll",
+            "findOne",
+            "findOneByEmail",
+            "update",
+            "remove"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 48
+        }
+      ],
+      "imports": [
+        {
+          "source": "@nestjs/common",
+          "specifiers": [
+            "Injectable"
+          ]
+        },
+        {
+          "source": "./dto/create-user.dto",
+          "specifiers": [
+            "CreateUserDto"
+          ]
+        },
+        {
+          "source": "./dto/update-user.dto",
+          "specifiers": [
+            "UpdateUserDto"
+          ]
+        },
+        {
+          "source": "../prisma.service",
+          "specifiers": [
+            "PrismaService"
+          ]
+        },
+        {
+          "source": "bcrypt",
+          "specifiers": [
+            "* as bcrypt"
+          ]
+        }
+      ],
+      "exports": [
+        "UsersService"
+      ],
+      "totalLines": 56,
+      "hasStructuralAnalysis": true
+    },
+    "backend/apps/api/tsconfig.json": {
+      "filePath": "backend/apps/api/tsconfig.json",
+      "contentHash": "0d401eaa32ebefa0c563ae1f29bef54055f463eea3bd1465a8faa870691b279e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 20,
+      "hasStructuralAnalysis": true
+    },
+    "backend/docker-compose.yml": {
+      "filePath": "backend/docker-compose.yml",
+      "contentHash": "9c3aca8c84a9ed7c02189c0f7b91b0f95055aea74ddd6031726e8526d426b9b3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 40,
+      "hasStructuralAnalysis": true
+    },
+    "backend/services/scheduler/app/__init__.py": {
+      "filePath": "backend/services/scheduler/app/__init__.py",
+      "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "backend/services/scheduler/app/app.py": {
+      "filePath": "backend/services/scheduler/app/app.py",
+      "contentHash": "b3ad9e07690f537ed8f4d1b95711a357f193fbfc2f9e66a00bd65860bad3bcf3",
+      "functions": [
+        {
+          "name": "health",
+          "params": [],
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "solve",
+          "params": [
+            "data"
+          ],
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "app.schemas",
+          "specifiers": [
+            "SchedulerInput"
+          ]
+        },
+        {
+          "source": "app.solver",
+          "specifiers": [
+            "solve_scheduler"
+          ]
+        }
+      ],
+      "exports": [
+        "health",
+        "solve"
+      ],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "backend/services/scheduler/app/main.py": {
+      "filePath": "backend/services/scheduler/app/main.py",
+      "contentHash": "159f78b7f42bf2ab9eaeec8c0d40f7671a15788002f26cc3c0c1f29aeef278bf",
+      "functions": [
+        {
+          "name": "health",
+          "params": [],
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "solve",
+          "params": [
+            "data"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "Requirement",
+          "methods": [],
+          "properties": [
+            "teacherId",
+            "classId",
+            "hoursPerWeek"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "Room",
+          "methods": [],
+          "properties": [
+            "id"
+          ],
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "Slot",
+          "methods": [],
+          "properties": [
+            "id"
+          ],
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "Teacher",
+          "methods": [],
+          "properties": [
+            "id"
+          ],
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "ClassItem",
+          "methods": [],
+          "properties": [
+            "id"
+          ],
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "ScheduleRequest",
+          "methods": [],
+          "properties": [
+            "requirements",
+            "rooms",
+            "slots",
+            "teachers",
+            "classes"
+          ],
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "imports": [
+        {
+          "source": "fastapi",
+          "specifiers": [
+            "FastAPI"
+          ]
+        },
+        {
+          "source": "pydantic",
+          "specifiers": [
+            "BaseModel"
+          ]
+        },
+        {
+          "source": "typing",
+          "specifiers": [
+            "List"
+          ]
+        },
+        {
+          "source": ".solver",
+          "specifiers": [
+            "solve_scheduler"
+          ]
+        }
+      ],
+      "exports": [
+        "Requirement",
+        "Room",
+        "Slot",
+        "Teacher",
+        "ClassItem",
+        "ScheduleRequest",
+        "health",
+        "solve"
+      ],
+      "totalLines": 40,
+      "hasStructuralAnalysis": true
+    },
+    "backend/services/scheduler/app/models.py": {
+      "filePath": "backend/services/scheduler/app/models.py",
+      "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": true
+    },
+    "backend/services/scheduler/app/schemas.py": {
+      "filePath": "backend/services/scheduler/app/schemas.py",
+      "contentHash": "746bc30868dc879aa8ce8409eebba7d62cb1b18fb07e9719071e7a4209967fff",
+      "functions": [],
+      "classes": [
+        {
+          "name": "Requirement",
+          "methods": [],
+          "properties": [
+            "teacherId",
+            "classId",
+            "subjectId",
+            "hoursPerWeek",
+            "requiredRoomType"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "Teacher",
+          "methods": [],
+          "properties": [
+            "id",
+            "fullName",
+            "availableSlots",
+            "unavailableSlots",
+            "qualifiedSubjects"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "ClassItem",
+          "methods": [],
+          "properties": [
+            "id",
+            "name"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Room",
+          "methods": [],
+          "properties": [
+            "id",
+            "name",
+            "roomType"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "Slot",
+          "methods": [],
+          "properties": [
+            "id",
+            "day",
+            "period"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "SchedulerInput",
+          "methods": [],
+          "properties": [
+            "teachers",
+            "classes",
+            "rooms",
+            "slots",
+            "requirements",
+            "maxSolveSeconds"
+          ],
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "imports": [
+        {
+          "source": "pydantic",
+          "specifiers": [
+            "BaseModel"
+          ]
+        },
+        {
+          "source": "typing",
+          "specifiers": [
+            "List",
+            "Optional",
+            "Union"
+          ]
+        }
+      ],
+      "exports": [
+        "Requirement",
+        "Teacher",
+        "ClassItem",
+        "Room",
+        "Slot",
+        "SchedulerInput"
+      ],
+      "totalLines": 42,
+      "hasStructuralAnalysis": true
+    },
+    "backend/services/scheduler/app/solver_optimized.py": {
+      "filePath": "backend/services/scheduler/app/solver_optimized.py",
+      "contentHash": "8ccef7c9bd083dc8e6fe7d0c7493db4c558f04cf605e056cb76e4a432b388a8e",
+      "functions": [
+        {
+          "name": "solve_scheduler_optimized",
+          "params": [
+            "data"
+          ],
+          "exported": true,
+          "lineCount": 104
+        },
+        {
+          "name": "solve_scheduler",
+          "params": [
+            "data"
+          ],
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "ortools.sat.python",
+          "specifiers": [
+            "cp_model"
+          ]
+        },
+        {
+          "source": "typing",
+          "specifiers": [
+            "Dict",
+            "List",
+            "Tuple",
+            "Set"
+          ]
+        },
+        {
+          "source": "collections",
+          "specifiers": [
+            "defaultdict"
+          ]
+        }
+      ],
+      "exports": [
+        "solve_scheduler_optimized",
+        "solve_scheduler"
+      ],
+      "totalLines": 115,
+      "hasStructuralAnalysis": true
+    },
+    "backend/services/scheduler/app/solver.py": {
+      "filePath": "backend/services/scheduler/app/solver.py",
+      "contentHash": "535a39c1bb11aace624f68eebcadd7b5349f7cb8b3afa33f055596bf9388c9c0",
+      "functions": [
+        {
+          "name": "_str",
+          "params": [
+            "v"
+          ],
+          "returnType": "str",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "_normalise",
+          "params": [
+            "data"
+          ],
+          "returnType": "Dict",
+          "exported": true,
+          "lineCount": 45
+        },
+        {
+          "name": "solve_scheduler",
+          "params": [
+            "data"
+          ],
+          "returnType": "Optional[List[Dict[str, Any]]]",
+          "exported": true,
+          "lineCount": 242
+        },
+        {
+          "name": "_collect",
+          "params": [
+            "solver",
+            "assgn"
+          ],
+          "returnType": "List[Dict[str, Any]]",
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "ortools.sat.python",
+          "specifiers": [
+            "cp_model"
+          ]
+        },
+        {
+          "source": "typing",
+          "specifiers": [
+            "Dict",
+            "List",
+            "Any",
+            "Optional",
+            "Set",
+            "Tuple"
+          ]
+        },
+        {
+          "source": "collections",
+          "specifiers": [
+            "defaultdict"
+          ]
+        }
+      ],
+      "exports": [
+        "_str",
+        "_normalise",
+        "solve_scheduler",
+        "_collect"
+      ],
+      "totalLines": 309,
+      "hasStructuralAnalysis": true
+    },
+    "backend/services/scheduler/benchmark_solver.py": {
+      "filePath": "backend/services/scheduler/benchmark_solver.py",
+      "contentHash": "0834ee961ef8758057349e5b5346b290f2c32bdb3bc1d71d0966bf90ed1c8029",
+      "functions": [
+        {
+          "name": "create_larger_test_data",
+          "params": [
+            "num_teachers",
+            "num_classes",
+            "num_rooms",
+            "num_slots"
+          ],
+          "exported": true,
+          "lineCount": 40
+        },
+        {
+          "name": "benchmark_solvers",
+          "params": [],
+          "exported": true,
+          "lineCount": 55
+        },
+        {
+          "name": "verify_correctness",
+          "params": [],
+          "exported": true,
+          "lineCount": 55
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "app.schemas",
+          "specifiers": [
+            "SchedulerInput",
+            "Teacher",
+            "Class",
+            "Room",
+            "Slot",
+            "Requirement"
+          ]
+        },
+        {
+          "source": "app.solver_optimized",
+          "specifiers": [
+            "solve_scheduler_optimized"
+          ]
+        },
+        {
+          "source": "app.solver",
+          "specifiers": [
+            "solve_scheduler_original"
+          ]
+        }
+      ],
+      "exports": [
+        "create_larger_test_data",
+        "benchmark_solvers",
+        "verify_correctness"
+      ],
+      "totalLines": 170,
+      "hasStructuralAnalysis": true
+    },
+    "backend/services/scheduler/debug_t4b.py": {
+      "filePath": "backend/services/scheduler/debug_t4b.py",
+      "contentHash": "97ffb798b107105897a7a44e97dbe7c5328ca7b6210643cf58dc82ba54a75376",
+      "functions": [
+        {
+          "name": "load",
+          "params": [
+            "name",
+            "path"
+          ],
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "ortools.sat.python",
+          "specifiers": [
+            "cp_model"
+          ]
+        }
+      ],
+      "exports": [
+        "load"
+      ],
+      "totalLines": 85,
+      "hasStructuralAnalysis": true
+    },
+    "backend/services/scheduler/Dockerfile": {
+      "filePath": "backend/services/scheduler/Dockerfile",
+      "contentHash": "403cb03f97d14b0d8006cea474176c590820b42556c6a672893f960476263255",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 8,
+      "hasStructuralAnalysis": true
+    },
+    "backend/services/scheduler/final_trace.py": {
+      "filePath": "backend/services/scheduler/final_trace.py",
+      "contentHash": "da3d39afd53f87057af7114eb77c42ff03a0b0975d867fc945e0815ddeca1226",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "importlib.util",
+          "specifiers": [
+            "importlib.util"
+          ]
+        },
+        {
+          "source": "collections",
+          "specifiers": [
+            "defaultdict"
+          ]
+        },
+        {
+          "source": "ortools.sat.python",
+          "specifiers": [
+            "cp_model"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 81,
+      "hasStructuralAnalysis": true
+    },
+    "backend/services/scheduler/integration_test.py": {
+      "filePath": "backend/services/scheduler/integration_test.py",
+      "contentHash": "d30a54487598ddcbbfa28a5c0c3003c492702c75062fa21c4a35f4e2de0f7f1b",
+      "functions": [
+        {
+          "name": "test",
+          "params": [
+            "name",
+            "input_data",
+            "expect_success",
+            "min_assigns"
+          ],
+          "exported": true,
+          "lineCount": 22
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "app.schemas",
+          "specifiers": [
+            "SchedulerInput",
+            "Teacher",
+            "Class",
+            "Room",
+            "Slot",
+            "Requirement"
+          ]
+        },
+        {
+          "source": "app.solver",
+          "specifiers": [
+            "solve_scheduler"
+          ]
+        }
+      ],
+      "exports": [
+        "test"
+      ],
+      "totalLines": 163,
+      "hasStructuralAnalysis": true
+    },
+    "backend/services/scheduler/main.py": {
+      "filePath": "backend/services/scheduler/main.py",
+      "contentHash": "8f23a9a24dc484e4f67e5fafb8f26d170d9d66a4b03ac2fd3608a183370cf570",
+      "functions": [
+        {
+          "name": "root",
+          "params": [],
+          "exported": true,
+          "lineCount": 2
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "fastapi",
+          "specifiers": [
+            "FastAPI"
+          ]
+        }
+      ],
+      "exports": [
+        "root"
+      ],
+      "totalLines": 7,
+      "hasStructuralAnalysis": true
+    },
+    "backend/services/scheduler/requirements.txt": {
+      "filePath": "backend/services/scheduler/requirements.txt",
+      "contentHash": "264a49871f2de4ba1f2052c0c41540ff7c0c9f001e2457fbf77c1d78900f7b4b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5,
+      "hasStructuralAnalysis": false
+    },
+    "backend/services/scheduler/status_check.py": {
+      "filePath": "backend/services/scheduler/status_check.py",
+      "contentHash": "2e49f570f1f8452ac2a4b4ceddc528c0ce94d40cc6b5d3b16d86ff4f39f4ed4a",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "collections",
+          "specifiers": [
+            "defaultdict"
+          ]
+        },
+        {
+          "source": "ortools.sat.python",
+          "specifiers": [
+            "cp_model"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 59,
+      "hasStructuralAnalysis": true
+    },
+    "backend/services/scheduler/t_room_debug.py": {
+      "filePath": "backend/services/scheduler/t_room_debug.py",
+      "contentHash": "77461c04c2a6ed08e9a925aa121cc81b9fa333aaa36ebb6d78384515b037b573",
+      "functions": [
+        {
+          "name": "show_constraints",
+          "params": [
+            "label",
+            "vs"
+          ],
+          "exported": true,
+          "lineCount": 2
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "collections",
+          "specifiers": [
+            "defaultdict"
+          ]
+        },
+        {
+          "source": "ortools.sat.python",
+          "specifiers": [
+            "cp_model"
+          ]
+        }
+      ],
+      "exports": [
+        "show_constraints"
+      ],
+      "totalLines": 81,
+      "hasStructuralAnalysis": true
+    },
+    "backend/services/scheduler/test_feasible.py": {
+      "filePath": "backend/services/scheduler/test_feasible.py",
+      "contentHash": "ed8529a69946b8c6f4d023d00dd7e1eabbd8f4c54848311b376af5df831f3e2e",
+      "functions": [
+        {
+          "name": "create_feasible_test_data",
+          "params": [],
+          "exported": true,
+          "lineCount": 27
+        },
+        {
+          "name": "test_feasible_case",
+          "params": [],
+          "exported": true,
+          "lineCount": 37
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "app.schemas",
+          "specifiers": [
+            "SchedulerInput",
+            "Teacher",
+            "Class",
+            "Room",
+            "Slot",
+            "Requirement"
+          ]
+        },
+        {
+          "source": "app.solver_optimized",
+          "specifiers": [
+            "solve_scheduler_optimized"
+          ]
+        },
+        {
+          "source": "app.solver",
+          "specifiers": [
+            "solve_scheduler_original"
+          ]
+        }
+      ],
+      "exports": [
+        "create_feasible_test_data",
+        "test_feasible_case"
+      ],
+      "totalLines": 81,
+      "hasStructuralAnalysis": true
+    },
+    "backend/services/scheduler/test_solver.py": {
+      "filePath": "backend/services/scheduler/test_solver.py",
+      "contentHash": "f21c4dad2c8684b7ae98afa6d9d819314c98f5820b52afc0d5710e94dccb4b19",
+      "functions": [
+        {
+          "name": "create_test_data",
+          "params": [],
+          "exported": true,
+          "lineCount": 41
+        },
+        {
+          "name": "test_solvers",
+          "params": [],
+          "exported": true,
+          "lineCount": 39
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "app.schemas",
+          "specifiers": [
+            "SchedulerInput",
+            "Teacher",
+            "Class",
+            "Room",
+            "Slot",
+            "Requirement"
+          ]
+        },
+        {
+          "source": "app.solver_optimized",
+          "specifiers": [
+            "solve_scheduler_optimized"
+          ]
+        },
+        {
+          "source": "app.solver",
+          "specifiers": [
+            "solve_scheduler_original"
+          ]
+        }
+      ],
+      "exports": [
+        "create_test_data",
+        "test_solvers"
+      ],
+      "totalLines": 97,
+      "hasStructuralAnalysis": true
+    },
+    "backend/services/solver_phase2_check.py": {
+      "filePath": "backend/services/solver_phase2_check.py",
+      "contentHash": "7cba48d1a16861c2380f8abb338708352f486671caf173c951f938cd7ed99048",
+      "functions": [
+        {
+          "name": "test_phase2",
+          "params": [
+            "label",
+            "use_h5",
+            "use_h6",
+            "h1h1_pk",
+            "maximize"
+          ],
+          "exported": true,
+          "lineCount": 41
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        },
+        {
+          "source": "collections",
+          "specifiers": [
+            "defaultdict"
+          ]
+        },
+        {
+          "source": "ortools.sat.python",
+          "specifiers": [
+            "cp_model"
+          ]
+        },
+        {
+          "source": "ortools.sat.python",
+          "specifiers": [
+            "cpm"
+          ]
+        }
+      ],
+      "exports": [
+        "test_phase2"
+      ],
+      "totalLines": 77,
+      "hasStructuralAnalysis": true
+    },
+    "frontend/smartplan-frontend/admin-dashboard.html": {
+      "filePath": "frontend/smartplan-frontend/admin-dashboard.html",
+      "contentHash": "2624a0eec1ff2cc47758c56f087852755f639cc5ee2de85cdcf0058168675d62",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 281,
+      "hasStructuralAnalysis": false
+    },
+    "frontend/smartplan-frontend/attendance.html": {
+      "filePath": "frontend/smartplan-frontend/attendance.html",
+      "contentHash": "b3b338e0561ce3ddaea69cfed2406970d0ba3792dfc30c525a68db21159e22c1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 193,
+      "hasStructuralAnalysis": false
+    },
+    "frontend/smartplan-frontend/index.html": {
+      "filePath": "frontend/smartplan-frontend/index.html",
+      "contentHash": "38331ae7e48a4837e104dbf2e1d25bf0b50d7b2b9a09deeb8841f1172240cd4d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 235,
+      "hasStructuralAnalysis": false
+    },
+    "frontend/smartplan-frontend/login.html": {
+      "filePath": "frontend/smartplan-frontend/login.html",
+      "contentHash": "a7693fe6c786de3dbbac9cd3b2450afd916bf54c8dad6fb854032d2da0e1dbf1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 157,
+      "hasStructuralAnalysis": false
+    },
+    "frontend/smartplan-frontend/resources.html": {
+      "filePath": "frontend/smartplan-frontend/resources.html",
+      "contentHash": "18f07da768679bcc2ad0bd02f46f30ff3ceaa5bce7c7623e155eb0b4eaf2f345",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 303,
+      "hasStructuralAnalysis": false
+    },
+    "frontend/smartplan-frontend/student-dashboard.html": {
+      "filePath": "frontend/smartplan-frontend/student-dashboard.html",
+      "contentHash": "67a241c06b1cc71b80136fc2285edab8ce46b508749a4b9a89f262c6863cd5bd",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 151,
+      "hasStructuralAnalysis": false
+    },
+    "frontend/smartplan-frontend/styles.css": {
+      "filePath": "frontend/smartplan-frontend/styles.css",
+      "contentHash": "e168d6449e72bb73ece885e730ef405281ef0e4c911b3b20171ab5f5f6a6c9c1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 131,
+      "hasStructuralAnalysis": false
+    },
+    "frontend/smartplan-frontend/substitutions.html": {
+      "filePath": "frontend/smartplan-frontend/substitutions.html",
+      "contentHash": "e0ddad0349785e86a105c924379735820277555b00ca0c9d310dd0d5bd975757",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 164,
+      "hasStructuralAnalysis": false
+    },
+    "frontend/smartplan-frontend/teacher-dashboard.html": {
+      "filePath": "frontend/smartplan-frontend/teacher-dashboard.html",
+      "contentHash": "b2343bf6521983df9e2af7c73d3353ce31b3161dad0ee7b6f75aebd2cf53f07c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 153,
+      "hasStructuralAnalysis": false
+    },
+    "frontend/smartplan-frontend/timetable.html": {
+      "filePath": "frontend/smartplan-frontend/timetable.html",
+      "contentHash": "f8289cece927448ed73687b6bcc365f7ffb4ee00c374f79be78f28473ba6b1ae",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 256,
+      "hasStructuralAnalysis": false
+    },
+    "frontend/substitutions.html": {
+      "filePath": "frontend/substitutions.html",
+      "contentHash": "e0ddad0349785e86a105c924379735820277555b00ca0c9d310dd0d5bd975757",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 164,
+      "hasStructuralAnalysis": false
+    }
+  }
+}

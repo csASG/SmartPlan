@@ -1,0 +1,54 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: VPhYBSJEzgryFbRAHzLyWTaByomQDbUp
+      POSTGRES_DB: railway
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - internal
+    restart: unless-stopped
+
+  scheduler:
+    build: ./services/scheduler
+    environment:
+      SOLVER_SECRET: ${SOLVER_SECRET:-changeme}
+    expose:
+      - "8000"
+    networks:
+      - internal
+    restart: unless-stopped
+
+  api:
+    build: ./apps/api
+    ports:
+      - "3001:3001"
+    environment:
+      DATABASE_URL: postgresql://postgres:VPhYBSJEzgryFbRAHzLyWTaByomQDbUp@postgres:5432/railway
+      JWT_SECRET: super-secret-key
+    depends_on:
+      - postgres
+    networks:
+      - internal
+
+  frontend:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ../frontend/smartplan-frontend:/usr/share/nginx/html:ro
+    depends_on:
+      - api
+    networks:
+      - internal
+
+networks:
+  internal:
+    driver: bridge
+
+volumes:
+  postgres_data: {}

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPlan - Resource Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .table-container {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--surface);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        th {
+            background: var(--surface-higher);
+            text-align: left;
+            padding: 12px 16px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--muted);
+            border-bottom: 1px solid var(--border);
+        }
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tr:hover td {
+            background: var(--surface-higher);
+        }
+    </style>
+</head>
+<body class="flex min-h-screen bg-[var(--bg)] text-[var(--fg)]">
+
+    <!-- Sidebar -->
+    <aside class="w-64 border-r border-[var(--border)] flex flex-col h-screen sticky top-0 shrink-0">
+        <div class="p-6 border-b border-[var(--border)] flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-[var(--accent)] flex items-center justify-center text-white shadow-lg">
+                <i class="ph ph-calendar-check text-xl"></i>
+            </div>
+            <span class="font-bold text-xl tracking-tight">SmartPlan</span>
+        </div>
+        
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+            <div class="text-[10px] font-mono text-[var(--muted)] px-4 mb-2 uppercase tracking-widest">General</div>
+            <a href="admin-dashboard.html" class="sidebar-item">
+                <i class="ph ph-house"></i> Dashboard
+            </a>
+            <a href="timetable.html" class="sidebar-item">
+                <i class="ph ph-grid-four"></i> Timetable
+            </a>
+            <a href="resources.html" class="sidebar-item active">
+                <i class="ph ph-users"></i> Resources
+            </a>
+            
+            <div class="text-[10px] font-mono text-[var(--muted)] px-4 mt-8 mb-2 uppercase tracking-widest">Management</div>
+            <a href="#" class="sidebar-item">
+                <i class="ph ph-lightning"></i> Substitutions
+            </a>
+            <a href="attendance.html" class="sidebar-item">
+                <i class="ph ph-notebook"></i> Attendance
+            </a>
+        </nav>
+        
+        <div class="p-4 border-t border-[var(--border)]">
+            <div class="flex items-center gap-3 p-2 rounded-lg bg-[var(--surface-higher)]">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-gray-400 to-gray-600"></div>
+                <div class="flex-1 min-w-0 text-sm">Admin User</div>
+                <a href="login.html" class="text-[var(--muted)]"><i class="ph ph-sign-out"></i></a>
+            </div>
+        </div>
+    </aside>
+
+    <div id="root" class="flex-1 flex flex-col min-w-0"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        const TABS = [
+            { id: 'teachers', label: 'Teachers', icon: 'ph-chalkboard-teacher' },
+            { id: 'students', label: 'Students', icon: 'ph-student' },
+            { id: 'rooms', label: 'Rooms', icon: 'ph-door' },
+            { id: 'classes', label: 'Classes', icon: 'ph-users-three' }
+        ];
+
+        const DATA = {
+            teachers: [
+                { id: 'T001', name: 'Dr. Sarah Smith', subjects: ['Mathematics', 'Physics'], status: 'Active', classes: ['10A', '12B'] },
+                { id: 'T002', name: 'Mr. John Weber', subjects: ['English', 'History'], status: 'Active', classes: ['11C'] },
+                { id: 'T003', name: 'Ms. Elena Klein', subjects: ['Biology', 'Chemistry'], status: 'On Leave', classes: [] },
+                { id: 'T004', name: 'Prof. Marcus Stark', subjects: ['Computer Science'], status: 'Active', classes: ['10B', '12A'] }
+            ],
+            students: [
+                { id: 'S1024', name: 'Alice Johnson', class: '10B', status: 'Active', average: '1.2' },
+                { id: 'S1025', name: 'Bob Wilson', class: '10B', status: 'Active', average: '2.4' },
+                { id: 'S1026', name: 'Charlie Davis', class: '11A', status: 'Active', average: '1.8' }
+            ],
+            rooms: [
+                { id: 'R204', name: 'Math Lab', capacity: 32, type: 'Classroom', equipment: ['Projector', 'Calculators'] },
+                { id: 'L102', name: 'Physics Lab', capacity: 24, type: 'Laboratory', equipment: ['Oscilloscope', 'Sensors'] },
+                { id: 'G001', name: 'Main Gym', capacity: 100, type: 'Sport', equipment: ['Mats', 'Balls'] }
+            ],
+            classes: [
+                { id: '10B', name: 'Grade 10 - Section B', studentCount: 28, formTeacher: 'Dr. Smith' },
+                { id: '12A', name: 'Grade 12 - Section A', studentCount: 22, formTeacher: 'Prof. Stark' }
+            ]
+        };
+
+        const ResourceApp = () => {
+            const [activeTab, setActiveTab] = useState('teachers');
+            const [searchQuery, setSearchQuery] = useState('');
+
+            const currentData = DATA[activeTab].filter(item => 
+                Object.values(item).some(val => 
+                    val.toString().toLowerCase().includes(searchQuery.toLowerCase())
+                )
+            );
+
+            return (
+                <div className="flex-1 flex flex-col h-screen overflow-hidden">
+                    <header className="h-16 border-b border-[var(--border)] px-8 flex items-center justify-between bg-[var(--bg)]/80 backdrop-blur-md z-20 shrink-0">
+                        <div className="flex items-center gap-6">
+                            <h2 className="text-lg font-semibold">Master Data Management</h2>
+                        </div>
+                        <div className="flex items-center gap-4">
+                            <div className="relative">
+                                <i className="ph ph-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-[var(--muted)]"></i>
+                                <input 
+                                    type="text" 
+                                    placeholder={`Search ${activeTab}...`} 
+                                    className="pl-10 pr-4 py-1.5 rounded-lg border border-[var(--border)] bg-[var(--surface)] text-sm focus:outline-none focus:border-[var(--accent)] w-64 transition-all"
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                />
+                            </div>
+                            <button className="btn btn-primary py-2 px-4 text-xs">
+                                <i className="ph ph-plus"></i> Add {activeTab.slice(0, -1)}
+                            </button>
+                        </div>
+                    </header>
+
+                    <main className="flex-1 p-8 space-y-6 overflow-y-auto">
+                        {/* Tabs */}
+                        <div className="flex gap-1 bg-[var(--surface-higher)] p-1 rounded-xl border border-[var(--border)] w-fit">
+                            {TABS.map(tab => (
+                                <button
+                                    key={tab.id}
+                                    onClick={() => { setActiveTab(tab.id); setSearchQuery(''); }}
+                                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all
+                                        ${activeTab === tab.id ? 'bg-[var(--surface)] border border-[var(--border)] shadow-sm text-[var(--fg)]' : 'text-[var(--muted)] hover:text-[var(--fg)]'}
+                                    `}
+                                >
+                                    <i className={`ph ${tab.icon} text-lg`}></i>
+                                    {tab.label}
+                                </button>
+                            ))}
+                        </div>
+
+                        {/* Data Table */}
+                        <div className="table-container shadow-xl">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        {activeTab === 'teachers' && (
+                                            <>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Subjects</th>
+                                                <th>Classes</th>
+                                                <th>Status</th>
+                                                <th className="text-right">Actions</th>
+                                            </>
+                                        )}
+                                        {activeTab === 'students' && (
+                                            <>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Class</th>
+                                                <th>GPA</th>
+                                                <th>Status</th>
+                                                <th className="text-right">Actions</th>
+                                            </>
+                                        )}
+                                        {activeTab === 'rooms' && (
+                                            <>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Type</th>
+                                                <th>Capacity</th>
+                                                <th>Equipment</th>
+                                                <th className="text-right">Actions</th>
+                                            </>
+                                        )}
+                                        {activeTab === 'classes' && (
+                                            <>
+                                                <th>ID</th>
+                                                <th>Display Name</th>
+                                                <th>Students</th>
+                                                <th>Form Teacher</th>
+                                                <th className="text-right">Actions</th>
+                                            </>
+                                        )}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {currentData.map(item => (
+                                        <tr key={item.id}>
+                                            {activeTab === 'teachers' && (
+                                                <>
+                                                    <td className="font-mono text-[var(--accent)]">{item.id}</td>
+                                                    <td className="font-bold">{item.name}</td>
+                                                    <td>
+                                                        <div className="flex gap-1">
+                                                            {item.subjects.map(s => <span key={s} className="px-2 py-0.5 rounded bg-[var(--surface-higher)] border border-[var(--border)] text-[10px]">{s}</span>)}
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div className="flex gap-1">
+                                                            {item.classes.map(c => <span key={c} className="font-mono opacity-60">{c}</span>)}
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-widest ${item.status === 'Active' ? 'bg-green-500/10 text-green-500' : 'bg-orange-500/10 text-orange-500'}`}>
+                                                            {item.status}
+                                                        </span>
+                                                    </td>
+                                                </>
+                                            )}
+                                            {activeTab === 'students' && (
+                                                <>
+                                                    <td className="font-mono text-[var(--accent)]">{item.id}</td>
+                                                    <td className="font-bold">{item.name}</td>
+                                                    <td className="font-mono">{item.class}</td>
+                                                    <td className="font-mono">{item.average}</td>
+                                                    <td>
+                                                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-widest bg-green-500/10 text-green-500">
+                                                            {item.status}
+                                                        </span>
+                                                    </td>
+                                                </>
+                                            )}
+                                            {activeTab === 'rooms' && (
+                                                <>
+                                                    <td className="font-mono text-[var(--accent)]">{item.id}</td>
+                                                    <td className="font-bold">{item.name}</td>
+                                                    <td>{item.type}</td>
+                                                    <td className="font-mono">{item.capacity}</td>
+                                                    <td>
+                                                        <div className="flex gap-1">
+                                                            {item.equipment.map(e => <span key={e} className="px-2 py-0.5 rounded bg-[var(--surface-higher)] border border-[var(--border)] text-[10px]">{e}</span>)}
+                                                        </div>
+                                                    </td>
+                                                </>
+                                            )}
+                                            {activeTab === 'classes' && (
+                                                <>
+                                                    <td className="font-mono text-[var(--accent)]">{item.id}</td>
+                                                    <td className="font-bold">{item.name}</td>
+                                                    <td className="font-mono">{item.studentCount}</td>
+                                                    <td>{item.formTeacher}</td>
+                                                </>
+                                            )}
+                                            <td className="text-right">
+                                                <div className="flex justify-end gap-2">
+                                                    <button className="p-1.5 hover:bg-[var(--surface-higher)] rounded text-[var(--muted)] hover:text-[var(--fg)] transition-all">
+                                                        <i className="ph ph-pencil-simple"></i>
+                                                    </button>
+                                                    <button className="p-1.5 hover:bg-[var(--surface-higher)] rounded text-[var(--muted)] hover:text-[var(--danger)] transition-all">
+                                                        <i className="ph ph-trash"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </main>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<ResourceApp />);
+    </script>
+</body>
+</html>
